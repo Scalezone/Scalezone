@@ -1,15 +1,10 @@
 /* Navbar */
 header {
   background: var(--background-color);
-  box-shadow: 0 0 10px var(--light-dark);
 }
 
-.header-container .line {
-  height: 0.01rem;
-  background: var(--light-dark);
-  left: 10%;
-  top: 35%;
-  width: 80%;
+.header-container .top {
+  background-color: var(--secondary-color);
 }
 
 .header-container .top a {
@@ -23,26 +18,31 @@ header {
   color: var(--hover-color);
 }
 
+.header-container .bottom {
+  padding: 1rem 4rem;
+}
+
 .header-container .bottom .navbar nav {
   gap: 2rem;
 }
 
 .header-container .bottom .navbar nav a {
   letter-spacing: 1px;
-  color: var(--primary-color);
+  color: var(--main-text-color);
   font-weight: 500;
   transition: 0.3s ease;
 }
 
 .header-container .bottom .book-btn {
   transition: all 0.2s ease-in;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
-  background: var(--accent);
-  border: 1px solid var(--accent);
+  background: var(--primary-color);
+  border: 2px solid var(--second-color);
   box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .header-container .bottom .book-btn:active {
@@ -80,8 +80,7 @@ header {
 }
 
 .header-container .bottom .book-btn:hover {
-  color: var(--secondary-text-color);
-  border: 1px solid var(--second-color);
+  border: 2px solid var(--second-color);
 }
 
 .header-container .bottom .book-btn:hover:before {

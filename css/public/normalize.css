@@ -30,6 +30,7 @@ html {
 :root {
   --background-color: #ffffff; /* Main background color */
   --primary-color: #fe983d; /* Orange-based primary color from logo */
+  --secondary-color: #f4f4f3; /* Light gray for backgrounds */
   --accent: #fff2e9; /* Light peach for card/section backgrounds */
   --second-color: #f36c3d; /* Stronger orange for buttons and links */
   --hover-color: #e45b00; /* Soft hover tone for interactive elements */
