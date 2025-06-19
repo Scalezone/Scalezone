@@ -1,6 +1,10 @@
-/**
- * @fileoverview
- * Public utility scripts used across all HTML files in the application.
- * Provides shared functionality and helpers for client-side interactions.
- * Intended for inclusion in all public-facing pages.
- */
+const servicesLink = document.querySelector(".services-link");
+const servicesDropdown = document.querySelector(".services-menu");
+
+servicesLink.addEventListener("click", () => {
+  toggleActiveClass(servicesDropdown);
+});
+
+function toggleActiveClass(ele) {
+  ele.classList.toggle("active");
+}

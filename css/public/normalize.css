@@ -27,26 +27,23 @@ html {
 /*
  add variables
 */
-
 :root {
-  --background-color: #fff3f3;
-  --primary-color: #ff0033; /* main color for headers */
-  --accent: #ffe6e6; /* For cards, sections, or contrast areas */
-  --second-color: #ff6f00; /* Accent color – buttons, links, hover states */
-  --hover-color: #ffea00;
-  --hover-cards: #ff6f005e;
-  --main-text-color: #1b1b1b; /* Readable and elegant primary text */
-  --secondary-text-color: #9e1b1b; /* Secondary text, like timestamps or labels */
-  --success: #00e676; /* For confirmations, "Online" statuses */
-  --danger: #d50000; /* Errors, deletions, or important warnings */
-  --warning: #ff9100; /* Pending statuses or alerts */
-  --white: #ffffff;
-  --dark: #111111; /* For Borders or something like this*/
-  --light-dark: #888888;
-  --comic-pop-color: #ffc9287c;
-  --comic-shadow: #f57c00;
-  --telegram: #019ae1;
-  --twitter: #000000;
+  --background-color: #ffffff; /* Main background color */
+  --primary-color: #fe983d; /* Orange-based primary color from logo */
+  --accent: #fff2e9; /* Light peach for card/section backgrounds */
+  --second-color: #f36c3d; /* Stronger orange for buttons and links */
+  --hover-color: #e45b00; /* Soft hover tone for interactive elements */
+  --hover-cards: #ffe5d6; /* Light orange for card hover background */
+  --main-text-color: #1b1b1b; /* Main text color (dark gray) */
+  --secondary-text-color: #7b4b20; /* Muted orange-brown for secondary text */
+  --success: #00c853; /* Success state color (green) */
+  --danger: #c62828; /* Error or danger color */
+  --warning: #ff9100; /* Warning or alert color */
+  --white: #ffffff; /* White */
+  --dark: #111111; /* Very dark for borders or footers */
+  --light-dark: #999999; /* Light gray for helper text/elements */
+  --telegram: #0088cc; /* Telegram brand color */
+  --twitter: #000000; /* Twitter brand color (black) */
 }
 
 /**
@@ -84,6 +81,11 @@ h6 {
 img {
   width: 100%;
   height: 100%;
+}
+
+.cw {
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 /**
