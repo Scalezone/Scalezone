@@ -99,12 +99,6 @@
 }
 
 /* Our Mission section */
-.mission-container .content .title h2 {
-  font-size: 2.75rem;
-  letter-spacing: 1px;
-  font-weight: 700;
-}
-
 .mission-container .content p {
   font-size: 1.125rem;
   letter-spacing: 0.5px;
@@ -140,12 +134,6 @@
 }
 
 /* Features section */
-.features-container .content .title h2 {
-  font-size: 2.75rem;
-  letter-spacing: 1px;
-  font-weight: 700;
-}
-
 .features-container .content .text-box .feature h3 {
   font-size: 1.5rem;
   color: var(--secondary-text-color);
@@ -199,4 +187,26 @@
 
 .features-container .cards .progress-card p {
   font-size: 1.25rem;
+}
+
+/* Our Customer Section */
+.customers-container .customers-bx .customer {
+  min-width: 18.75rem;
+}
+
+/* CTA section */
+section.cta {
+  margin: 6rem 0;
+}
+
+.cta-container {
+  max-width: 1240px;
+  margin: auto;
+  background-color: var(--second-background);
+  border-radius: 1rem;
+  box-shadow: 0px 0px 70px 8px #0000001a;
+}
+
+.cta-container .content {
+  width: 65%;
 }
