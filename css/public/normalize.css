@@ -41,7 +41,7 @@ html {
   --danger: #c62828; /* Error or danger color */
   --warning: #ff9100; /* Warning or alert color */
   --white: #ffffff; /* White */
-  --dark: #111111; /* Very dark for borders or footers */
+  --dark: #121619; /* Very dark for borders or footers */
   --light-dark: #999999; /* Light gray for helper text/elements */
   --telegram: #0088cc; /* Telegram brand color */
   --twitter: #000000; /* Twitter brand color (black) */
@@ -270,4 +270,12 @@ textarea {
 ::-webkit-file-upload-button {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
+}
+
+.caption {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
 }

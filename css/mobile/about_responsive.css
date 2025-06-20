@@ -1,0 +1,22 @@
+@media (max-width: 767px) {
+  .image-side {
+    width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .text-side,
+  .cards-side {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .how-we-build-your-success .cards-side .left-side {
+    transform: translateY(-3rem);
+  }
+
+  .how-we-build-your-success .cards-side .right-side {
+    transform: translateY(3rem);
+  }
+}
