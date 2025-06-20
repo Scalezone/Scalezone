@@ -1,0 +1,67 @@
+/* Hero Section */
+.hero-container {
+  padding: 4rem 1rem;
+}
+
+.hero-container .img {
+  border-radius: 46% 54% 19% 81% / 38% 42% 58% 62%;
+  min-height: 500px;
+}
+
+.hero-container .img img {
+  border-radius: 46% 54% 19% 81% / 38% 42% 58% 62%;
+}
+
+.hero-container .img .circle {
+  width: 10.375rem;
+  height: 10.375rem;
+  color: var(--secondary-color);
+}
+
+.hero-container .img .circle p {
+  font-size: 0.875rem;
+}
+
+.hero-container .img .circle h3 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hero-container .img .circle.circle-01 {
+  background: var(--primary-color);
+  left: 0;
+  top: -3rem;
+}
+
+.hero-container .img .circle.circle-02 {
+  background-color: var(--dark);
+  right: 0;
+  top: -3rem;
+}
+
+.hero-container .img .circle.circle-03 {
+  background-color: var(--dark);
+  bottom: 0;
+  left: 3rem;
+}
+
+.hero-container .img .circle.circle-04 {
+  background: var(--primary-color);
+  right: 0;
+  bottom: -3rem;
+}
+
+.hero-container .content {
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.hero-container .content .title h1 {
+  font-size: 3.25rem;
+  line-height: 110%;
+}
+
+.hero-container .content p {
+  font-size: 1.125rem;
+}
