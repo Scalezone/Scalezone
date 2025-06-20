@@ -1,0 +1,121 @@
+/* HERO SECTION */
+
+.hero-section {
+  padding: 5rem;
+  background-color: var(--dark);
+}
+
+.primary-heading {
+  max-width: 20rem;
+  color: var(--white);
+}
+
+/* COMPANY OVERVIEW SECTION */
+
+.company-overview,
+.how-we-build-your-success,
+.faq {
+  padding: 5rem 0;
+}
+
+.company-overview-container,
+.faq-container {
+  width: 100%;
+}
+
+.company-overview .secondary-heading span,
+.faq .secondary-heading span {
+  color: var(--primary-color);
+}
+
+.accordion-item p {
+  margin-bottom: 0;
+}
+
+.Aim-of-serving p:nth-child(1) {
+  margin-bottom: 1rem;
+}
+
+.Aim-of-serving ul {
+  margin-top: 0.5rem;
+}
+
+.collapse {
+  visibility: visible !important;
+}
+
+.accordion-button {
+  font-family: "Poppins", sans-serif;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--primary-color);
+  color: var(--white);
+  box-shadow: unset;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem var(--second-color);
+}
+
+/* HOW WE BUILD YOUR SUCCESS SECTION */
+
+.description {
+  max-width: 25rem;
+  color: #697077;
+}
+
+.how-we-build-your-success .text-side .logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  background-color: #fbcb96;
+}
+
+.how-we-build-your-success .text-side .logo svg {
+  width: 50px;
+}
+
+.how-we-build-your-success ul {
+  padding-left: 0;
+}
+
+.how-we-build-your-success ul p {
+  margin-bottom: 0;
+}
+
+.primary-button {
+  color: var(--white);
+  background-color: var(--primary-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 1rem 0.05rem rgba(0, 0, 0, 0.25);
+}
+
+.primary-button:hover {
+  scale: 1.1;
+  box-shadow: 0 0 1.5rem 0.1rem rgba(0, 0, 0, 0.25);
+}
+
+.primary-button:active {
+  scale: 1.05;
+  box-shadow: 0 0 1.2rem 0.01rem rgba(0, 0, 0, 0.25);
+}
+
+.how-we-build-your-success .cards-side .card {
+  max-width: 18.125rem;
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border: unset;
+  border-radius: 1rem;
+}
+
+.how-we-build-your-success .cards-side .card h3 {
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
