@@ -133,6 +133,57 @@
   z-index: 0;
 }
 
+/* Services section */
+section.services {
+  background-color: var(--secondary-color);
+}
+
+.services-container .services-cards .service-card {
+  width: 23rem;
+  padding: 1.5rem;
+  background: #1d1b201c;
+  backdrop-filter: blur(66px);
+  border-radius: 1rem;
+  box-shadow: 0 0 10px var(--dark);
+  transition: 0.6s ease;
+}
+
+.services-container .services-cards .service-card .icon i {
+  font-size: 2.2rem;
+}
+
+.services-container .services-cards .service-card .icon {
+  width: 5rem;
+  border: 2px solid var(--primary-color);
+  height: 5rem;
+  border-radius: 50%;
+  background: #fe983d7d;
+  backdrop-filter: blur(40px);
+}
+
+.services-container .services-cards .service-card .icon svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.services-container .services-cards .service-card .content .title h2 {
+  font-size: 1.75rem;
+}
+
+.services-container
+  .services-cards
+  .service-card
+  .content
+  .text-bx
+  .public-btn {
+  box-shadow: unset;
+}
+
+.services-container .services-cards .service-card:hover {
+  transform: rotate(2deg) scale(1.05);
+  box-shadow: 0 0 20px var(--dark);
+}
+
 /* Features section */
 .features-container .content .text-box .feature h3 {
   font-size: 1.5rem;
