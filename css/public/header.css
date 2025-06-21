@@ -36,8 +36,7 @@ header {
 .header-container .bottom .navbar .dropdown-services .services-menu {
   width: 35rem;
   background: var(--background-color);
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 5px var(--accent);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
   top: 400%;
   left: 0;
   z-index: 10;
