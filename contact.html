@@ -1,9 +1,23 @@
+<!--
+  CONTACT PAGE FOR SCALEZONE WEBSITE
+  ----------------------------------
+  - Uses Bootstrap 5, Tailwind (browser), Google Fonts, FontAwesome
+  - Custom CSS for normalization, header, footer, and responsive design
+  - Contains a hero section with a contact form and a modal for additional info
+  - Footer includes company info, service links, quick links, and contact details
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tags for character set and responsive design -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind CSS (browser version) -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Google Fonts: Poppins and DM Serif Display -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
@@ -12,6 +26,8 @@
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- FontAwesome for icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -19,6 +35,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <!-- Bootstrap 5 CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -26,31 +44,39 @@
       crossorigin="anonymous"
     />
 
+    <!-- Custom JS for public scripts -->
     <script src="scripts/public/public.js" defer></script>
 
+    <!-- Custom CSS files for normalization and responsive design -->
     <link rel="stylesheet" href="css/public/normalize.css" />
     <link rel="stylesheet" href="css/public/header.css" />
     <link rel="stylesheet" href="css/public/footer.css" />
     <link rel="stylesheet" href="css/desktop/contact.css" />
     <link rel="stylesheet" href="css/mobile/contact_responsive.css" />
     <link rel="stylesheet" href="css/mobile/header_footer_resp.css" />
+
     <title>Scalezone</title>
   </head>
   <body>
+    <!-- HERO SECTION WITH CONTACT FORM -->
     <main id="hero" class="hero container">
       <div class="hero-container row justify-content-center">
+        <!-- Left: Hero Image -->
         <div class="image-container col-8 col-lg-6 mb-5 mb-lg-0">
           <picture>
+            <!-- Responsive image for mobile -->
             <source
               srcset="assets/contact/contact%20hero%20image%20mobile.webp"
               media="(max-width: 768px)"
             />
+            <!-- Default image for desktop -->
             <img
               src="assets/contact/contact hero image desktop.webp"
               alt="Collage of data analysis and goal achievement: a person analyzing charts on a laptop, two people reviewing printed graphs, and a smartwatch displaying a trophy with 'GOAL!' message."
             />
           </picture>
         </div>
+        <!-- Right: Contact Form -->
         <div class="text-side col-8 col-lg-6">
           <div class="top">
             <h1>We'd love to hear from you.</h1>
@@ -68,8 +94,9 @@
                   <div class="col-12 col-lg-10">
                     <div>
                       <div>
+                        <!-- CONTACT FORM START -->
                         <form>
-                          <!-- 2 column grid layout with text inputs for the first and last names -->
+                          <!-- First and Last Name Inputs -->
                           <div class="row">
                             <div class="col-12 col-md-6 mb-1">
                               <div class="form-outline">
@@ -97,7 +124,7 @@
                             </div>
                           </div>
 
-                          <!-- 2 column grid layout with text inputs for the email and company name -->
+                          <!-- Email and Company Name Inputs -->
                           <div class="row">
                             <div class="col-12 col-md-6 mb-1">
                               <div class="form-outline mb-1">
@@ -111,8 +138,6 @@
                                 />
                               </div>
                             </div>
-
-                            <!-- Text input -->
                             <div class="col-12 col-md-6 mb-1">
                               <div class="form-outline mb-1">
                                 <label class="form-label" for="form6Example3"
@@ -127,7 +152,7 @@
                             </div>
                           </div>
 
-                          <!-- Phone number input -->
+                          <!-- Phone Number Input -->
                           <div class="form-outline mb-1">
                             <label class="form-label" for="form6Example6">
                               Phone
@@ -139,7 +164,7 @@
                             />
                           </div>
 
-                          <!-- Message input -->
+                          <!-- Message Input -->
                           <div class="form-outline mb-1">
                             <label class="form-label" for="form6Example7">
                               message
@@ -151,7 +176,7 @@
                             ></textarea>
                           </div>
 
-                          <!-- Text input -->
+                          <!-- Store URL Input -->
                           <div class="form-outline mb-3">
                             <label class="form-label" for="form6Example4">
                               Store URL
@@ -163,7 +188,7 @@
                             />
                           </div>
 
-                          <!-- Checkbox -->
+                          <!-- Modal Trigger for Additional Services -->
                           <div class="form-outline d-flex mb-4">
                             <button
                               class="text-danger"
@@ -174,6 +199,7 @@
                               Click here to choose the services.
                             </button>
 
+                            <!-- MODAL FOR ADDITIONAL INFORMATION -->
                             <div
                               class="modal fade"
                               id="exampleModal"
@@ -198,11 +224,13 @@
                                     ></button>
                                   </div>
                                   <div class="modal-body">
+                                    <!-- Services Checkboxes -->
                                     <div class="services mb-5">
                                       <h3 class="service-title mb-3">
                                         In which services are you interested ?
                                       </h3>
                                       <div class="check-boxes">
+                                        <!-- List of service options as checkboxes -->
                                         <div class="form-check">
                                           <input
                                             class="form-check-input"
@@ -373,12 +401,13 @@
                                         </div>
                                       </div>
                                     </div>
+                                    <!-- Preferred Contact Mode Radios -->
                                     <div class="contact-mode mb-5">
                                       <h3 class="contact-mode-title mb-3">
                                         Preferred Contact Mode
                                       </h3>
-
                                       <div class="check-boxes">
+                                        <!-- Call or Email radio buttons -->
                                         <div class="form-check">
                                           <input
                                             class="form-check-input"
@@ -412,14 +441,15 @@
                                       </div>
                                     </div>
 
+                                    <!-- Text Messages Opt-in Radios -->
                                     <div class="text-messages mb-4">
                                       <h3 class="text-messages-title mb-3">
                                         Do you agree to opt-in to receive Text
                                         messages? You may opt out at any time by
                                         replying “STOP"
                                       </h3>
-
                                       <div class="check-boxes">
+                                        <!-- Opt-in/Opt-out radio buttons -->
                                         <div class="form-check">
                                           <input
                                             class="form-check-input"
@@ -467,7 +497,7 @@
                             </div>
                           </div>
 
-                          <!-- Submit button -->
+                          <!-- Submit Button -->
                           <button
                             type="submit"
                             class="btn btn-primary btn-rounded btn-block"
@@ -475,6 +505,7 @@
                             Get Started Now
                           </button>
                         </form>
+                        <!-- CONTACT FORM END -->
                       </div>
                     </div>
                   </div>
@@ -486,21 +517,19 @@
       </div>
     </main>
 
-    <!-- Footer -->
+    <!-- FOOTER SECTION -->
     <footer
       class="footer text-center text-lg-start bg-body-tertiary text-muted"
     >
-      <!-- Section: Social media -->
+      <!-- Social Media Links -->
       <section
         class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
       >
-        <!-- Left -->
+        <!-- Left: Social prompt -->
         <div class="me-5 d-none d-lg-block">
           <span>Get connected with us on social networks:</span>
         </div>
-        <!-- Left -->
-
-        <!-- Right -->
+        <!-- Right: Social icons -->
         <div>
           <a href="" class="me-4 text-reset">
             <i class="fab fa-facebook-f"></i>
@@ -521,18 +550,14 @@
             <i class="fab fa-github"></i>
           </a>
         </div>
-        <!-- Right -->
       </section>
-      <!-- Section: Social media -->
 
-      <!-- Section: Links  -->
+      <!-- Main Footer Links and Info -->
       <section class="">
         <div class="container text-center text-md-start mt-5">
-          <!-- Grid row -->
           <div class="row mt-3">
-            <!-- Grid column -->
+            <!-- Company Info -->
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <!-- Content -->
               <h2 class="text-uppercase fw-bold mb-4 fs-5">
                 <i class="fas fa-gem me-3"></i>
                 scale zone
@@ -543,12 +568,10 @@
                 competitive marketplace.
               </p>
             </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
+            <!-- Services Links -->
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              <!-- Links -->
               <h3 class="text-uppercase fw-bold mb-4 fs-6">Services Links</h3>
+              <!-- List of service links -->
               <p>
                 <a href="#!" class="text-reset">Amazon ACcount Management</a>
               </p>
@@ -568,12 +591,10 @@
                 <a href="#!" class="text-reset">Digital Marketing</a>
               </p>
             </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
+            <!-- Quick Links -->
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-              <!-- Links -->
               <h3 class="text-uppercase fw-bold mb-4 fs-6">Quick Links</h3>
+              <!-- List of quick links -->
               <p>
                 <a href="#!" class="text-reset">Home</a>
               </p>
@@ -587,26 +608,22 @@
                 <a href="#!" class="text-reset">Contact us</a>
               </p>
             </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
+            <!-- Contact Info -->
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <!-- Links -->
               <h3 class="text-uppercase fw-bold mb-4 fs-6">Contact</h3>
-              <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+              <p>
+                <i class="fas fa-brands fa-whatsapp me-3"></i>
+                Chat Now
+              </p>
               <p>
                 <i class="fas fa-envelope me-3"></i>
-                info@example.com
+                mouslem@scalezone.ae
               </p>
-              <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-              <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+              <p><i class="fas fa-phone me-3"></i> + 971551504981</p>
             </div>
-            <!-- Grid column -->
           </div>
-          <!-- Grid row -->
         </div>
       </section>
-      <!-- Section: Links  -->
 
       <!-- Copyright -->
       <div
@@ -614,7 +631,6 @@
         style="background-color: rgba(0, 0, 0, 0.05)"
       >
         © 2025 Copyright:
-
         <a
           href="https://abdalla-shaker.github.io/portfolio"
           class="text-reset fw-bold"
@@ -627,10 +643,9 @@
           >Kerolos Amiel</a
         >
       </div>
-      <!-- Copyright -->
     </footer>
-    <!-- Footer -->
 
+    <!-- Bootstrap JS and Popper.js for modal and components -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
