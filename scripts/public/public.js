@@ -1,14 +1,31 @@
-// Select the service dropdown elements
-const servicesLink = document.querySelector(".services-link");
-const servicesDropdown = document.querySelector(".services-menu");
+// DOM Elements - Navigation Components
+const servicesDropdownTrigger = document.querySelector(".services-link");
+const servicesDropdownMenu = document.querySelector(".services-menu");
+const mobileMenuToggle = document.querySelector(".hamburger");
+const mobileNavigationMenu = document.querySelector(".navbar");
 
-// Add a click event listener to the services link
-servicesLink.addEventListener("click", () => {
-  // Toggle the 'active' class on the dropdown menu
-  toggleActiveClass(servicesDropdown);
+/**
+ * Toggles the visibility of services dropdown menu
+ * Handles the click event on the services link to show/hide the dropdown
+ */
+servicesDropdownTrigger.addEventListener("click", () => {
+  toggleElementVisibility(servicesDropdownMenu);
 });
 
-// Function to toggle the 'active' class on a given element
-function toggleActiveClass(ele, className = "active") {
-  ele.classList.toggle(className);
+/**
+ * Mobile menu functionality
+ * Toggles both the hamburger button animation and mobile navigation visibility
+ */
+mobileMenuToggle.addEventListener("click", () => {
+  toggleElementVisibility(mobileMenuToggle);
+  toggleElementVisibility(mobileNavigationMenu);
+});
+
+/**
+ * Generic function to toggle CSS classes on DOM elements
+ * @param {HTMLElement} element - The target element to modify
+ * @param {string} className - The CSS class to toggle (defaults to "active")
+ */
+function toggleElementVisibility(element, className = "active") {
+  element.classList.toggle(className);
 }
