@@ -31,6 +31,7 @@ header {
   color: var(--main-text-color);
   font-weight: 500;
   transition: 0.3s ease;
+  cursor: pointer;
 }
 
 .header-container .bottom .navbar .dropdown-services .services-menu {

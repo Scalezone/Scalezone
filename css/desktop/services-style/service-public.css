@@ -1,0 +1,55 @@
+.hero {
+  padding: 5rem;
+}
+
+.description {
+  font-size: 0.875rem;
+  color: #697077;
+}
+
+.contact-form-title {
+  font-size: 0.8rem;
+}
+
+.form-outline .form-label {
+  font-size: 0.75rem;
+}
+
+.form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.25rem var(--primary-color);
+}
+
+.bottom .container {
+  padding-left: 0;
+}
+
+.btn[type="submit"] {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn[type="submit"]:hover {
+  background-color: var(--hover-color);
+  scale: 1.1;
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.25);
+}
+
+.btn[type="submit"]:active {
+  background-color: var(--second-color);
+  border-color: var(--second-color);
+  scale: 1.05;
+  box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.25);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
