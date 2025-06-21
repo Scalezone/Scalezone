@@ -39,7 +39,7 @@
       <div class="header-container d-flex flex-column">
         <!-- Top Bar: WhatsApp, phone, and email links -->
         <div
-          class="top d-flex justify-content-between align-items-center py-2 px-4"
+          class="top d-flex align-items-center justify-content-between gap-2 py-2 px-4 flex-wrap text-center"
         >
           <div class="number d-flex gap-4">
             <a href="https://wa.me/971551504981" class="text-decoration-none">
@@ -67,8 +67,20 @@
             </a>
           </div>
 
-          <div class="navbar d-flex align-items-center gap-5">
-            <nav class="d-flex">
+          <div class="hamburger d-lg-none d-flex">
+            <svg viewBox="0 0 32 32">
+              <path
+                class="line line-top-bottom"
+                d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+              ></path>
+              <path class="line" d="M7 16 27 16"></path>
+            </svg>
+          </div>
+
+          <div
+            class="navbar d-flex align-items-center gap-5 flex-column flex-lg-row p-5 p-lg-0 text-center text-lg-start"
+          >
+            <nav class="d-flex flex-column flex-lg-row">
               <a href="/" class="text-decoration-none">Home</a>
               <!-- Services Dropdown Menu -->
               <div class="dropdown-services position-relative">
@@ -145,9 +157,9 @@
                 </ul>
               </div>
               <a href="/about.html" class="text-decoration-none">About us</a>
-              <a href="/contact.html" class="text-decoration-none"
-                >Contact Us</a
-              >
+              <a href="/contact.html" class="text-decoration-none">
+                Contact Us
+              </a>
             </nav>
 
             <a
@@ -161,9 +173,11 @@
 
     <!-- Hero Section: Main banner with image, statistics, and intro text -->
     <section class="hero mt-5">
-      <div class="hero-container cw d-flex gap-5 justify-content-between">
+      <div
+        class="hero-container cw d-flex flex-column flex-lg-row gap-5 justify-content-between"
+      >
         <!-- Hero Image and Statistics Circles -->
-        <div class="img w-50 card-clip position-relative">
+        <div class="img w-lg-50 card-clip position-relative">
           <img src="assets/home/hero.jpg" alt="Hero Image" />
 
           <div
@@ -196,9 +210,7 @@
         </div>
 
         <!-- Hero Content: Title and Description -->
-        <div
-          class="content w-50 d-flex flex-column w-50 justify-content-center"
-        >
+        <div class="content w-lg-50 d-flex flex-column justify-content-center">
           <div class="title">
             <h3 class="caption">BUSINESS SOLUTIONS FOR EVERYONE</h3>
             <h1>Your One-Stop For E-Commerce Consulting Services</h1>
@@ -256,9 +268,11 @@
 
     <!-- Mission Section: Describes the company's mission and values -->
     <section class="mission my-5">
-      <div class="mission-container cw d-flex gap-5 p-4 align-items-center">
+      <div
+        class="mission-container cw d-flex flex-column flex-lg-row gap-5 p-4 align-items-center"
+      >
         <!-- Mission Images -->
-        <div class="images position-relative w-50 h-100">
+        <div class="images position-relative w-100 w-lg-50 h-100">
           <div class="mission-img position-absolute">
             <img src="assets/home/mission01.png" alt="Mission image" />
           </div>
@@ -271,7 +285,7 @@
         </div>
 
         <!-- Mission Content -->
-        <div class="content d-flex flex-column gap-5 w-50">
+        <div class="content d-flex flex-column gap-5 w-100 w-lg-50">
           <div class="title">
             <h2 class="main-title">Our Mission</h2>
           </div>
@@ -323,7 +337,7 @@
         class="services-container cw d-flex flex-column p-5 justify-content-center align-items-center gap-5"
       >
         <!-- Section Title and Description -->
-        <div class="title d-flex flex-column gap-3 w-75 text-center">
+        <div class="title d-flex flex-column gap-3 w-100 w-lg-75 text-center">
           <h2 class="main-title">Our Services & Solutions</h2>
           <p>
             Our suite of services and solutions for SMBs employing a data-driven
@@ -812,9 +826,11 @@
 
     <!-- Features Section: Highlights what makes Scalezone unique -->
     <section class="features my-5">
-      <div class="features-container cw d-flex gap-5 p-4 align-items-center">
+      <div
+        class="features-container cw d-flex flex-column flex-lg-row gap-5 p-4 align-items-center"
+      >
         <!-- Features Content: List of differentiators -->
-        <div class="content d-flex flex-column gap-5 w-50">
+        <div class="content d-flex flex-column gap-5 w-100 w-lg-50">
           <div class="title">
             <h2 class="main-title">What Makes Us Different?</h2>
           </div>
@@ -880,7 +896,7 @@
 
         <!-- Progress Cards: Visual statistics similar to hero section -->
         <div
-          class="cards d-flex justify-content-center align-items-center position-relative w-50 h-100"
+          class="cards d-flex justify-content-center align-items-center position-relative w-100 w-lg-50 h-100"
         >
           <!-- Years Experience Card -->
           <div
@@ -950,7 +966,7 @@
     <!-- Call To Action (CTA) Section: Encourages users to book an appointment -->
     <section class="cta">
       <div
-        class="cta-container d-flex flex-wrap gap-4 p-5 justify-content-between align-items-center"
+        class="cta-container d-flex flex-column flex-lg-row flex-wrap gap-4 p-5 justify-content-center justify-content-lg-between align-items-center text-center text-lg-start"
       >
         <!-- CTA Content: Motivational headline and supporting text -->
         <div class="content d-flex flex-column gap-4">
