@@ -1,0 +1,6 @@
+@media (max-width: 547px) {
+  .image-container,
+  .text-side {
+    width: 100%;
+  }
+}
