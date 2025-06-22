@@ -226,7 +226,7 @@
             <div class="bottom">
               <div class="mask d-flex align-items-center h-100">
                 <!-- CONTACT FORM START -->
-                <form>
+                <form action="https://formspree.io/f/mvgrwowo" method="POST">
                   <!-- First and Last Name Inputs -->
                   <div class="row">
                     <div class="col-12 col-md-6 mb-1">
@@ -238,6 +238,7 @@
                           type="text"
                           id="form6Example1"
                           class="form-control"
+                          name="first_name"
                         />
                       </div>
                     </div>
@@ -250,6 +251,7 @@
                           type="text"
                           id="form6Example2"
                           class="form-control"
+                          name="last_name"
                         />
                       </div>
                     </div>
@@ -266,6 +268,7 @@
                           type="email"
                           id="form6Example5"
                           class="form-control"
+                          name="email"
                         />
                       </div>
                     </div>
@@ -278,6 +281,7 @@
                           type="text"
                           id="form6Example3"
                           class="form-control"
+                          name="company_name"
                         />
                       </div>
                     </div>
@@ -289,9 +293,10 @@
                       Phone
                     </label>
                     <input
-                      type="number"
+                      type="tel"
                       id="form6Example6"
                       class="form-control"
+                      name="phone"
                     />
                   </div>
 
@@ -306,9 +311,9 @@
                       id="form6Example7"
                       class="form-control"
                     >
-                      <option value="1" selected disabled>Please Select</option>
-                      <option value="2">Private Label</option>
-                      <option value="3">White Label</option>
+                      <option selected disabled>Please Select</option>
+                      <option value="private_label">Private Label</option>
+                      <option value="white_label">White Label</option>
                     </select>
                   </div>
 
@@ -323,12 +328,12 @@
                       id="form6Example7"
                       class="form-control"
                     >
-                      <option value="1" selected disabled>Please Select</option>
-                      <option value="2">$5000 - $10000</option>
-                      <option value="3">$11000 - $15000</option>
-                      <option value="4">$16000 - $20000</option>
-                      <option value="5">$21000 - $25000</option>
-                      <option value="6">$26000 - $30000</option>
+                      <option selected disabled>Please Select</option>
+                      <option value="5000-10000">$5000 - $10000</option>
+                      <option value="11000-15000">$11000 - $15000</option>
+                      <option value="16000-20000">$16000 - $20000</option>
+                      <option value="21000-25000">$21000 - $25000</option>
+                      <option value="26000-30000">$26000 - $30000</option>
                     </select>
                   </div>
 

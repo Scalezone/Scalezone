@@ -147,10 +147,9 @@ section.services {
 .services-container .services-cards .service-card {
   width: 23rem;
   padding: 1.5rem;
-  background: #1d1b201c;
-  backdrop-filter: blur(66px);
+  background: #fff;
   border-radius: 1rem;
-  box-shadow: 0 0 10px var(--dark);
+  box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.16);
   transition: 0.6s ease;
 }
 
@@ -189,7 +188,7 @@ section.services {
 
 .services-container .services-cards .service-card:hover {
   transform: rotate(2deg) scale(1.05);
-  box-shadow: 0 0 20px var(--dark);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.16);
 }
 
 .services-container .services-cards .service-card p {
