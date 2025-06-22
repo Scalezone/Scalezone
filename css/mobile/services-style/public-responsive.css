@@ -14,6 +14,17 @@
   }
 }
 
+@media (max-width: 768px) {
+  /* Product Research Section */
+  .research-container .text-side .title .main-title {
+    font-size: 1.875rem;
+  }
+
+  .research-container .text-side .description p {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 620px) {
   /* Hero Section */
   .hero {
@@ -25,6 +36,13 @@
   }
 }
 
+@media (max-width: 576px) {
+  /* Product Research Section */
+  .research-container .text-side .title .main-title {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 400px) {
   /* Hero Section */
   .hero {
@@ -33,5 +51,20 @@
 
   .hero-container .text-side .bottom .mask form {
     width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  /* Product Research Section */
+  .research-container .text-side .title .main-title {
+    font-size: 1.25rem;
+  }
+
+  .research-container .text-side .description p {
+    font-size: 0.875rem;
+  }
+
+  .research-container {
+    padding: 1rem !important;
   }
 }
