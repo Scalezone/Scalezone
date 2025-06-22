@@ -9,6 +9,11 @@
   .cards-side {
     width: 100%;
   }
+
+  /* CTA section */
+  .cta-container {
+    width: 90%;
+  }
 }
 
 @media (min-width: 992px) {
@@ -18,5 +23,16 @@
 
   .how-we-build-your-success .cards-side .right-side {
     transform: translateY(3rem);
+  }
+}
+
+@media (max-width: 680px) {
+  /* CTA section */
+  .cta-container {
+    padding: 1.5rem !important;
+  }
+
+  .cta-container .content {
+    width: 100%;
   }
 }
