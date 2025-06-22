@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags for character set and responsive design -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts: Poppins and DM Serif Display -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS files for normalization and responsive design -->
+    <link rel="stylesheet" href="css/public/normalize.css" />
+    <link rel="stylesheet" href="css/public/public.css" />
+    <link rel="stylesheet" href="css/public/header.css" />
+    <link rel="stylesheet" href="css/public/footer.css" />
+    <link rel="stylesheet" href="css/desktop/appointment.css" />
+    <link rel="stylesheet" href="css/mobile/appointment_responsive.css" />
+    <link rel="stylesheet" href="css/mobile/header_footer_resp.css" />
+
+    <title>Appointment | Scalezone</title>
+  </head>
+  <body>
+    <main>
+      <!-- Main Content -->
+      <div class="container">
+        <div class="row" id="booking">
+          <!-- Booking Form -->
+          <div class="col-lg-8 mb-4">
+            <div class="card h-100">
+              <div class="card-header bg-primary text-white">
+                <h3 class="card-title mb-0">
+                  <i class="bi bi-calendar-check me-2"></i>Book Your Appointment
+                </h3>
+              </div>
+              <div class="card-body">
+                <form
+                  action="https://formspree.io/f/xovwkqeg"
+                  method="POST"
+                  id="appointmentForm"
+                  novalidate
+                >
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="firstName" class="form-label"
+                        >First name <span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="firstName"
+                        name="firstName"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please provide your first name.
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="lastName" class="form-label"
+                        >Last name <span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="lastName"
+                        name="lastName"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please provide your last name.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="email" class="form-label"
+                      >Your email address
+                      <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Please provide a valid email address.
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="phone" class="form-label"
+                      >Phone number <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="phone"
+                      name="phone"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Please provide a valid phone number.
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="inquiryType" class="form-label"
+                      >Inquiry Type <span class="text-danger">*</span></label
+                    >
+                    <select
+                      class="form-select"
+                      id="inquiryType"
+                      name="inquiryType"
+                      required
+                    >
+                      <option value="">Select</option>
+                      <option value="new-inquiry">
+                        New Inquiry/New Account
+                      </option>
+                      <option value="listing-imaging">
+                        1x Listing/Imaging Service
+                      </option>
+                      <option value="ebc-listing">
+                        EBC/A+ Listing/Image Content
+                      </option>
+                      <option value="account-management">
+                        Account Management
+                      </option>
+                      <option value="account-reinstatement">
+                        Account Reinstatement
+                      </option>
+                      <option value="asin-reinstatement">
+                        ASIN Reinstatement
+                      </option>
+                      <option value="account-health">Account Health</option>
+                      <option value="catalog-management">
+                        Catalog Management
+                      </option>
+                      <option value="fba">FBA</option>
+                      <option value="marketplace-ppc">Marketplace PPC</option>
+                      <option value="product-hunting">
+                        Product Hunting or Product Analysis Report
+                      </option>
+                      <option value="social-media">
+                        Social Media Marketing
+                      </option>
+                      <option value="meta-ads">Meta Ads Management</option>
+                      <option value="google-ppc">Google PPC</option>
+                      <option value="brand-registration">
+                        Brand Registration
+                      </option>
+                      <option value="other-unknown">Other/Unknown</option>
+                      <option value="unsolicited">
+                        Unsolicited/Cold Call/Pd Email List
+                      </option>
+                      <option value="unassigned">Unassigned</option>
+                      <option value="tiktok-ads">
+                        TikTok Ads & Account Management
+                      </option>
+                      <option value="look-alike-lead">
+                        Look Alike Lead - Unknown
+                      </option>
+                      <option value="etsy-account">Etsy Account</option>
+                      <option value="shopify-marketing">
+                        Shopify and Digital Marketing
+                      </option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select an inquiry type.
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="date" class="form-label"
+                        >Preferred Date</label
+                      >
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="date"
+                        name="date"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Preferred Time</label>
+                      <div class="row g-2" id="timeSlots">
+                        <div class="col-4">
+                          <div
+                            class="time-slot btn btn-outline-secondary w-100"
+                            data-time="09:00"
+                          >
+                            9:00 AM
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div
+                            class="time-slot btn btn-outline-secondary w-100"
+                            data-time="10:00"
+                          >
+                            10:00 AM
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div
+                            class="time-slot btn btn-outline-secondary w-100"
+                            data-time="11:00"
+                          >
+                            11:00 AM
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div
+                            class="time-slot btn btn-outline-secondary w-100"
+                            data-time="14:00"
+                          >
+                            2:00 PM
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div
+                            class="time-slot btn btn-outline-secondary w-100"
+                            data-time="15:00"
+                          >
+                            3:00 PM
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div
+                            class="time-slot btn btn-outline-secondary w-100"
+                            data-time="16:00"
+                          >
+                            4:00 PM
+                          </div>
+                        </div>
+                      </div>
+                      <input
+                        type="hidden"
+                        id="selectedTime"
+                        name="selectedTime"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="notes" class="form-label"
+                      >Additional Notes (Optional)</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="notes"
+                      name="notes"
+                      rows="3"
+                      placeholder="Any specific requirements or information we should know..."
+                    ></textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-lg w-100">
+                    <i class="bi bi-check-circle me-2"></i>Book Appointment
+                  </button>
+
+                  <div
+                    class="alert alert-success mt-3 d-none"
+                    id="successMessage"
+                  >
+                    <i class="bi bi-check-circle-fill me-2"></i>
+                    <strong>Success!</strong> Your appointment has been booked
+                    successfully. We'll send you a confirmation email shortly.
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Information Sidebar -->
+          <div class="col-lg-4">
+            <div class="card service-info mb-4">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <i class="bi bi-info-circle text-primary me-2"></i>Booking
+                  Information
+                </h5>
+                <ul class="list-unstyled" id="bookingInfo">
+                  <li class="mb-2">
+                    <i class="bi bi-person text-primary me-2"></i>
+                    <strong>Name:</strong>
+                    <span id="displayName">Not provided</span>
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-envelope text-primary me-2"></i>
+                    <strong>Email:</strong>
+                    <span id="displayEmail">Not provided</span>
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-telephone text-primary me-2"></i>
+                    <strong>Phone:</strong>
+                    <span id="displayPhone">Not provided</span>
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-briefcase text-primary me-2"></i>
+                    <strong>Service:</strong>
+                    <span id="displayService">Not selected</span>
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-calendar text-primary me-2"></i>
+                    <strong>Date:</strong>
+                    <span id="displayDate">Not selected</span>
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-clock text-primary me-2"></i>
+                    <strong>Time:</strong>
+                    <span id="displayTime">Not selected</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer
+      class="footer text-center text-lg-start bg-body-tertiary text-muted"
+    >
+      <!-- Social Media Links -->
+      <section
+        class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+      >
+        <!-- Left: Social prompt -->
+        <div class="me-5 d-none d-lg-block">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <!-- Right: Social icons -->
+        <div>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- Main Footer Links and Info -->
+      <section class="footer-links">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <!-- Company Info -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h2 class="text-uppercase fw-bold mb-4 fs-5">
+                <i class="fas fa-gem me-3"></i>
+                scale zone
+              </h2>
+              <p>
+                We are here to empower Amazon sellers with the expertise, tools,
+                and creative strategies they need to thrive in today's
+                competitive marketplace.
+              </p>
+            </div>
+            <!-- Services Links -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h3 class="text-uppercase fw-bold mb-4 fs-6">Services Links</h3>
+              <!-- List of service links -->
+              <p>
+                <a href="#!" class="text-reset">Amazon Account Management</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">EBay Account Management</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Walmart Account Management</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Etsy Account Management</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Shopify Store Management</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Digital Marketing</a>
+              </p>
+            </div>
+            <!-- Quick Links -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h3 class="text-uppercase fw-bold mb-4 fs-6">Quick Links</h3>
+              <!-- List of quick links -->
+              <p>
+                <a href="#!" class="text-reset">Home</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Our Services</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">About us</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Contact us</a>
+              </p>
+            </div>
+            <!-- Contact Info -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h3 class="text-uppercase fw-bold mb-4 fs-6">Contact</h3>
+              <p>
+                <i class="fas fa-brands fa-whatsapp me-3"></i>
+                Chat Now
+              </p>
+              <p>
+                <i class="fas fa-envelope me-3"></i>
+                mouslem@scalezone.ae
+              </p>
+              <p><i class="fas fa-phone me-3"></i> + 971551504981</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Copyright -->
+      <div
+        class="text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2025 Copyright:
+        <a
+          href="https://abdalla-shaker.github.io/portfolio"
+          class="text-reset fw-bold"
+          >Abdalla Shaker
+        </a>
+        &
+        <a
+          href="https://kerolosamiel.github.io/portfolio"
+          class="text-reset fw-bold"
+          >Kerolos Amiel</a
+        >
+      </div>
+    </footer>
+
+    <script src="scripts/appointment/script.js" defer></script>
+  </body>
+</html>

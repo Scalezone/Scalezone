@@ -1,0 +1,131 @@
+main {
+  padding: 5rem 0;
+}
+
+.bg-primary {
+  background-color: #ec8d3a !important;
+}
+
+.card {
+  border: 1px solid #dee2e6;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(254, 151, 61, 0.2);
+}
+
+.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(254, 151, 61, 0.2);
+}
+
+.time-slot {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid #dee2e6;
+  background-color: #fff;
+}
+
+.time-slot:hover {
+  border-color: var(--second-color);
+  background-color: var(--primary-color);
+}
+
+.time-slot.selected {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.section-title {
+  color: #212529;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  scale: unset !important;
+  background-color: var(--second-color);
+}
+
+.alert-success {
+  border: none;
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.service-info {
+  background-color: #f8f9fa;
+  border-left: 4px solid #ec8d3a;
+}
+
+.service-info h5 {
+  font-family: "Poppins", sans-serif;
+}
+
+.service-info ul li {
+  font-size: 0.75rem;
+}
+
+.service-info ul li strong {
+  font-size: 1rem;
+}
+
+.contact-info {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #495057;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.border-primary {
+  border-color: var(--primary-color) !important;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.invalid-feedback {
+  display: none;
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.is-invalid + .invalid-feedback {
+  display: block;
+}
