@@ -43,7 +43,7 @@ html {
   --warning: #ff9100; /* Warning or alert color */
   --white: #ffffff; /* White */
   --dark: #1d1b20; /* Very dark for borders or footers */
-  --light-dark: #999999; /* Light gray for helper text/elements */
+  --light-dark: #666; /* Light gray for helper text/elements */
   --telegram: #0088cc; /* Telegram brand color */
   --twitter: #000000; /* Twitter brand color (black) */
 }

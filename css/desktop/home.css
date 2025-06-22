@@ -63,6 +63,7 @@
 }
 
 .hero-container .content p {
+  color: var(--light-dark);
   font-size: 1.125rem;
 }
 
@@ -100,6 +101,7 @@
 
 /* Our Mission section */
 .mission-container .content p {
+  color: var(--light-dark);
   font-size: 1.125rem;
   letter-spacing: 0.5px;
 }
@@ -138,6 +140,10 @@ section.services {
   background-color: var(--secondary-color);
 }
 
+.service-description {
+  color: var(--light-dark);
+}
+
 .services-container .services-cards .service-card {
   width: 23rem;
   padding: 1.5rem;
@@ -149,6 +155,7 @@ section.services {
 }
 
 .services-container .services-cards .service-card .icon i {
+  color: var(--white);
   font-size: 2.2rem;
 }
 
@@ -162,6 +169,7 @@ section.services {
 }
 
 .services-container .services-cards .service-card .icon svg {
+  color: var(--white);
   width: 2.5rem;
   height: 2.5rem;
 }
@@ -184,10 +192,14 @@ section.services {
   box-shadow: 0 0 20px var(--dark);
 }
 
+.services-container .services-cards .service-card p {
+  color: var(--light-dark);
+}
+
 /* Features section */
 .features-container .content .text-box .feature h3 {
   font-size: 1.5rem;
-  color: var(--secondary-text-color);
+  color: var(--primary-color);
 }
 
 .features-container .cards {
@@ -240,6 +252,10 @@ section.services {
   font-size: 1.25rem;
 }
 
+.features-container .content p {
+  color: var(--light-dark);
+}
+
 /* CTA section */
 section.cta {
   margin: 6rem 0;
@@ -255,4 +271,8 @@ section.cta {
 
 .cta-container .content {
   width: 65%;
+}
+
+.cta-container .content p {
+  color: var(--light-dark);
 }
