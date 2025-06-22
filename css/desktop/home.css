@@ -240,11 +240,6 @@ section.services {
   font-size: 1.25rem;
 }
 
-/* Our Customer Section */
-.customers-container .customers-bx .customer {
-  min-width: 18.75rem;
-}
-
 /* CTA section */
 section.cta {
   margin: 6rem 0;
