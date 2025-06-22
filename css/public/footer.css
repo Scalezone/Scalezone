@@ -1,0 +1,9 @@
+footer a {
+  display: inline-block;
+  color: var(--light-gray);
+}
+
+.contact-info a {
+  color: var(--light-gray);
+  margin-bottom: 1rem;
+}
