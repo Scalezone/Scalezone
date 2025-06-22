@@ -164,12 +164,6 @@ img {
   letter-spacing: 1px;
 }
 
-.main-title {
-  font-size: 2.75rem;
-  letter-spacing: 1px;
-  font-weight: 700;
-}
-
 /**
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
