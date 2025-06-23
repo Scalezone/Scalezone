@@ -122,8 +122,8 @@
         <!-- Bottom Bar: Logo and navigation menu -->
         <div class="bottom d-flex justify-content-between align-items-center">
           <div class="logo">
-            <a href="/">
-              <img src="assets/public/logo.png" alt="Logo" />
+            <a href="index.html">
+              <img src="assets/public/logo.webp" alt="Logo" />
             </a>
           </div>
 
@@ -212,7 +212,7 @@
                   </li>
                   <li class="px-3 py-2">
                     <a
-                      href="/services/training.html"
+                      href="services/training.html"
                       class="text-decoration-none"
                     >
                       Training and Consultancy
@@ -220,7 +220,7 @@
                   </li>
                   <li class="px-3 py-2">
                     <a
-                      href="/services/customer-support.html"
+                      href="services/customer-support.html"
                       class="text-decoration-none"
                     >
                       Customer Support and Reviews Management
@@ -228,7 +228,7 @@
                   </li>
                   <li class="px-3 py-2">
                     <a
-                      href="/services/localization.html"
+                      href="services/localization.html"
                       class="text-decoration-none"
                     >
                       Localization and Translation Services
@@ -236,7 +236,7 @@
                   </li>
                   <li class="px-3 py-2">
                     <a
-                      href="/services/gated-category.html"
+                      href="services/gated-category.html"
                       class="text-decoration-none"
                     >
                       Gated Category Approval and Account Support
@@ -244,7 +244,7 @@
                   </li>
                   <li class="px-3 py-2">
                     <a
-                      href="/services/policy-guidance.html"
+                      href="services/policy-guidance.html"
                       class="text-decoration-none"
                     >
                       Amazon Compliance and Policy Guidance
@@ -252,13 +252,14 @@
                   </li>
                 </ul>
               </div>
-              <a href="/about.html" class="text-decoration-none">About us</a>
-              <a href="/contact.html" class="text-decoration-none">
+              <a href="about.html" class="text-decoration-none">About us</a>
+              <a href="contact.html" class="text-decoration-none">
                 Contact Us
               </a>
             </nav>
 
             <a
+              href="appointment.html"
               class="public-btn text-decoration-none position-relative overflow-hidden z-1"
               >Book an appointment</a
             >
@@ -270,310 +271,311 @@
     <main>
       <!-- HERO SECTION -->
       <section id="hero" class="hero-section">
-        <p class="caption">BOOK APPOINTMENT</p>
-        <h1 class="primary-heading">
-          Schedule Your Amazon Seller Services Consultation
-        </h1>
-      </section>
+        <!-- Main Content -->
+        <div class="container">
+          <p class="caption">BOOK APPOINTMENT</p>
+          <h1 class="primary-heading mb-3">
+            Schedule Your Amazon Seller Services Consultation
+          </h1>
 
-      <!-- Main Content -->
-      <div class="container">
-        <div class="row" id="booking">
-          <!-- Booking Form -->
-          <div class="col-lg-8 mb-4">
-            <div class="card h-100">
-              <div class="card-header bg-primary text-white">
-                <h3 class="card-title mb-0">
-                  <i class="bi bi-calendar-check me-2"></i>Book Your Appointment
-                </h3>
-              </div>
-              <div class="card-body">
-                <form
-                  action="https://formspree.io/f/xovwkqeg"
-                  method="POST"
-                  id="appointmentForm"
-                  novalidate
-                >
-                  <div class="row mb-3">
-                    <div class="col-md-6">
-                      <label for="firstName" class="form-label"
-                        >First name <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="firstName"
-                        name="firstName"
-                        required
-                      />
-                      <div class="invalid-feedback">
-                        Please provide your first name.
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="lastName" class="form-label"
-                        >Last name <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="lastName"
-                        name="lastName"
-                        required
-                      />
-                      <div class="invalid-feedback">
-                        Please provide your last name.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="email" class="form-label"
-                      >Your email address
-                      <span class="text-danger">*</span></label
-                    >
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="email"
-                      name="email"
-                      required
-                    />
-                    <div class="invalid-feedback">
-                      Please provide a valid email address.
-                    </div>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="phone" class="form-label"
-                      >Phone number <span class="text-danger">*</span></label
-                    >
-                    <input
-                      type="tel"
-                      class="form-control"
-                      id="phone"
-                      name="phone"
-                      required
-                    />
-                    <div class="invalid-feedback">
-                      Please provide a valid phone number.
-                    </div>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="inquiryType" class="form-label"
-                      >Inquiry Type <span class="text-danger">*</span></label
-                    >
-                    <select
-                      class="form-select"
-                      id="inquiryType"
-                      name="inquiryType"
-                      required
-                    >
-                      <option value="">Select</option>
-                      <option value="new-inquiry">
-                        New Inquiry/New Account
-                      </option>
-                      <option value="listing-imaging">
-                        1x Listing/Imaging Service
-                      </option>
-                      <option value="ebc-listing">
-                        EBC/A+ Listing/Image Content
-                      </option>
-                      <option value="account-management">
-                        Account Management
-                      </option>
-                      <option value="account-reinstatement">
-                        Account Reinstatement
-                      </option>
-                      <option value="asin-reinstatement">
-                        ASIN Reinstatement
-                      </option>
-                      <option value="account-health">Account Health</option>
-                      <option value="catalog-management">
-                        Catalog Management
-                      </option>
-                      <option value="fba">FBA</option>
-                      <option value="marketplace-ppc">Marketplace PPC</option>
-                      <option value="product-hunting">
-                        Product Hunting or Product Analysis Report
-                      </option>
-                      <option value="social-media">
-                        Social Media Marketing
-                      </option>
-                      <option value="meta-ads">Meta Ads Management</option>
-                      <option value="google-ppc">Google PPC</option>
-                      <option value="brand-registration">
-                        Brand Registration
-                      </option>
-                      <option value="other-unknown">Other/Unknown</option>
-                      <option value="unsolicited">
-                        Unsolicited/Cold Call/Pd Email List
-                      </option>
-                      <option value="unassigned">Unassigned</option>
-                      <option value="tiktok-ads">
-                        TikTok Ads & Account Management
-                      </option>
-                      <option value="look-alike-lead">
-                        Look Alike Lead - Unknown
-                      </option>
-                      <option value="etsy-account">Etsy Account</option>
-                      <option value="shopify-marketing">
-                        Shopify and Digital Marketing
-                      </option>
-                    </select>
-                    <div class="invalid-feedback">
-                      Please select an inquiry type.
-                    </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <div class="col-md-6">
-                      <label for="date" class="form-label"
-                        >Preferred Date</label
-                      >
-                      <input
-                        type="date"
-                        class="form-control"
-                        id="date"
-                        name="date"
-                      />
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">Preferred Time</label>
-                      <div class="row g-2" id="timeSlots">
-                        <div class="col-4">
-                          <div
-                            class="time-slot btn btn-outline-secondary w-100"
-                            data-time="09:00"
-                          >
-                            9:00 AM
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div
-                            class="time-slot btn btn-outline-secondary w-100"
-                            data-time="10:00"
-                          >
-                            10:00 AM
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div
-                            class="time-slot btn btn-outline-secondary w-100"
-                            data-time="11:00"
-                          >
-                            11:00 AM
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div
-                            class="time-slot btn btn-outline-secondary w-100"
-                            data-time="14:00"
-                          >
-                            2:00 PM
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div
-                            class="time-slot btn btn-outline-secondary w-100"
-                            data-time="15:00"
-                          >
-                            3:00 PM
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div
-                            class="time-slot btn btn-outline-secondary w-100"
-                            data-time="16:00"
-                          >
-                            4:00 PM
-                          </div>
-                        </div>
-                      </div>
-                      <input
-                        type="hidden"
-                        id="selectedTime"
-                        name="selectedTime"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="notes" class="form-label"
-                      >Additional Notes (Optional)</label
-                    >
-                    <textarea
-                      class="form-control"
-                      id="notes"
-                      name="notes"
-                      rows="3"
-                      placeholder="Any specific requirements or information we should know..."
-                    ></textarea>
-                  </div>
-
-                  <button type="submit" class="btn btn-primary btn-lg w-100">
-                    <i class="bi bi-check-circle me-2"></i>Book Appointment
-                  </button>
-
-                  <div
-                    class="alert alert-success mt-3 d-none"
-                    id="successMessage"
+          <div class="row" id="booking">
+            <!-- Booking Form -->
+            <div class="col-lg-8 mb-4">
+              <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                  <h3 class="card-title mb-0">
+                    <i class="bi bi-calendar-check me-2"></i>Book Your
+                    Appointment
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <form
+                    action="https://formspree.io/f/xovwkqeg"
+                    method="POST"
+                    id="appointmentForm"
+                    novalidate
                   >
-                    <i class="bi bi-check-circle-fill me-2"></i>
-                    <strong>Success!</strong> Your appointment has been booked
-                    successfully. We'll send you a confirmation email shortly.
-                  </div>
-                </form>
+                    <div class="row mb-3">
+                      <div class="col-md-6">
+                        <label for="firstName" class="form-label"
+                          >First name <span class="text-danger">*</span></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="firstName"
+                          name="firstName"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Please provide your first name.
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="lastName" class="form-label"
+                          >Last name <span class="text-danger">*</span></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="lastName"
+                          name="lastName"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Please provide your last name.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="email" class="form-label"
+                        >Your email address
+                        <span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please provide a valid email address.
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="phone" class="form-label"
+                        >Phone number <span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="phone"
+                        name="phone"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please provide a valid phone number.
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="inquiryType" class="form-label"
+                        >Inquiry Type <span class="text-danger">*</span></label
+                      >
+                      <select
+                        class="form-select"
+                        id="inquiryType"
+                        name="inquiryType"
+                        required
+                      >
+                        <option value="">Select</option>
+                        <option value="new-inquiry">
+                          New Inquiry/New Account
+                        </option>
+                        <option value="listing-imaging">
+                          1x Listing/Imaging Service
+                        </option>
+                        <option value="ebc-listing">
+                          EBC/A+ Listing/Image Content
+                        </option>
+                        <option value="account-management">
+                          Account Management
+                        </option>
+                        <option value="account-reinstatement">
+                          Account Reinstatement
+                        </option>
+                        <option value="asin-reinstatement">
+                          ASIN Reinstatement
+                        </option>
+                        <option value="account-health">Account Health</option>
+                        <option value="catalog-management">
+                          Catalog Management
+                        </option>
+                        <option value="fba">FBA</option>
+                        <option value="marketplace-ppc">Marketplace PPC</option>
+                        <option value="product-hunting">
+                          Product Hunting or Product Analysis Report
+                        </option>
+                        <option value="social-media">
+                          Social Media Marketing
+                        </option>
+                        <option value="meta-ads">Meta Ads Management</option>
+                        <option value="google-ppc">Google PPC</option>
+                        <option value="brand-registration">
+                          Brand Registration
+                        </option>
+                        <option value="other-unknown">Other/Unknown</option>
+                        <option value="unsolicited">
+                          Unsolicited/Cold Call/Pd Email List
+                        </option>
+                        <option value="unassigned">Unassigned</option>
+                        <option value="tiktok-ads">
+                          TikTok Ads & Account Management
+                        </option>
+                        <option value="look-alike-lead">
+                          Look Alike Lead - Unknown
+                        </option>
+                        <option value="etsy-account">Etsy Account</option>
+                        <option value="shopify-marketing">
+                          Shopify and Digital Marketing
+                        </option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select an inquiry type.
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="col-md-6">
+                        <label for="date" class="form-label"
+                          >Preferred Date</label
+                        >
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="date"
+                          name="date"
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Preferred Time</label>
+                        <div class="row g-2" id="timeSlots">
+                          <div class="col-4">
+                            <div
+                              class="time-slot btn btn-outline-secondary w-100"
+                              data-time="09:00"
+                            >
+                              9:00 AM
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <div
+                              class="time-slot btn btn-outline-secondary w-100"
+                              data-time="10:00"
+                            >
+                              10:00 AM
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <div
+                              class="time-slot btn btn-outline-secondary w-100"
+                              data-time="11:00"
+                            >
+                              11:00 AM
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <div
+                              class="time-slot btn btn-outline-secondary w-100"
+                              data-time="14:00"
+                            >
+                              2:00 PM
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <div
+                              class="time-slot btn btn-outline-secondary w-100"
+                              data-time="15:00"
+                            >
+                              3:00 PM
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <div
+                              class="time-slot btn btn-outline-secondary w-100"
+                              data-time="16:00"
+                            >
+                              4:00 PM
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          id="selectedTime"
+                          name="selectedTime"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="notes" class="form-label"
+                        >Additional Notes (Optional)</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="notes"
+                        name="notes"
+                        rows="3"
+                        placeholder="Any specific requirements or information we should know..."
+                      ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                      <i class="bi bi-check-circle me-2"></i>Book Appointment
+                    </button>
+
+                    <div
+                      class="alert alert-success mt-3 d-none"
+                      id="successMessage"
+                    >
+                      <i class="bi bi-check-circle-fill me-2"></i>
+                      <strong>Success!</strong> Your appointment has been booked
+                      successfully. We'll send you a confirmation email shortly.
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Information Sidebar -->
-          <div class="col-lg-4">
-            <div class="card service-info mb-4">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <i class="bi bi-info-circle text-primary me-2"></i>Booking
-                  Information
-                </h5>
-                <ul class="list-unstyled" id="bookingInfo">
-                  <li class="mb-2">
-                    <i class="bi bi-person text-primary me-2"></i>
-                    <strong>Name:</strong>
-                    <span id="displayName">Not provided</span>
-                  </li>
-                  <li class="mb-2">
-                    <i class="bi bi-envelope text-primary me-2"></i>
-                    <strong>Email:</strong>
-                    <span id="displayEmail">Not provided</span>
-                  </li>
-                  <li class="mb-2">
-                    <i class="bi bi-telephone text-primary me-2"></i>
-                    <strong>Phone:</strong>
-                    <span id="displayPhone">Not provided</span>
-                  </li>
-                  <li class="mb-2">
-                    <i class="bi bi-briefcase text-primary me-2"></i>
-                    <strong>Service:</strong>
-                    <span id="displayService">Not selected</span>
-                  </li>
-                  <li class="mb-2">
-                    <i class="bi bi-calendar text-primary me-2"></i>
-                    <strong>Date:</strong>
-                    <span id="displayDate">Not selected</span>
-                  </li>
-                  <li class="mb-2">
-                    <i class="bi bi-clock text-primary me-2"></i>
-                    <strong>Time:</strong>
-                    <span id="displayTime">Not selected</span>
-                  </li>
-                </ul>
+            <!-- Information Sidebar -->
+            <div class="col-lg-4">
+              <div class="card service-info mb-4">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <i class="bi bi-info-circle text-primary me-2"></i>Booking
+                    Information
+                  </h5>
+                  <ul class="list-unstyled" id="bookingInfo">
+                    <li class="mb-2">
+                      <i class="bi bi-person text-primary me-2"></i>
+                      <strong>Name:</strong>
+                      <span id="displayName">Not provided</span>
+                    </li>
+                    <li class="mb-2">
+                      <i class="bi bi-envelope text-primary me-2"></i>
+                      <strong>Email:</strong>
+                      <span id="displayEmail">Not provided</span>
+                    </li>
+                    <li class="mb-2">
+                      <i class="bi bi-telephone text-primary me-2"></i>
+                      <strong>Phone:</strong>
+                      <span id="displayPhone">Not provided</span>
+                    </li>
+                    <li class="mb-2">
+                      <i class="bi bi-briefcase text-primary me-2"></i>
+                      <strong>Service:</strong>
+                      <span id="displayService">Not selected</span>
+                    </li>
+                    <li class="mb-2">
+                      <i class="bi bi-calendar text-primary me-2"></i>
+                      <strong>Date:</strong>
+                      <span id="displayDate">Not selected</span>
+                    </li>
+                    <li class="mb-2">
+                      <i class="bi bi-clock text-primary me-2"></i>
+                      <strong>Time:</strong>
+                      <span id="displayTime">Not selected</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
 
     <!-- FOOTER SECTION -->
@@ -716,5 +718,6 @@
     </footer>
 
     <script src="scripts/appointment/script.js" defer></script>
+    <script src="scripts/public/public.js"></script>
   </body>
 </html>
