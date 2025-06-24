@@ -104,7 +104,8 @@
   margin: 6rem 0 3rem !important;
 }
 
-.mission-container .content p {
+.mission-container .content p,
+.vision-container .content p {
   color: var(--light-dark);
   font-size: 1.125rem;
   letter-spacing: 0.5px;
