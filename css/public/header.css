@@ -18,12 +18,80 @@ header {
   color: var(--hover-color);
 }
 
+/* From Uiverse.io by mrhyddenn */
+.header-container .top .mail .language-btn {
+  background: transparent;
+  width: 3rem;
+  height: 2rem;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.header-container .top .mail .language-btn .tooltip {
+  bottom: 0;
+  background: var(--white);
+  color: var(--white);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.header-container .top .mail .language-btn .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 0.5rem;
+  width: 0.5rem;
+  background: var(--second-color);
+  top: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: -1;
+}
+
+.header-container .top .mail .language-btn:hover .tooltip {
+  bottom: -2rem;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.header-container .top .mail .language-btn:hover i {
+  color: var(--second-color);
+}
+
+.header-container .top .mail .language-btn:hover .tooltip,
+.header-container
+  .top
+  .mail
+  .language-btn:hover
+  .header-container
+  .top
+  .mail
+  .language-btn
+  .tooltip::before {
+  background: var(--second-color);
+  color: var(--white);
+}
+
 .header-container .bottom {
   padding: 1rem 4rem;
 }
 
+.header-container .bottom.scroll {
+  position: fixed;
+  background: var(--white);
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  top: 0;
+  transition: 0.3s ease;
+}
+
 .header-container .bottom .logo {
-  max-width: 155px;
+  max-width: 100px;
 }
 
 .header-container .bottom .navbar nav {
@@ -40,6 +108,14 @@ header {
 
 .header-container .bottom .navbar .dropdown-services .services-menu {
   width: 35rem;
+}
+
+.header-container .bottom .navbar .dropdown-resources .resources-menu {
+  width: 15rem;
+}
+
+.header-container .bottom .navbar .dropdown-services .services-menu,
+.header-container .bottom .navbar .dropdown-resources .resources-menu {
   background: var(--background-color);
   border: 2px solid var(--accent);
   box-shadow: 0 0 5px #0000001a;
@@ -51,26 +127,37 @@ header {
   visibility: hidden;
 }
 
-.header-container .bottom .navbar .dropdown-services .services-menu.active {
+.header-container .bottom .navbar .dropdown-services .services-menu.active,
+.header-container .bottom .navbar .dropdown-resources .resources-menu.active {
   top: 256%;
   opacity: 1;
   visibility: visible;
 }
 
-.header-container .bottom .navbar .dropdown-services .services-menu a {
+.header-container .bottom .navbar .dropdown-services .services-menu a,
+.header-container .bottom .navbar .dropdown-resources .resources-menu a {
   font-weight: 500;
   transition: 0.3s ease;
 }
 
-.header-container .bottom .navbar .dropdown-services .services-menu li {
+.header-container .bottom .navbar .dropdown-services .services-menu li,
+.header-container .bottom .navbar .dropdown-resources .resources-menu li {
   transition: 0.3s ease;
 }
 
-.header-container .bottom .navbar .dropdown-services .services-menu li:hover {
+.header-container .bottom .navbar .dropdown-services .services-menu li:hover,
+.header-container .bottom .navbar .dropdown-resources .resources-menu li:hover {
   background-color: var(--accent);
 }
 
-.header-container .bottom .navbar .dropdown-services .services-menu li:hover a {
+.header-container .bottom .navbar .dropdown-services .services-menu li:hover a,
+.header-container
+  .bottom
+  .navbar
+  .dropdown-resources
+  .resources-menu
+  li:hover
+  a {
   color: var(--hover-color);
 }
 
