@@ -16,6 +16,7 @@
   width: 10.375rem;
   height: 10.375rem;
   color: var(--secondary-color);
+  animation: circle_animation 0.5s ease-in-out forwards;
 }
 
 .hero-container .img .circle p {
@@ -26,6 +27,17 @@
   font-size: 2.25rem;
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+@keyframes circle_animation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .hero-container .img .circle.circle-01 {
@@ -57,14 +69,39 @@
   padding: 2rem;
 }
 
+.hero-container .content .title h3 {
+  animation-delay: 0.1s;
+}
+
 .hero-container .content .title h1 {
   font-size: 3.25rem;
   line-height: 110%;
+  animation-delay: 0.2s;
 }
 
 .hero-container .content p {
   color: var(--light-dark);
   font-size: 1.125rem;
+  animation-delay: 0.6s;
+}
+
+.hero-container .content .buttons .public-btn:nth-child(1) {
+  animation-delay: 0.8s;
+}
+
+.hero-container .content .buttons .public-btn {
+  animation-delay: 1s;
+}
+
+.hero-container .content .buttons .public-btn {
+  max-width: 25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-container .content .buttons .public-btn .arrow {
+  width: 50px;
 }
 
 /* Partners section */
