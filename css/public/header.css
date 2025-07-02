@@ -18,7 +18,6 @@ header {
   color: var(--hover-color);
 }
 
-/* From Uiverse.io by mrhyddenn */
 .header-container .top .mail .language-btn {
   background: transparent;
   width: 3rem;
@@ -88,10 +87,6 @@ header {
   z-index: 999;
   top: 0;
   transition: 0.3s ease;
-}
-
-.header-container .bottom .logo {
-  max-width: 100px;
 }
 
 .header-container .bottom .navbar nav {
