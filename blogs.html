@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Meta tags for character set and responsive design -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO Meta Tags -->
-    <title>
-      Book Appointment - Amazon Seller Services & E-Commerce Consulting
-    </title>
+    <title>Blogs | Scalezone</title>
     <meta
       name="description"
-      content="Book your appointment with Scalezone for expert Amazon seller services. Schedule a consultation for account setup, product listing optimization, A+ content design, and e-commerce consulting."
+      content="Professional Amazon seller services including account setup, product listing optimization, A+ content design, and e-commerce consulting. Expert help for Amazon sellers worldwide."
     />
     <meta
       name="keywords"
-      content="book appointment, amazon seller services, e-commerce consulting, amazon account setup, product listing optimization, A+ content design, consultation"
+      content="amazon seller services, amazon account setup, product listing optimization, A+ content design, e-commerce consulting, amazon seller account management"
     />
     <meta name="author" content="Scalezone" />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph Meta Tags -->
-    <meta
-      property="og:title"
-      content="Book Appointment - Amazon Seller Services & E-Commerce Consulting"
-    />
+    <meta property="og:title" content="Blogs | Scalezone" />
     <meta
       property="og:description"
-      content="Book your appointment with Scalezone for expert Amazon seller services. Schedule a consultation for account setup, product listing optimization, A+ content design, and e-commerce consulting."
+      content="Professional Amazon seller services including account setup, product listing optimization, A+ content design, and e-commerce consulting."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://scalezone.ae/appointment.html" />
+    <meta property="og:url" content="https://scalezone.ae/" />
     <meta
       property="og:image"
-      content="https://scalezone.ae/assets/public/logo.png"
+      content="https://scalezone.ae/assets/public/logo.webp"
     />
     <meta property="og:site_name" content="Scalezone" />
 
@@ -41,19 +35,19 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Book Appointment - Amazon Seller Services & E-Commerce Consulting"
+      content="Amazon Seller Services & E-Commerce Consulting | Scalezone"
     />
     <meta
       name="twitter:description"
-      content="Book your appointment with Scalezone for expert Amazon seller services. Schedule a consultation for account setup, product listing optimization, A+ content design, and e-commerce consulting."
+      content="Professional Amazon seller services including account setup, product listing optimization, A+ content design, and e-commerce consulting."
     />
     <meta
       name="twitter:image"
-      content="https://scalezone.ae/assets/public/logo.png"
+      content="https://scalezone.ae/assets/public/logo.webp"
     />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://scalezone.ae/appointment.html" />
+    <link rel="canonical" href="https://scalezone.ae/" />
 
     <!-- Google Fonts: Poppins and DM Serif Display -->
     <link
@@ -64,8 +58,6 @@
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- FontAwesome for icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -73,27 +65,45 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
-    <!-- Bootstrap 5 CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
     />
-
-    <!-- Custom CSS files for normalization and responsive design -->
     <link rel="stylesheet" href="css/public/normalize.css" />
     <link rel="stylesheet" href="css/public/public.css" />
     <link rel="stylesheet" href="css/public/header.css" />
     <link rel="stylesheet" href="css/public/footer.css" />
-    <link rel="stylesheet" href="css/desktop/appointment.css" />
-    <link rel="stylesheet" href="css/mobile/appointment_responsive.css" />
+    <link rel="stylesheet" href="css/desktop/blogs.css" />
+    <link rel="stylesheet" href="css/mobile/blogs_responsive.css" />
     <link rel="stylesheet" href="css/mobile/header_footer_resp.css" />
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="assets/public/icon.webp" />
-
-    <title>Appointment | Scalezone</title>
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Scalezone",
+        "url": "https://scalezone.ae/",
+        "logo": "https://scalezone.ae/assets/public/logo.webp",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+971551504981",
+            "contactType": "customer service",
+            "email": "mouslem@scalezone.ae"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/",
+          "https://www.twitter.com/",
+          "https://www.instagram.com/",
+          "https://www.linkedin.com/"
+        ]
+      }
+    </script>
   </head>
   <body>
     <!-- Header Section: Contains contact info, logo, navigation menu, and appointment button -->
@@ -113,11 +123,21 @@
               +971551504981
             </a>
           </div>
-          <div class="mail">
+
+          <div class="mail d-flex gap-4 align-items-center">
             <a href="mailto:mouslem@scalezone.ae" class="text-decoration-none">
               <i class="fa-regular fa-envelope"></i>
               mouslem@scalezone.ae
             </a>
+
+            <button
+              class="language-btn d-flex align-items-center justify-content-center position-relative"
+            >
+              <span class="tooltip position-absolute">Arabic</span>
+              <span>
+                <i class="fa-solid fa-globe"></i>
+              </span>
+            </button>
           </div>
         </div>
 
@@ -277,6 +297,7 @@
                   </li>
                 </ul>
               </div>
+
               <a href="about.html" class="text-decoration-none">About us</a>
               <a href="contact.html" class="text-decoration-none">
                 Contact Us
@@ -293,310 +314,90 @@
       </div>
     </header>
 
-    <main>
-      <!-- HERO SECTION -->
-      <section id="hero" class="hero-section">
-        <!-- Main Content -->
-        <div class="container">
-          <div class="row" id="booking">
-            <!-- Booking Form -->
-            <div class="col-lg-8 mb-4">
-              <div class="card h-100">
-                <div class="card-header bg-primary text-white">
-                  <h3 class="card-title mb-0">
-                    <i class="bi bi-calendar-check me-2"></i>Book Your
-                    Appointment
-                  </h3>
-                </div>
-                <div class="card-body">
-                  <form
-                    action="https://formspree.io/f/xovwkqeg"
-                    method="POST"
-                    id="appointmentForm"
-                    novalidate
-                  >
-                    <div class="row mb-3">
-                      <div class="col-md-6">
-                        <label for="firstName" class="form-label"
-                          >First name <span class="text-danger">*</span></label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="firstName"
-                          name="firstName"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          Please provide your first name.
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <label for="lastName" class="form-label"
-                          >Last name <span class="text-danger">*</span></label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="lastName"
-                          name="lastName"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          Please provide your last name.
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="email" class="form-label"
-                        >Your email address
-                        <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        name="email"
-                        required
-                      />
-                      <div class="invalid-feedback">
-                        Please provide a valid email address.
-                      </div>
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="phone" class="form-label"
-                        >Phone number <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="tel"
-                        class="form-control"
-                        id="phone"
-                        name="phone"
-                        required
-                      />
-                      <div class="invalid-feedback">
-                        Please provide a valid phone number.
-                      </div>
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="inquiryType" class="form-label"
-                        >Inquiry Type <span class="text-danger">*</span></label
-                      >
-                      <select
-                        class="form-select"
-                        id="inquiryType"
-                        name="inquiryType"
-                        required
-                      >
-                        <option value="">Select</option>
-                        <option value="new-inquiry">
-                          New Inquiry/New Account
-                        </option>
-                        <option value="listing-imaging">
-                          1x Listing/Imaging Service
-                        </option>
-                        <option value="ebc-listing">
-                          EBC/A+ Listing/Image Content
-                        </option>
-                        <option value="account-management">
-                          Account Management
-                        </option>
-                        <option value="account-reinstatement">
-                          Account Reinstatement
-                        </option>
-                        <option value="asin-reinstatement">
-                          ASIN Reinstatement
-                        </option>
-                        <option value="account-health">Account Health</option>
-                        <option value="catalog-management">
-                          Catalog Management
-                        </option>
-                        <option value="fba">FBA</option>
-                        <option value="marketplace-ppc">Marketplace PPC</option>
-                        <option value="product-hunting">
-                          Product Hunting or Product Analysis Report
-                        </option>
-                        <option value="social-media">
-                          Social Media Marketing
-                        </option>
-                        <option value="meta-ads">Meta Ads Management</option>
-                        <option value="google-ppc">Google PPC</option>
-                        <option value="brand-registration">
-                          Brand Registration
-                        </option>
-                        <option value="other-unknown">Other/Unknown</option>
-                        <option value="unsolicited">
-                          Unsolicited/Cold Call/Pd Email List
-                        </option>
-                        <option value="unassigned">Unassigned</option>
-                        <option value="tiktok-ads">
-                          TikTok Ads & Account Management
-                        </option>
-                        <option value="look-alike-lead">
-                          Look Alike Lead - Unknown
-                        </option>
-                        <option value="etsy-account">Etsy Account</option>
-                        <option value="shopify-marketing">
-                          Shopify and Digital Marketing
-                        </option>
-                      </select>
-                      <div class="invalid-feedback">
-                        Please select an inquiry type.
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <div class="col-md-6">
-                        <label for="date" class="form-label"
-                          >Preferred Date</label
-                        >
-                        <input
-                          type="date"
-                          class="form-control"
-                          id="date"
-                          name="date"
-                        />
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label">Preferred Time</label>
-                        <div class="row g-2" id="timeSlots">
-                          <div class="col-4">
-                            <div
-                              class="time-slot btn btn-outline-secondary w-100"
-                              data-time="09:00"
-                            >
-                              9:00 AM
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div
-                              class="time-slot btn btn-outline-secondary w-100"
-                              data-time="10:00"
-                            >
-                              10:00 AM
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div
-                              class="time-slot btn btn-outline-secondary w-100"
-                              data-time="11:00"
-                            >
-                              11:00 AM
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div
-                              class="time-slot btn btn-outline-secondary w-100"
-                              data-time="14:00"
-                            >
-                              2:00 PM
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div
-                              class="time-slot btn btn-outline-secondary w-100"
-                              data-time="15:00"
-                            >
-                              3:00 PM
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div
-                              class="time-slot btn btn-outline-secondary w-100"
-                              data-time="16:00"
-                            >
-                              4:00 PM
-                            </div>
-                          </div>
-                        </div>
-                        <input
-                          type="hidden"
-                          id="selectedTime"
-                          name="selectedTime"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="notes" class="form-label"
-                        >Additional Notes (Optional)</label
-                      >
-                      <textarea
-                        class="form-control"
-                        id="notes"
-                        name="notes"
-                        rows="3"
-                        placeholder="Any specific requirements or information we should know..."
-                      ></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-lg w-100">
-                      <i class="bi bi-check-circle me-2"></i>Book Appointment
-                    </button>
-
-                    <div
-                      class="alert alert-success mt-3 d-none"
-                      id="successMessage"
-                    >
-                      <i class="bi bi-check-circle-fill me-2"></i>
-                      <strong>Success!</strong> Your appointment has been booked
-                      successfully. We'll send you a confirmation email shortly.
-                    </div>
-                  </form>
-                </div>
-              </div>
+    <!-- Hero Section: Main banner with image, statistics, and intro text -->
+    <main class="mb-5">
+      <section class="hero my-5 position-relative" id="hero">
+        <div
+          class="hero-container cw d-flex flex-column flex-lg-row gap-5 justify-content-between"
+        >
+          <!-- Hero Content: Title and Description -->
+          <div
+            class="content w-lg-50 d-flex flex-column justify-content-center w-100"
+          >
+            <div class="title">
+              <h3 class="caption">ScaleZone</h3>
+              <h1>Blogs</h1>
             </div>
 
-            <!-- Information Sidebar -->
-            <div class="col-lg-4">
-              <div class="card service-info mb-4">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <i class="bi bi-info-circle text-primary me-2"></i>Booking
-                    Information
-                  </h5>
-                  <ul class="list-unstyled" id="bookingInfo">
-                    <li class="mb-2">
-                      <i class="bi bi-person text-primary me-2"></i>
-                      <strong>Name:</strong>
-                      <span id="displayName">Not provided</span>
-                    </li>
-                    <li class="mb-2">
-                      <i class="bi bi-envelope text-primary me-2"></i>
-                      <strong>Email:</strong>
-                      <span id="displayEmail">Not provided</span>
-                    </li>
-                    <li class="mb-2">
-                      <i class="bi bi-telephone text-primary me-2"></i>
-                      <strong>Phone:</strong>
-                      <span id="displayPhone">Not provided</span>
-                    </li>
-                    <li class="mb-2">
-                      <i class="bi bi-briefcase text-primary me-2"></i>
-                      <strong>Service:</strong>
-                      <span id="displayService">Not selected</span>
-                    </li>
-                    <li class="mb-2">
-                      <i class="bi bi-calendar text-primary me-2"></i>
-                      <strong>Date:</strong>
-                      <span id="displayDate">Not selected</span>
-                    </li>
-                    <li class="mb-2">
-                      <i class="bi bi-clock text-primary me-2"></i>
-                      <strong>Time:</strong>
-                      <span id="displayTime">Not selected</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <div class="text">
+              <p>
+                If your sales are limited to Amazon.com, you're likely leaving
+                money on the table. Expanding to Amazon UAE, Amazon KSA, and key
+                European markets like the UK and Germany can unlock massive
+                growth potential. At ScaleZone, we help sellers scale
+                strategically—so you can tap into high-demand, low-competition
+                markets and multiply your revenue without the guesswork. With
+                the right expansion plan, it's not uncommon for sellers to
+                double their earnings. Let's help you go global, the smart way.
+              </p>
+            </div>
+          </div>
+
+          <!-- Hero Image and Statistics Circles -->
+          <div class="img w-lg-50 card-clip w-100">
+            <img src="assets/blogs/hero.webp" alt="Hero Image" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="circle-01 position-absolute"></div>
+        <div class="circle-02 position-absolute"></div>
+      </section>
+    </main>
+
+    <!-- Blogs section -->
+    <section class="blogs my-5">
+      <div
+        class="blogs-container cw d-flex flex-column gap-5 justify-content-center align-items-center"
+      >
+        <div class="title mb-5 text-center">
+          <h2>Today's Featured Content.</h2>
+        </div>
+
+        <div
+          class="cards-box d-flex flex-column flex-lg-row gap-5 flex-wrap justify-content-center align-items-center"
+        >
+          <div class="blog-card d-flex flex-column gap-4">
+            <div class="img">
+              <img src="assets/blogs/blog-01.webp" alt="Blog Image 1" />
+            </div>
+
+            <div class="text-bx d-flex flex-column gap-3">
+              <p>July 2, 2025</p>
+
+              <a href="#" class="text-decoration-none">
+                <h2>
+                  How to Start Selling on Amazon UAE Step by Step - A Complete
+                  Guide for New Sellers
+                </h2>
+              </a>
+
+              <p>
+                Do you want to sell your products on Amazon UAE? Here is a
+                complete guide that explains how to open an account, choose your
+                product, prepare shipments, and start your e-commerce journey
+                easily in 2025.
+              </p>
+
+              <a
+                href="#"
+                class="public-btn text-decoration-none position-relative overflow-hidden z-1"
+                >Read More</a
+              >
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
     <!-- FOOTER SECTION -->
     <footer
@@ -751,8 +552,5 @@
         >
       </div>
     </footer>
-
-    <script src="scripts/appointment/script.js" defer></script>
-    <script src="scripts/public/public.js"></script>
   </body>
 </html>

@@ -1,0 +1,10 @@
+@media (max-width: 498px) {
+  /* Blogs container */
+  .blogs-container .cards-box .blog-card {
+    width: 100%;
+  }
+
+  .blogs-container {
+    padding: 2rem 1rem;
+  }
+}
