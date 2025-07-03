@@ -1,0 +1,46 @@
+/* public styles */
+section.public-sec {
+  background: var(--second-background);
+}
+
+section.hero {
+  padding: 2rem 0 0;
+}
+
+p {
+  font-size: 1.125rem;
+}
+
+.blog-w {
+  max-width: 1150px;
+  margin: 0 auto;
+  background-color: var(--white);
+  box-shadow: 0px 10px 5px #0000001c;
+  padding: 2rem;
+}
+
+.line {
+  height: 0.1rem;
+  background-color: var(--light-dark);
+  width: calc(100% - 4rem);
+  left: 2rem;
+  bottom: 0;
+}
+
+/* Hero section */
+.hero-container {
+  box-shadow: 0px 0px 10px #00000033;
+}
+
+.hero-container .title {
+  width: 90%;
+}
+
+.hero-container .title p {
+  color: var(--second-color);
+}
+
+.hero-container .content p:nth-child(1) {
+  font-weight: 700;
+  letter-spacing: 1px;
+}

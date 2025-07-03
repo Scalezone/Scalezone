@@ -1,0 +1,36 @@
+@media (max-width: 990px) {
+  /* public sections */
+  .blog-w {
+    box-shadow: none;
+    padding: 4rem 2rem 2rem;
+  }
+
+  section.hero {
+    padding: 0;
+  }
+
+  section.start {
+    padding-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 520px) {
+  /* public */
+  .blog-w {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .line {
+    width: calc(100% - 2rem);
+    left: 1rem;
+  }
+
+  /* hero section */
+  .hero-container .title {
+    width: 100%;
+  }
+}
