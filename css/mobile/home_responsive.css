@@ -96,6 +96,14 @@
   .cta-container .content {
     width: 100%;
   }
+
+  .testimonials-container .testimonials-box .swiper-btn {
+    display: none;
+  }
+
+  .testimonials-container .testimonials-box .content-slide {
+    margin: 0 !important;
+  }
 }
 
 @media (max-width: 480px) {

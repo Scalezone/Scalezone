@@ -298,6 +298,82 @@ section.services {
   color: var(--light-dark);
 }
 
+/* Testimonials */
+.testimonials-container.cw {
+  max-width: 1260px;
+}
+
+.testimonials-container .testimonials-box .content-slide {
+  margin: 0 2.75rem;
+  overflow: hidden;
+}
+.testimonials-container .testimonials-box .card-wrapper .rev-card {
+  margin: 0 !important;
+  background-color: var(--second-background);
+  padding: 1.875rem 1rem;
+}
+
+.testimonials-container .testimonials-box .card-wrapper .rev-card .stars p,
+.testimonials-container .testimonials-box .card-wrapper .rev-card .stars i {
+  font-size: 1.5rem;
+}
+
+.testimonials-container .testimonials-box .card-wrapper .rev-card .stars i {
+  color: var(--primary-color);
+}
+
+.testimonials-container
+  .testimonials-box
+  .card-wrapper
+  .rev-card
+  .content
+  p:nth-child(1),
+.testimonials-container
+  .testimonials-box
+  .card-wrapper
+  .rev-card
+  .content
+  .caption {
+  font-size: 1.125rem;
+}
+
+.testimonials-container
+  .testimonials-box
+  .card-wrapper
+  .rev-card
+  .content
+  p:not(:first-child) {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.testimonials-container .testimonials-box .swiper-btn {
+  color: var(--second-color);
+}
+
+.testimonials-container .testimonials-box .swiper-button-next {
+  right: 0;
+}
+
+.testimonials-container .testimonials-box .swiper-button-prev {
+  left: 0;
+}
+
+.testimonials-container .swiper {
+  overflow: unset;
+}
+
+.testimonials-container .swiper .swiper-pagination {
+  bottom: -10%;
+}
+
+.testimonials-container
+  .swiper
+  .swiper-pagination
+  .swiper-pagination-bullet-active {
+  background-color: var(--primary-color) !important;
+}
+
 /* CTA section */
 section.cta {
   margin: 6rem 0;
