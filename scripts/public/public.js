@@ -22,10 +22,12 @@ window.addEventListener("scroll", () => {
  */
 servicesDropdownTrigger.addEventListener("click", () => {
   toggleElementVisibility(servicesDropdownMenu);
+  removeElementVisiblity(resourcesDropdownMenu);
 });
 
 resourcesDropdownTrigger.addEventListener("click", () => {
   toggleElementVisibility(resourcesDropdownMenu);
+  removeElementVisiblity(servicesDropdownMenu);
 });
 
 /**
