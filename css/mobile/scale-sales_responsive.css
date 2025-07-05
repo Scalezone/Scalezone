@@ -1,0 +1,31 @@
+@media (max-width: 520px) {
+  /* Hero Section */
+  .hero-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 460px) {
+  /* Packages section */
+  .packages-container .packages-bx .package {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  /* Hero section */
+  .hero-container .content .title h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-container .content .text-bx p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  /* Packages section */
+  .packages-container .packages-bx .package .content .title h3.caption {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+}

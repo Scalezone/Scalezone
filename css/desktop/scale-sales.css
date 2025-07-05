@@ -1,0 +1,42 @@
+/* Hero Section */
+.hero-container {
+  padding: 2rem;
+}
+
+.hero-container .content .text-bx p {
+  font-size: 1.125rem;
+  line-height: 2rem;
+}
+
+.hero-container .img,
+.hero-container .img img {
+  min-height: 25rem;
+  border-radius: 1rem;
+}
+
+/* Packages section */
+section.packages {
+  margin: 3rem 0 6rem;
+}
+
+.packages-container .packages-bx .package {
+  width: 24rem;
+  background: var(--second-background);
+  border-radius: 1rem;
+}
+
+.packages-container .packages-bx .package .img img {
+  aspect-ratio: auto 592 / 401;
+}
+
+.packages-container .packages-bx .package .content .title h3.caption {
+  font-size: 1.875rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin: 0 0 1.5rem 0;
+}
+
+.packages-container .packages-bx .package .public-btn {
+  max-width: 20rem;
+  min-width: 15rem;
+}
