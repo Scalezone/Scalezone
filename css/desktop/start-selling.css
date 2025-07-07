@@ -1,0 +1,30 @@
+/* Hero Section */
+.hero-container .title {
+  width: 70%;
+}
+
+.hero-container .title h1 {
+  font-size: 2.75rem;
+}
+
+.hero-container .video {
+  width: 80%;
+  margin: 0 auto;
+  aspect-ratio: 16/9;
+}
+
+.hero-container .video iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  border: 2px solid var(--primary-color);
+}
+
+.hero-container .subscribe .public-btn {
+  max-width: 25rem;
+}
+
+/* Selling section */
+.selling {
+  margin: 6rem 0;
+}
