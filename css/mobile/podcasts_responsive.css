@@ -1,0 +1,10 @@
+@media (max-width: 498px) {
+  /* Podcasts container */
+  .podcasts-container .cards-box .blog-card {
+    width: 100%;
+  }
+
+  .podcasts-container {
+    padding: 2rem 1rem;
+  }
+}
