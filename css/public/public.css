@@ -107,3 +107,55 @@ input[type="number"] {
 .accordion-button:focus {
   box-shadow: 0 0 0 0.25rem var(--second-color);
 }
+
+.show-card {
+  width: 26.625rem;
+}
+
+.show-card .img {
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.show-card .img img {
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+.show-card:hover .img img {
+  transform: scale(1.05);
+}
+
+.show-card .text-bx p:nth-child(1) {
+  color: var(--primary-color);
+}
+
+.show-card .text-bx h2 {
+  font-size: 1.5rem;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  color: var(--main-text-color);
+}
+
+.show-card .text-bx p:not(:first-child) {
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.show-card .text-bx p:not(:first-child),
+.show-card .text-bx h2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.show-card .public-btn {
+  padding: 0.625rem 1.25rem;
+  margin: 1.5rem 0 0;
+  max-width: 15rem;
+}
+
+.show-card .public-btn:hover {
+  scale: 1;
+}

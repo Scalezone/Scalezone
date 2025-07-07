@@ -1,0 +1,10 @@
+@media (max-width: 498px) {
+  /* Videos container */
+  .videos-container .cards-box .blog-card {
+    width: 100%;
+  }
+
+  .videos-container {
+    padding: 2rem 1rem;
+  }
+}
