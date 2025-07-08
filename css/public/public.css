@@ -159,3 +159,10 @@ input[type="number"] {
 .show-card .public-btn:hover {
   scale: 1;
 }
+
+@media (max-width: 1360px) {
+  body,
+  html {
+    font-size: 14px;
+  }
+}
