@@ -7,6 +7,8 @@ const mobileMenuToggle = document.querySelector(".hamburger");
 const mobileNavigationMenu = document.querySelector(".navbar");
 const navigationBar = document.querySelector(".header-container .bottom");
 const headerContainer = document.querySelector(".header-container");
+const loadingPage = document.querySelector(".loading");
+const bodyEle = document.body;
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > headerContainer.offsetHeight) {
@@ -14,6 +16,11 @@ window.addEventListener("scroll", () => {
   } else {
     removeElementVisiblity(navigationBar, "scroll");
   }
+});
+
+window.addEventListener("load", () => {
+  removeElementVisiblity(bodyEle, "load");
+  addElementVisiblity(loadingPage, "close");
 });
 
 /**
