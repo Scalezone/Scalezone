@@ -200,6 +200,10 @@ input[type="number"] {
   animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
+.loading .img svg {
+  width: 125px;
+}
+
 .loading-container .shadow {
   animation-name: bounceShadow;
   animation-duration: 1.2s;
