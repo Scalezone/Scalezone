@@ -16,6 +16,9 @@
   width: 10.375rem;
   height: 10.375rem;
   color: var(--secondary-color);
+}
+
+.hero-container .img .circle.animated-circle {
   animation: circle_animation 0.5s ease-in-out forwards;
 }
 

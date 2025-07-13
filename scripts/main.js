@@ -1,3 +1,26 @@
+const animatedElements = document.querySelectorAll(
+  ".hero .caption, .hero .title h1, .hero .text p, .hero .public-btn"
+);
+const animatedImage = document.querySelector(".hero .img img");
+const animatedCircle = document.querySelectorAll(".hero .img .circle");
+
+window.addEventListener("load", () => {
+  animatedElements.forEach((element) => {
+    addElementVisiblity(element, "animate__zoomInRight");
+  });
+
+  addElementVisiblity(animatedImage, "animate__jackInTheBox");
+  animatedCircle.forEach((circle) => {
+    addElementVisiblity(circle, "animated-circle");
+  });
+});
+
+function addElementVisiblity(element, className = "active") {
+  if (!element.classList.contains(className)) {
+    element.classList.add(className);
+  }
+}
+
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 3,
   spaceBetween: 30,
