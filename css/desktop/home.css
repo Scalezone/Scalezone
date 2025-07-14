@@ -1,3 +1,14 @@
+/* For Animation */
+.mission .content,
+.vision .content {
+  transform: translateX(-150%);
+}
+
+.mission .images,
+.vision .images {
+  transform: translateX(150%);
+}
+
 /* Hero Section */
 .hero-container {
   padding: 4rem 1rem;
@@ -356,6 +367,11 @@ section.services {
   border-radius: 1rem;
   color: var(--secondary-color);
   box-shadow: 5px 5px 15px var(--dark);
+  opacity: 0;
+}
+
+.features-container .cards .progress-card.animate__bounceInRight {
+  opacity: 1;
 }
 
 .features-container .cards .progress-card:nth-child(2),
@@ -367,12 +383,14 @@ section.services {
   left: 8%;
   top: 15%;
   z-index: 1;
+  animation-delay: 0.9s;
 }
 
 .features-container .cards .progress-card:nth-child(2) {
   right: 6%;
   top: 15%;
   z-index: 1;
+  animation-delay: 0.6s;
 }
 
 .features-container .cards .progress-card:nth-child(3) {
@@ -385,6 +403,7 @@ section.services {
   right: 1%;
   top: calc(15% + 15.375rem);
   z-index: 0;
+  animation-delay: 0.3s;
 }
 
 .features-container .cards .progress-card h3 {
