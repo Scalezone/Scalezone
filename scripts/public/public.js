@@ -10,12 +10,32 @@ const headerContainer = document.querySelector(".header-container");
 const loadingPage = document.querySelector(".loading");
 const bodyEle = document.body;
 
+// Select mission and vision section elements
+const leftElements = document.querySelectorAll(".left-side-animated");
+const rightElements = document.querySelectorAll(".right-side-animated");
+
 window.addEventListener("scroll", () => {
   if (window.scrollY > headerContainer.offsetHeight) {
     addElementVisiblity(navigationBar, "scroll");
   } else {
     removeElementVisiblity(navigationBar, "scroll");
   }
+
+  leftElements.forEach((e) => {
+    animateElementOnVisibility(
+      e,
+      "animate__lightSpeedInLeft",
+      isElementVisible(e, 25)
+    );
+  });
+
+  rightElements.forEach((e) => {
+    animateElementOnVisibility(
+      e,
+      "animate__lightSpeedInRight",
+      isElementVisible(e, 25)
+    );
+  });
 });
 
 window.addEventListener("load", () => {
@@ -64,5 +84,28 @@ function addElementVisiblity(element, className = "active") {
 function removeElementVisiblity(element, className = "active") {
   if (element.classList.contains(className)) {
     element.classList.remove(className);
+  }
+}
+
+/**
+ * Checks if the element is visible in the viewport with an offset
+ * @param {Element} element - DOM element to check
+ * @param {number} offset - Offset from bottom of viewport
+ * @returns {boolean} - True if visible, false otherwise
+ */
+function isElementVisible(element, offset) {
+  const rect = element.getBoundingClientRect();
+  return rect.top < window.innerHeight - offset;
+}
+
+/**
+ * Adds animation class to one element if visible
+ * @param {Element} element - DOM element
+ * @param {string} animationClass
+ * @param {boolean} isVisible
+ */
+function animateElementOnVisibility(element, animationClass, isVisible) {
+  if (isVisible) {
+    addElementVisiblity(element, animationClass);
   }
 }

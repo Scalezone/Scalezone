@@ -5,12 +5,6 @@ const heroCaptionElements = document.querySelectorAll(
 const heroImage = document.querySelector(".hero .img img");
 const heroCircleElements = document.querySelectorAll(".hero .img .circle");
 
-// Select mission and vision section elements
-const missionSectionContent = document.querySelector(".mission .content");
-const missionSectionImages = document.querySelector(".mission .images");
-const visionSectionContent = document.querySelector(".vision .content");
-const visionSectionImages = document.querySelector(".vision .images");
-
 // Select service and feature cards
 const serviceMainCards = document.querySelectorAll(".main-card");
 const featuresCardsContainer = document.querySelector(".features .cards");
@@ -33,30 +27,6 @@ window.addEventListener("load", () => {
 
 // Animate sections and cards on scroll
 window.addEventListener("scroll", function () {
-  animateElementOnVisibility(
-    missionSectionContent,
-    "animate__lightSpeedInLeft",
-    isElementVisible(missionSectionContent, 25)
-  );
-
-  animateElementOnVisibility(
-    missionSectionImages,
-    "animate__lightSpeedInRight",
-    isElementVisible(missionSectionImages, 25)
-  );
-
-  animateElementOnVisibility(
-    visionSectionContent,
-    "animate__lightSpeedInRight",
-    isElementVisible(visionSectionContent, 25)
-  );
-
-  animateElementOnVisibility(
-    visionSectionImages,
-    "animate__lightSpeedInLeft",
-    isElementVisible(visionSectionImages, 25)
-  );
-
   serviceMainCards.forEach((card) => {
     animateElementOnVisibility(
       card,
