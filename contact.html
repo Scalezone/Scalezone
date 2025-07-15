@@ -91,8 +91,10 @@
       crossorigin="anonymous"
     />
 
-    <!-- Custom JS for public scripts -->
-    <script src="scripts/public/public.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <!-- Custom CSS files for normalization and responsive design -->
     <link rel="stylesheet" href="css/public/normalize.css" />
@@ -356,10 +358,12 @@
       </div>
     </header>
 
-    <main id="hero" class="hero container">
-      <div class="hero-container row justify-content-center">
+    <main id="hero" class="hero overflow-hidden">
+      <div class="hero-container container mx-auto row justify-content-center">
         <!-- Left: Hero Image -->
-        <div class="image-container col-8 col-lg-6 mb-5 mb-lg-0">
+        <div
+          class="image-container left-side-animate animate__animated col-8 col-lg-6 mb-5 mb-lg-0"
+        >
           <picture>
             <!-- Responsive image for mobile -->
             <source
@@ -375,7 +379,9 @@
           </picture>
         </div>
         <!-- Right: Contact Form -->
-        <div class="text-side col-8 col-lg-6">
+        <div
+          class="text-side right-side-animate col-8 col-lg-6 animate__animated"
+        >
           <div class="top">
             <h1>We'd love to hear from you about your Amazon business.</h1>
             <p class="description">
@@ -986,7 +992,8 @@
       integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
       crossorigin="anonymous"
     ></script>
-
-    <script src="scripts/contact/script.js" defer></script>
+    <!-- Custom JS for public scripts -->
+    <script src="scripts/public/public.js"></script>
+    <script src="scripts/contact/script.js"></script>
   </body>
 </html>

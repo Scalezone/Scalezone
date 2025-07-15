@@ -10,9 +10,11 @@ const headerContainer = document.querySelector(".header-container");
 const loadingPage = document.querySelector(".loading");
 const bodyEle = document.body;
 
-// Select mission and vision section elements
 const leftElements = document.querySelectorAll(".left-side-animated");
 const rightElements = document.querySelectorAll(".right-side-animated");
+
+const leftElement = document.querySelector(".left-side-animate");
+const rightElement = document.querySelector(".right-side-animate");
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > headerContainer.offsetHeight) {
@@ -41,6 +43,9 @@ window.addEventListener("scroll", () => {
 window.addEventListener("load", () => {
   removeElementVisiblity(bodyEle, "load");
   addElementVisiblity(loadingPage, "close");
+
+  addElementVisiblity(leftElement, "animate__lightSpeedInLeft");
+  addElementVisiblity(rightElement, "animate__lightSpeedInRight");
 });
 
 /**
