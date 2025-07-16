@@ -13,9 +13,6 @@ const bodyEle = document.body;
 const leftElements = document.querySelectorAll(".left-side-animated");
 const rightElements = document.querySelectorAll(".right-side-animated");
 
-const leftElement = document.querySelector(".left-side-animate");
-const rightElement = document.querySelector(".right-side-animate");
-
 window.addEventListener("scroll", () => {
   if (window.scrollY > headerContainer.offsetHeight) {
     addElementVisiblity(navigationBar, "scroll");
@@ -43,9 +40,6 @@ window.addEventListener("scroll", () => {
 window.addEventListener("load", () => {
   removeElementVisiblity(bodyEle, "load");
   addElementVisiblity(loadingPage, "close");
-
-  addElementVisiblity(leftElement, "animate__lightSpeedInLeft");
-  addElementVisiblity(rightElement, "animate__lightSpeedInRight");
 });
 
 /**

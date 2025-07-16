@@ -1,6 +1,17 @@
+/* Animation style */
+.left-animate,
+.left-side-animated {
+  transform: translateX(-150%);
+}
+
+.right-animate,
+.right-side-animated {
+  transform: translateX(150%);
+}
+
 /* Hero Section */
 .hero {
-  padding: 5rem;
+  padding: 2rem 5rem 5rem;
 }
 
 /* Product Research Section */

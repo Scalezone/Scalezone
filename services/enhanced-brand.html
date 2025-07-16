@@ -23,6 +23,11 @@
       referrerpolicy="no-referrer"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <!-- Bootstrap 5 CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
@@ -299,9 +304,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero overflow-hidden">
       <div class="hero-container cw d-flex flex-column flex-lg-row gap-5">
-        <div class="img w-lg-50 w-100">
+        <div class="img left-animate animate__animated w-lg-50 w-100">
           <img
             src="../assets/services/enhanced-brand/hero.webp"
             alt="Amazon Enhanced Brand Content (EBC) and A+ Content services - Professional product page design and optimization"
@@ -309,7 +314,9 @@
           />
         </div>
 
-        <div class="getstarted-form w-lg-50 w-100 d-flex align-items-center">
+        <div
+          class="getstarted-form right-animate animate__animated w-lg-50 w-100 d-flex align-items-center"
+        >
           <!-- Right: Contact Form -->
           <div class="text-side">
             <div class="top text-lg-start text-center">
@@ -452,14 +459,14 @@
     </section>
 
     <!-- Product Research Section: Showcases our expertise in product research and supplier sourcing -->
-    <section class="product-research my-5">
+    <section class="product-research overflow-hidden my-5">
       <!-- Main container with responsive flex layout -->
       <div
         class="research-container cw d-flex flex-column-reverse flex-lg-row gap-5 p-4"
       >
         <!-- Text content side with responsive width and alignment -->
         <div
-          class="text-side d-flex flex-column gap-5 justify-content-center w-lg-50 w-100 text-lg-start text-center"
+          class="text-side left-side-animated animate__animated d-flex flex-column gap-5 justify-content-center w-lg-50 w-100 text-lg-start text-center"
         >
           <!-- Section title -->
           <div class="title">
@@ -493,7 +500,7 @@
         </div>
 
         <!-- Image side with responsive width -->
-        <div class="img w-lg-50 w-100">
+        <div class="img right-side-animated animate__animated w-lg-50 w-100">
           <img
             src="../assets/services/enhanced-brand/content.webp"
             alt="Amazon Enhanced Brand Content (EBC) and A+ Content services - Professional product page design and optimization"
@@ -503,44 +510,18 @@
       </div>
     </section>
 
-    <!-- Customers Section: Showcases customer logos -->
-    <section class="customers my-3 my-lg-5">
-      <div
-        class="customers-container cw d-flex justify-content-center flex-column gap-5 p-4 align-items-center"
-      >
-        <!-- Section Title -->
-        <div class="title">
-          <h2 class="">Our Customers</h2>
-        </div>
-
-        <!-- Customer Logos -->
-        <div
-          class="customers-bx d-flex justify-content-center align-items-center flex-wrap gap-4"
-        >
-          <div class="customer">
-            <img src="../assets/home/customer01.svg" alt="Customer Logo" />
-          </div>
-          <div class="customer">
-            <img src="../assets/home/customer02.svg" alt="Customer Logo" />
-          </div>
-          <div class="customer">
-            <img src="../assets/home/customer03.svg" alt="Customer Logo" />
-          </div>
-          <div class="customer">
-            <img src="../assets/home/customer04.svg" alt="Customer Logo" />
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ SECTION -->
-    <section id="faq" class="faq container my-5">
-      <h2 class="secondary-heading text-center mb-5">How We Can Help You?</h2>
+    <section id="faq" class="faq overflow-hidden my-5">
+      <h2 class="secondary-heading text-center mx-auto mb-5">
+        How We Can Help You?
+      </h2>
       <div
-        class="faq-container row align-items-center justify-content-center justify-self-center gx-5"
+        class="faq-container container mx-auto row align-items-center justify-content-center justify-self-center gx-5"
       >
         <!-- Left Column: FAQ Illustration Image -->
-        <div class="image-side col-8 col-md-6">
+        <div
+          class="image-side left-side-animated animate__animated col-8 col-md-6"
+        >
           <picture>
             <source
               srcset="../assets/about us/faq image mobile.webp"
@@ -553,7 +534,9 @@
           </picture>
         </div>
         <!-- Right Column: FAQ Accordion -->
-        <div class="text-side col-9 col-md-6">
+        <div
+          class="text-side right-side-animated animate__animated col-9 col-md-6"
+        >
           <div class="accordion" id="accordionPanelsStayOpenExample">
             <!-- FAQ Item 1: A+ Content vs EBC Difference -->
             <div
@@ -653,22 +636,22 @@
             <div
               class="accordion-item how-long-does-it-take-to-complete-the-account-setup-process"
             >
-              <h3 class="accordion-header" id="panelsStayOpen-headingThree">
+              <h3 class="accordion-header" id="panelsStayOpen-headingFour">
                 <button
                   class="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#panelsStayOpen-collapseThree"
+                  data-bs-target="#panelsStayOpen-collapseFour"
                   aria-expanded="false"
-                  aria-controls="panelsStayOpen-collapseThree"
+                  aria-controls="panelsStayOpen-collapseFour"
                 >
                   Can you design A+ Content that matches my brand identity?
                 </button>
               </h3>
               <div
-                id="panelsStayOpen-collapseThree"
+                id="panelsStayOpen-collapseFour"
                 class="accordion-collapse collapse"
-                aria-labelledby="panelsStayOpen-headingThree"
+                aria-labelledby="panelsStayOpen-headingFour"
               >
                 <div class="accordion-body">
                   <p class="description">
@@ -684,22 +667,22 @@
             <div
               class="accordion-item how-long-does-it-take-to-complete-the-account-setup-process"
             >
-              <h3 class="accordion-header" id="panelsStayOpen-headingThree">
+              <h3 class="accordion-header" id="panelsStayOpen-headingFive">
                 <button
                   class="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#panelsStayOpen-collapseThree"
+                  data-bs-target="#panelsStayOpen-collapseFive"
                   aria-expanded="false"
-                  aria-controls="panelsStayOpen-collapseThree"
+                  aria-controls="panelsStayOpen-collapseFive"
                 >
                   How long does it take to create and publish A+ Content?
                 </button>
               </h3>
               <div
-                id="panelsStayOpen-collapseThree"
+                id="panelsStayOpen-collapseFive"
                 class="accordion-collapse collapse"
-                aria-labelledby="panelsStayOpen-headingThree"
+                aria-labelledby="panelsStayOpen-headingFive"
               >
                 <div class="accordion-body">
                   <p class="description">
@@ -887,5 +870,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="../scripts/public/public.js"></script>
+    <script src="../scripts/services/services.js"></script>
   </body>
 </html>
