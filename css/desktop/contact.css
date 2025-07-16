@@ -84,3 +84,17 @@ input[type="number"] {
 .invalid-feedback {
   color: #721c24;
 }
+
+.modal-backdrop {
+  display: none;
+}
+
+.modal .btn:nth-child(2) {
+  background-color: var(--primary-color);
+  border: none;
+  outline: none;
+}
+
+body {
+  overflow: unset !important;
+}
