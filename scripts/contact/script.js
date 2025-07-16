@@ -1,3 +1,6 @@
+const leftElement = document.querySelector(".left-side-animate");
+const rightElement = document.querySelector(".right-side-animate");
+
 document.addEventListener("DOMContentLoaded", function () {
   // Form elements
   const form = document.querySelector("form");
@@ -167,3 +170,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+window.addEventListener("load", () => {
+  addAnimationClassToElement(leftElement, "animate__bounceInLeft");
+  addAnimationClassToElement(rightElement, "animate__bounceInRight");
+});
+
+/**
+ * Adds a class to an element if not already present
+ * @param {Element} element - DOM element
+ * @param {string} className
+ */
+function addAnimationClassToElement(element, className = "active") {
+  if (!element.classList.contains(className)) {
+    element.classList.add(className);
+  }
+}
