@@ -568,29 +568,31 @@
 
         <!-- Mission Images -->
         <div
-          class="images right-side-animated position-relative w-100 w-lg-50 h-100 animate__animated"
+          class="video right-side-animated position-relative w-100 w-lg-50 h-100 animate__animated align-items-center justify-content-center d-flex"
         >
-          <div class="mission-img position-absolute">
-            <img
-              src="assets/home/mission01.webp"
-              alt="Amazon seller account setup and management services"
-              loading="lazy"
-            />
-          </div>
-          <div class="mission-img position-absolute">
-            <img
-              src="assets/home/mission02.webp"
-              alt="Product listing optimization and Amazon SEO services"
-              loading="lazy"
-            />
-          </div>
-          <div class="mission-img position-absolute">
-            <img
-              src="assets/home/mission03.webp"
-              alt="A+ content design and enhanced brand content services"
-              loading="lazy"
-            />
-          </div>
+          <!-- Desktop Version -->
+          <video
+            class="video-desktop d-lg-block d-none"
+            autoplay
+            muted
+            loop
+            playsinline
+          >
+            <source src="assets/home/mission.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+
+          <!-- Mobile Version -->
+          <video
+            class="video-mobile d-lg-none d-block"
+            autoplay
+            muted
+            loop
+            playsinline
+          >
+            <source src="assets/home/mission-mobile.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </section>

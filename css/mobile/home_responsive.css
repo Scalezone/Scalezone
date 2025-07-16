@@ -40,31 +40,8 @@
   }
 
   /* Mission Section */
-  .mission-container .images {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: unset;
-  }
-
-  .mission-container .images .mission-img {
-    position: relative !important;
-    right: 0 !important;
-    left: 0 !important;
-    top: 0 !important;
-    bottom: 0 !important;
-    transform: unset !important;
-    width: 75%;
-    max-height: 25rem;
-  }
-
-  .mission-container .images .mission-img:nth-child(1) {
-    max-width: unset !important;
-  }
-
-  .mission-container .images .mission-img:nth-child(2),
-  .mission-container .images .mission-img:nth-child(3) {
-    display: none;
+  .mission-container .video video {
+    width: 60%;
   }
 
   .mission-container .content {
@@ -175,6 +152,11 @@
 
   .testimonials-container .testimonials-box .content-slide {
     margin: 0 !important;
+  }
+
+  /* Mission Section */
+  .mission-container .video video {
+    width: unset;
   }
 }
 

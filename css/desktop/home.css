@@ -162,33 +162,10 @@
   letter-spacing: 0.5px;
 }
 
-.mission-container .images {
-  min-height: 50dvh;
-}
-.mission-container .images .mission-img {
-  max-width: 19rem;
+.mission-container .video video {
+  width: 100%;
   border-radius: 1rem;
   overflow: hidden;
-}
-
-.mission-container .images .mission-img:nth-child(1) {
-  z-index: -1;
-  top: 5%;
-  left: 4%;
-  max-width: 21rem !important;
-}
-
-.mission-container .images .mission-img:nth-child(2) {
-  z-index: 1;
-  right: 5%;
-  top: -10%;
-}
-
-.mission-container .images .mission-img:nth-child(3) {
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  z-index: 0;
 }
 
 /* Services section */
