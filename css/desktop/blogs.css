@@ -3,6 +3,11 @@
   padding: 1rem 1rem 2rem;
 }
 
+.hero-container.left-animate,
+.hero-container.right-animate {
+  opacity: 0;
+}
+
 .hero-container .content .title h1 {
   font-size: 3em;
 }
@@ -44,4 +49,13 @@ section.hero .circle-02 {
 .blogs-container p,
 .blogs-container h2 {
   margin: 0;
+}
+
+.blogs-container .blog-card {
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.blogs-container .blog-card.animate__jello {
+  opacity: 1;
 }

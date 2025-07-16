@@ -49,6 +49,11 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://scalezone.ae/" />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <!-- Google Fonts: Poppins and DM Serif Display -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -356,14 +361,14 @@
     </header>
 
     <!-- Hero Section: Main banner with image, statistics, and intro text -->
-    <main class="mb-5">
+    <main class="mb-5 overflow-hidden">
       <section class="hero my-5 position-relative" id="hero">
         <div
           class="hero-container cw d-flex flex-column flex-lg-row gap-5 justify-content-between"
         >
           <!-- Hero Content: Title and Description -->
           <div
-            class="content w-lg-50 d-flex flex-column justify-content-center w-100"
+            class="content left-animate animate__animated w-lg-50 d-flex flex-column justify-content-center w-100"
           >
             <div class="title">
               <h3 class="caption">ScaleZone</h3>
@@ -385,7 +390,9 @@
           </div>
 
           <!-- Hero Image and Statistics Circles -->
-          <div class="img w-lg-50 card-clip w-100">
+          <div
+            class="img right-animate animate__animated w-lg-50 card-clip w-100"
+          >
             <img src="assets/blogs/hero.webp" alt="Hero Image" loading="lazy" />
           </div>
         </div>
@@ -407,7 +414,9 @@
         <div
           class="cards-box d-flex gap-5 flex-wrap justify-content-center align-items-center"
         >
-          <div class="show-card blog-card d-flex flex-column gap-4">
+          <div
+            class="show-card blog-card animate__animated d-flex flex-column gap-4"
+          >
             <div class="img">
               <img src="assets/blogs/blog-01.webp" alt="Blog Image 1" />
             </div>
@@ -437,7 +446,9 @@
             </div>
           </div>
 
-          <div class="show-card blog-card d-flex flex-column gap-4">
+          <div
+            class="show-card blog-card animate__animated d-flex flex-column gap-4"
+          >
             <div class="img">
               <img src="assets/blogs/blog-02.webp" alt="Blog Image 2" />
             </div>
@@ -473,7 +484,9 @@
             </div>
           </div>
 
-          <div class="show-card blog-card d-flex flex-column gap-4">
+          <div
+            class="show-card blog-card animate__animated d-flex flex-column gap-4"
+          >
             <div class="img">
               <img src="assets/blogs/blog-03.webp" alt="Blog Image 3" />
             </div>
@@ -508,7 +521,9 @@
             </div>
           </div>
 
-          <div class="show-card blog-card d-flex flex-column gap-4">
+          <div
+            class="show-card blog-card animate__animated d-flex flex-column gap-4"
+          >
             <div class="img">
               <img src="assets/blogs/blog-04.webp" alt="Blog Image 4" />
             </div>
@@ -539,7 +554,9 @@
             </div>
           </div>
 
-          <div class="show-card blog-card d-flex flex-column gap-4">
+          <div
+            class="show-card blog-card animate__animated d-flex flex-column gap-4"
+          >
             <div class="img">
               <img src="assets/blogs/blog-05.webp" alt="Blog Image 5" />
             </div>
@@ -572,7 +589,9 @@
             </div>
           </div>
 
-          <div class="show-card blog-card d-flex flex-column gap-4">
+          <div
+            class="show-card blog-card animate__animated d-flex flex-column gap-4"
+          >
             <div class="img">
               <img src="assets/blogs/blog-06.webp" alt="Blog Image 6" />
             </div>
@@ -605,7 +624,9 @@
             </div>
           </div>
 
-          <div class="show-card blog-card d-flex flex-column gap-4">
+          <div
+            class="show-card blog-card animate__animated d-flex flex-column gap-4"
+          >
             <div class="img">
               <img src="assets/blogs/blog-07.webp" alt="Blog Image 7" />
             </div>
@@ -808,5 +829,6 @@
     </footer>
 
     <script src="scripts/public/public.js"></script>
+    <script src="scripts/blogs/blogs.js"></script>
   </body>
 </html>
