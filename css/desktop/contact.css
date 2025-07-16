@@ -97,4 +97,5 @@ input[type="number"] {
 
 body {
   overflow: unset !important;
+  padding-right: 0 !important;
 }
