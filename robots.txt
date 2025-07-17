@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Disallow admin or sensitive areas (if any)
+# Disallow admin or sensitive areas
 Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
@@ -14,6 +14,3 @@ Allow: /services/
 
 # Sitemap location
 Sitemap: https://scalezone.ae/sitemap.xml
-
-# Crawl delay (optional - helps with server load)
-Crawl-delay: 1
