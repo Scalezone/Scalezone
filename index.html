@@ -81,24 +81,66 @@
       rel="stylesheet"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
+      media="print"
+      onload="this.media='all'"
     />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      media="print"
+      onload="this.media='all'"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      media="print"
+      onload="this.media='all'"
     />
-    <link rel="stylesheet" href="css/public/normalize.css" />
-    <link rel="stylesheet" href="css/public/public.css" />
-    <link rel="stylesheet" href="css/public/header.css" />
-    <link rel="stylesheet" href="css/public/footer.css" />
-    <link rel="stylesheet" href="css/desktop/home.css" />
-    <link rel="stylesheet" href="css/mobile/home_responsive.css" />
-    <link rel="stylesheet" href="css/mobile/header_footer_resp.css" />
+    <link
+      rel="stylesheet"
+      href="css/public/normalize.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/public/public.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/public/header.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/public/footer.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/desktop/home.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/mobile/home_responsive.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="css/mobile/header_footer_resp.css"
+      media="print"
+      onload="this.media='all'"
+    />
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="assets/public/icon.webp" />
+    <link rel="preload" as="image" href="hero.webp" type="image/webp" />
 
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
@@ -1836,8 +1878,11 @@
       </div>
     </footer>
 
-    <script src="scripts/public/public.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/public/public.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+      defer
+    ></script>
+    <script src="scripts/main.js" defer></script>
   </body>
 </html>
