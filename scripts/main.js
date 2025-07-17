@@ -54,13 +54,13 @@ window.addEventListener("scroll", function () {
 
 // Swiper carousel initialization
 var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 3,
-  spaceBetween: 30,
+  slidesPerView: 2,
+  spaceBetween: 10,
   loop: true,
   centerSlide: true,
   fade: true,
   grabCursor: true,
-  autoplay: true,
+  // autoplay: true,
   speed: 1000,
   pagination: {
     el: ".swiper-pagination",
@@ -75,11 +75,8 @@ var swiper = new Swiper(".mySwiper", {
     0: {
       slidesPerView: 1,
     },
-    780: {
+    850: {
       slidesPerView: 2,
-    },
-    950: {
-      slidesPerView: 3,
     },
   },
 });

@@ -204,6 +204,50 @@
   .services-container {
     padding: 1rem !important;
   }
+
+  /* Testimonials */
+  .testimonials-container .testimonials-box .card-wrapper .rev-card .stars {
+    padding: 1rem 2.25rem;
+  }
+
+  .testimonials-container
+    .testimonials-box
+    .card-wrapper
+    .rev-card
+    .content
+    .rev
+    p {
+    margin: 1.5rem 0;
+    font-size: 1.125rem;
+  }
+
+  .testimonials-container
+    .testimonials-box
+    .card-wrapper
+    .rev-card
+    .content
+    .rev
+    i:first-child {
+    top: -1.5rem;
+  }
+
+  .testimonials-container
+    .testimonials-box
+    .card-wrapper
+    .rev-card
+    .content
+    .rev
+    i:last-child {
+    bottom: -1.5rem;
+  }
+
+  .testimonials-container .testimonials-box .card-wrapper .rev-card::after {
+    height: 17rem;
+  }
+
+  .testimonials-container .testimonials-box .card-wrapper .rev-card .stars i {
+    font-size: 1.125rem;
+  }
 }
 
 @media (max-width: 380px) {

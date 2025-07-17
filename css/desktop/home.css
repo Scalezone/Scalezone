@@ -420,19 +420,52 @@ section.services {
   margin: 0 2.75rem;
   overflow: hidden;
 }
+
 .testimonials-container .testimonials-box .card-wrapper .rev-card {
-  margin: 0 !important;
-  background-color: var(--second-background);
-  padding: 1.875rem 1rem;
+  background-color: var(--white);
+  padding: 5rem 1rem 1rem;
+  border-radius: 1rem;
+  border: 6px solid var(--second-background);
+  overflow: hidden;
 }
 
-.testimonials-container .testimonials-box .card-wrapper .rev-card .stars p,
+.testimonials-container .testimonials-box .card-wrapper .rev-card::after {
+  content: "";
+  position: absolute;
+  width: 110%;
+  height: 18rem;
+  background: var(--primary-color);
+  border-radius: 50%;
+  top: -9rem;
+  z-index: -1;
+}
+
+.testimonials-container .testimonials-box .card-wrapper .rev-card .stars {
+  padding: 1.5rem 3.25rem;
+  border-radius: 1rem;
+  background: linear-gradient(0deg, var(--second-color), #fcb637);
+  box-shadow: 3px -2px 5px #0000001a;
+}
+
+.testimonials-container
+  .testimonials-box
+  .card-wrapper
+  .rev-card
+  .stars::after {
+  content: "";
+  position: absolute;
+  width: 95%;
+  height: 90%;
+  top: 5%;
+  right: 2.5%;
+  border-top: 2px solid #ffed47;
+  border-right: 2px solid #ffed47;
+  border-radius: 0.8rem;
+}
+
 .testimonials-container .testimonials-box .card-wrapper .rev-card .stars i {
   font-size: 1.5rem;
-}
-
-.testimonials-container .testimonials-box .card-wrapper .rev-card .stars i {
-  color: var(--primary-color);
+  color: var(--white);
 }
 
 .testimonials-container
@@ -440,14 +473,65 @@ section.services {
   .card-wrapper
   .rev-card
   .content
-  p:nth-child(1),
+  .rev {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .testimonials-container
   .testimonials-box
   .card-wrapper
   .rev-card
   .content
+  .rev
+  p {
+  font-size: 1.25rem;
+  margin: 2rem 0;
+}
+
+.testimonials-container
+  .testimonials-box
+  .card-wrapper
+  .rev-card
+  .content
+  .rev
+  i {
+  font-size: 2.75rem;
+  color: var(--third-color);
+  text-align: start;
+}
+
+.testimonials-container
+  .testimonials-box
+  .card-wrapper
+  .rev-card
+  .content
+  .rev
+  i:first-child {
+  left: 5px;
+  top: -2rem;
+}
+
+.testimonials-container
+  .testimonials-box
+  .card-wrapper
+  .rev-card
+  .content
+  .rev
+  i:last-child {
+  right: 5px;
+  bottom: 0;
+}
+
+.testimonials-container
+  .testimonials-box
+  .card-wrapper
+  .rev-card
+  .content
+  .client
   .caption {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
 }
 
 .testimonials-container
@@ -455,9 +539,10 @@ section.services {
   .card-wrapper
   .rev-card
   .content
-  p:not(:first-child) {
-  margin-top: 1rem;
-  margin-bottom: 0;
+  .client
+  p {
+  font-size: 1.125rem;
+  margin: 0;
 }
 
 .testimonials-container .testimonials-box .swiper-btn {
