@@ -12,6 +12,7 @@ const featuresProgressCardsTop = document.querySelectorAll(".progress-card.up");
 const featuresProgressCardsBottom = document.querySelectorAll(
   ".progress-card.down"
 );
+const clientsName = document.querySelectorAll(".rev-card .caption");
 
 // Animate hero section elements on page load
 window.addEventListener("load", () => {
@@ -60,7 +61,7 @@ var swiper = new Swiper(".mySwiper", {
   centerSlide: true,
   fade: true,
   grabCursor: true,
-  autoplay: true,
+  // autoplay: true,
   speed: 1000,
   pagination: {
     el: ".swiper-pagination",
@@ -113,4 +114,29 @@ function addAnimationClassToElement(element, className = "active") {
   if (!element.classList.contains(className)) {
     element.classList.add(className);
   }
+}
+
+// Mask client names by replacing all letters except the first two with asterisks
+clientsName.forEach((e) => {
+  e.textContent = replaceLetters(e.textContent);
+});
+
+/**
+ * Replaces all letters in a word except the first two with asterisks
+ * @param {string} word - The word to mask
+ * @returns {string} - Masked word
+ */
+function replaceLetters(word) {
+  let letters = word.split("");
+  let replacedLetters = [];
+
+  for (let i = 0; i < letters.length; i++) {
+    if (i < 2) {
+      replacedLetters[i] = letters[i];
+    } else {
+      replacedLetters[i] = "*";
+    }
+  }
+
+  return replacedLetters.join("");
 }

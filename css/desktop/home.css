@@ -422,11 +422,11 @@ section.services {
 }
 
 .testimonials-container .testimonials-box .card-wrapper .rev-card {
-  background-color: var(--white);
   padding: 5rem 1rem 1rem;
   border-radius: 1rem;
   border: 6px solid var(--second-background);
   overflow: hidden;
+  aspect-ratio: 5 / 4;
 }
 
 .testimonials-container .testimonials-box .card-wrapper .rev-card::after {
@@ -438,6 +438,10 @@ section.services {
   border-radius: 50%;
   top: -9rem;
   z-index: -1;
+}
+
+.testimonials-container .testimonials-box .card-wrapper .rev-card .content {
+  height: 100%;
 }
 
 .testimonials-container .testimonials-box .card-wrapper .rev-card .stars {
