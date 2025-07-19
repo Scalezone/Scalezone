@@ -1,0 +1,30 @@
+section.hero .hero-container {
+  padding: 3rem 2rem 2rem;
+}
+
+.hero-container .text-bx p {
+  margin-bottom: 0;
+}
+
+.cw {
+  padding: 2rem;
+}
+
+.terms-container ol .term li:not(ul li) {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.terms-container .contact p {
+  margin-bottom: 0;
+}
+
+.terms-container .contact a {
+  color: var(--main-text-color);
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.terms-container .contact a:hover {
+  color: var(--hover-color);
+}
