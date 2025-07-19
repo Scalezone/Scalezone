@@ -19,12 +19,12 @@ section.hero .hero-container {
   margin-bottom: 0;
 }
 
-.terms-container .contact a {
+a {
   color: var(--main-text-color);
   text-decoration: none;
   transition: 0.3s ease;
 }
 
-.terms-container .contact a:hover {
+a:hover {
   color: var(--hover-color);
 }
