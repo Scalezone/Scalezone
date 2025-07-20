@@ -14,7 +14,8 @@ header {
 }
 
 .header-container .top a:hover,
-.header-container .bottom .navbar nav a:hover {
+.header-container .bottom .navbar nav a:hover,
+.header-container .bottom .navbar nav button:hover {
   color: var(--hover-color);
 }
 
@@ -93,12 +94,14 @@ header {
   gap: 2rem;
 }
 
-.header-container .bottom .navbar nav a {
+.header-container .bottom .navbar nav a,
+.header-container .bottom .navbar nav button {
   letter-spacing: 1px;
   color: var(--main-text-color);
   font-weight: 500;
   transition: 0.3s ease;
   cursor: pointer;
+  background-color: transparent;
 }
 
 .header-container .bottom .navbar .dropdown-services .services-menu {
