@@ -25,6 +25,10 @@
     margin-top: 5rem;
   }
 
+  .hero-container .img img {
+    width: 100%;
+  }
+
   .hero-container {
     align-items: center;
   }
