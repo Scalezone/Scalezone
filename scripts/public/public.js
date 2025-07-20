@@ -57,9 +57,9 @@ window.addEventListener("load", () => {
   removeElementVisiblity(bodyEle, "load");
   addElementVisiblity(loadingPage, "close");
 
-  setTimeout(() => {
-    loadingPage.remove();
-  }, 400);
+  // setTimeout(() => {
+  //   loadingPage.remove();
+  // }, 400);
 });
 
 /**
