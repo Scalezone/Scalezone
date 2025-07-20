@@ -20,6 +20,10 @@
   opacity: 1;
 }
 
+.swiper-slide {
+  will-change: transform;
+}
+
 /* Hero Section */
 .hero-container {
   padding: 4rem 1rem;

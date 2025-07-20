@@ -24,6 +24,35 @@ window.addEventListener("load", () => {
   heroCircleElements.forEach((circle) => {
     addAnimationClassToElement(circle, "animated-circle");
   });
+
+  // Swiper carousel initialization
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 2,
+    spaceBetween: 10,
+    loop: true,
+    centerSlide: true,
+    fade: true,
+    grabCursor: true,
+    autoplay: true,
+    speed: 1000,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      850: {
+        slidesPerView: 2,
+      },
+    },
+  });
 });
 
 // Animate sections and cards on scroll
@@ -51,35 +80,6 @@ window.addEventListener("scroll", function () {
       isElementVisible(featuresCardsContainer, 100)
     );
   });
-});
-
-// Swiper carousel initialization
-var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 2,
-  spaceBetween: 10,
-  loop: true,
-  centerSlide: true,
-  fade: true,
-  grabCursor: true,
-  autoplay: true,
-  speed: 1000,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    dynamicBullets: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-    850: {
-      slidesPerView: 2,
-    },
-  },
 });
 
 /**
