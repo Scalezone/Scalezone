@@ -19,8 +19,6 @@ leftElements.forEach((e) => {
     "animate__lightSpeedInLeft",
     isElementVisible(e, 25)
   );
-
-  console.log(e);
 });
 
 rightElements.forEach((e) => {
