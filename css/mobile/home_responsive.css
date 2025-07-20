@@ -133,6 +133,11 @@
   .cta-container {
     width: 90%;
   }
+
+  /* Testimonials */
+  .testimonials-container .testimonials-box .card-wrapper .rev-card {
+    aspect-ratio: 4 / 3;
+  }
 }
 
 @media (max-width: 680px) {
@@ -168,6 +173,11 @@
   /* Services Section */
   .services-container .services-cards .t-services .service-line {
     left: 0 !important;
+  }
+
+  /* Testimonials */
+  .testimonials-container .testimonials-box .card-wrapper .rev-card {
+    aspect-ratio: 6 / 5;
   }
 }
 
@@ -210,6 +220,10 @@
   }
 
   /* Testimonials */
+  .testimonials-container .testimonials-box .card-wrapper .rev-card {
+    aspect-ratio: 6 / 6;
+  }
+
   .testimonials-container .testimonials-box .card-wrapper .rev-card .stars {
     padding: 1rem 2.25rem;
   }
@@ -277,5 +291,17 @@
   /* Features Section */
   .features-container {
     padding: 1rem !important;
+  }
+
+  /* Testimonials */
+  .testimonials-container .testimonials-box .card-wrapper .rev-card {
+    aspect-ratio: 6 / 7;
+  }
+}
+
+@media (max-width: 350px) {
+  /* Testimonials */
+  .testimonials-container .testimonials-box .card-wrapper .rev-card {
+    aspect-ratio: 6 / 8;
   }
 }
