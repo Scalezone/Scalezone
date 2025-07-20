@@ -1,12 +1,23 @@
 /* For Animation */
 .mission .content,
-.vision .content {
+.vision .images {
   transform: translateX(-150%);
+  opacity: 0;
+  transition: 0.3s ease;
 }
 
 .mission .images,
-.vision .images {
+.vision .content {
   transform: translateX(150%);
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.mission .content.animate__lightSpeedInLeft,
+.vision .images.animate__lightSpeedInLeft,
+.mission .images.animate__lightSpeedInRight,
+.vision .content.animate__lightSpeedInRight {
+  opacity: 1;
 }
 
 /* Hero Section */

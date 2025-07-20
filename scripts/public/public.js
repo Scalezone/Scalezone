@@ -13,6 +13,24 @@ const bodyEle = document.body;
 const leftElements = document.querySelectorAll(".left-side-animated");
 const rightElements = document.querySelectorAll(".right-side-animated");
 
+leftElements.forEach((e) => {
+  animateElementOnVisibility(
+    e,
+    "animate__lightSpeedInLeft",
+    isElementVisible(e, 25)
+  );
+
+  console.log(e);
+});
+
+rightElements.forEach((e) => {
+  animateElementOnVisibility(
+    e,
+    "animate__lightSpeedInRight",
+    isElementVisible(e, 25)
+  );
+});
+
 window.addEventListener("scroll", () => {
   if (window.scrollY > headerContainer.offsetHeight) {
     addElementVisiblity(navigationBar, "scroll");
