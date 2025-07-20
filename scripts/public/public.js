@@ -56,6 +56,10 @@ window.addEventListener("scroll", () => {
 window.addEventListener("load", () => {
   removeElementVisiblity(bodyEle, "load");
   addElementVisiblity(loadingPage, "close");
+
+  setTimeout(() => {
+    loadingPage.remove();
+  }, 400);
 });
 
 /**

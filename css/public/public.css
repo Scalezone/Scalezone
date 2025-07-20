@@ -169,6 +169,8 @@ input[type="number"] {
 
 /* LOADING PAGE */
 .loading {
+  width: 100vw;
+  height: 100vh;
   z-index: 99999999999;
   background: linear-gradient(45deg, var(--second-color) -100%, #ffffff);
   left: 0;
