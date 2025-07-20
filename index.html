@@ -82,7 +82,12 @@
       media="print"
       onload="this.media='all'"
     />
-    <link href="css/public/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="css/public/bootstrap.min.css"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -98,7 +103,13 @@
     <link rel="stylesheet" href="css/public/normalize.css" />
     <link rel="stylesheet" href="css/public/public.css" />
     <link rel="stylesheet" href="css/public/header.css" />
-    <link rel="stylesheet" href="css/public/footer.css" />
+    <link
+      rel="stylesheet"
+      href="css/public/footer.css"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
     <link rel="stylesheet" href="css/desktop/home.css" />
     <link rel="stylesheet" href="css/mobile/home_responsive.css" />
     <link rel="stylesheet" href="css/mobile/header_footer_resp.css" />
@@ -127,6 +138,9 @@
         ]
       }
     </script>
+    <noscript
+      ><link rel="stylesheet" href="/public/bootstrap.min.css"
+    /></noscript>
 
     <meta
       name="google-site-verification"
