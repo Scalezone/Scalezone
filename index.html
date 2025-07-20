@@ -112,7 +112,11 @@
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <link rel="stylesheet" href="css/desktop/home.css" />
-    <link rel="stylesheet" href="css/mobile/home_responsive.css" />
+    <link
+      rel="preload"
+      href="css/mobile/home_responsive.css"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
     <link rel="stylesheet" href="css/mobile/header_footer_resp.css" />
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="assets/public/icon.webp" />
@@ -139,9 +143,13 @@
         ]
       }
     </script>
-    <noscript
-      ><link rel="stylesheet" href="/public/bootstrap.min.css"
-    /></noscript>
+    <noscript>
+      <link rel="stylesheet" href="css/public/bootstrap.min.css" />
+    </noscript>
+
+    <noscript>
+      <link rel="stylesheet" href="css/mobile/home_responsive.css" />
+    </noscript>
 
     <meta
       name="google-site-verification"
