@@ -25,7 +25,8 @@
     top: 15%;
   }
 
-  .header-container .bottom .navbar .dropdown-services .services-menu {
+  .header-container .bottom .navbar .dropdown-services .services-menu,
+  .header-container .bottom .navbar .dropdown-resources .resources-menu {
     right: 0;
     left: unset;
     max-height: 25rem;
@@ -89,6 +90,10 @@
     width: 22rem;
   }
 
+  .header-container .bottom .navbar .dropdown-resources .resources-menu {
+    right: -3rem;
+  }
+
   .header-container .bottom .navbar {
     right: 1rem;
     min-width: 20rem;
@@ -116,6 +121,10 @@
 
   .header-container .bottom .navbar .dropdown-services .services-menu {
     width: 19rem;
+    right: -1rem;
+  }
+
+  .header-container .bottom .navbar .dropdown-resources .resources-menu {
     right: -1rem;
   }
 }

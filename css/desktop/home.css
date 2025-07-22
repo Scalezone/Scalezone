@@ -428,17 +428,13 @@ section.services {
 }
 
 /* Testimonials */
-.testimonials-container.cw {
-  max-width: 1260px;
-}
-
 .testimonials-container .testimonials-box .content-slide {
   margin: 0 2.75rem;
   overflow: hidden;
 }
 
 .testimonials-container .testimonials-box .card-wrapper .rev-card {
-  padding: 5rem 1rem 1rem;
+  padding: 4rem 1rem 1rem;
   border-radius: 1rem;
   border: 6px solid var(--second-background);
   overflow: hidden;
@@ -448,11 +444,11 @@ section.services {
 .testimonials-container .testimonials-box .card-wrapper .rev-card::after {
   content: "";
   position: absolute;
-  width: 110%;
+  width: 120%;
   height: 18rem;
   background: var(--primary-color);
   border-radius: 50%;
-  top: -9rem;
+  top: -11rem;
   z-index: -1;
 }
 
@@ -461,7 +457,7 @@ section.services {
 }
 
 .testimonials-container .testimonials-box .card-wrapper .rev-card .stars {
-  padding: 1.5rem 3.25rem;
+  padding: 1rem 2rem;
   border-radius: 1rem;
   background: linear-gradient(0deg, var(--second-color), #fcb637);
   box-shadow: 3px -2px 5px #0000001a;
@@ -484,18 +480,8 @@ section.services {
 }
 
 .testimonials-container .testimonials-box .card-wrapper .rev-card .stars i {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--white);
-}
-
-.testimonials-container
-  .testimonials-box
-  .card-wrapper
-  .rev-card
-  .content
-  .rev {
-  width: 90%;
-  margin: 0 auto;
 }
 
 .testimonials-container
@@ -505,8 +491,8 @@ section.services {
   .content
   .rev
   p {
-  font-size: 1.25rem;
-  margin: 2rem 0;
+  font-size: 1rem;
+  margin: 1rem 0;
 }
 
 .testimonials-container
@@ -540,7 +526,7 @@ section.services {
   .rev
   i:last-child {
   right: 5px;
-  bottom: 0;
+  bottom: -1.5rem;
 }
 
 .testimonials-container

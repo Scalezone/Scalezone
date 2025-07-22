@@ -15,6 +15,11 @@
   .services-container .services-cards .t-services {
     gap: 1.5rem !important;
   }
+
+  /* Testimonials */
+  .testimonials-container .testimonials-box .card-wrapper .rev-card {
+    aspect-ratio: 6 / 4;
+  }
 }
 
 @media (max-width: 992px) {
@@ -138,6 +143,21 @@
   .testimonials-container .testimonials-box .card-wrapper .rev-card {
     aspect-ratio: 4 / 3;
   }
+
+  .testimonials-container .testimonials-box .card-wrapper .rev-card {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .testimonials-container .testimonials-box .card-wrapper .rev-card::after {
+    top: -13rem;
+    width: 135%;
+  }
+}
+
+@media (max-width: 800px) {
+  .testimonials-container .testimonials-box .card-wrapper .rev-card {
+    aspect-ratio: 7 / 3;
+  }
 }
 
 @media (max-width: 680px) {
@@ -177,7 +197,7 @@
 
   /* Testimonials */
   .testimonials-container .testimonials-box .card-wrapper .rev-card {
-    aspect-ratio: 6 / 5;
+    aspect-ratio: 6 / 3.8;
   }
 }
 
@@ -221,7 +241,7 @@
 
   /* Testimonials */
   .testimonials-container .testimonials-box .card-wrapper .rev-card {
-    aspect-ratio: 6 / 6;
+    aspect-ratio: 6 / 5;
   }
 
   .testimonials-container .testimonials-box .card-wrapper .rev-card .stars {
@@ -265,6 +285,14 @@
 
   .testimonials-container .testimonials-box .card-wrapper .rev-card .stars i {
     font-size: 1.125rem;
+  }
+
+  .testimonials-container .testimonials-box .card-wrapper .rev-card {
+    padding: 3rem 1rem 1rem;
+  }
+
+  .testimonials-container .testimonials-box .card-wrapper .rev-card::after {
+    top: -12rem;
   }
 }
 

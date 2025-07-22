@@ -27,7 +27,7 @@ window.addEventListener("load", () => {
 
   // Swiper carousel initialization
   var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 2,
+    slidesPerView: 3,
     spaceBetween: 10,
     loop: true,
     centerSlide: true,
@@ -48,8 +48,11 @@ window.addEventListener("load", () => {
       0: {
         slidesPerView: 1,
       },
-      850: {
+      800: {
         slidesPerView: 2,
+      },
+      1200: {
+        slidesPerView: 3,
       },
     },
   });
