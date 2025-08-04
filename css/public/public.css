@@ -272,3 +272,16 @@ body.load {
     transform: translateY(73px) scale(0.5, 0.5);
   }
 }
+
+.skeleton {
+  opacity: 0 !important;
+}
+
+.pub-fade {
+  transition: 0.3s ease;
+}
+
+.not-found {
+  font-size: 1.25rem;
+  color: var(--danger);
+}
