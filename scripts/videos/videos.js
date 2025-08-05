@@ -6,7 +6,7 @@ const videosContainer = document.querySelector(".cards-box");
 const skeletonElements = document.querySelectorAll(".skeleton");
 
 // This script fetches and displays video content from a WordPress site using the REST API.
-fetch("http://localhost/scalezone/wp-json/wp/v2/pages?slug=videos-page-content")
+fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=videos-page-content")
   .then((response) => {
     if (!response.ok) {
       throw new Error(response.statusText);

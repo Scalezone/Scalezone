@@ -19,3 +19,7 @@
 .videos-container h2 {
   margin: 0;
 }
+
+.videos-container .cards-box .show-card .img {
+  aspect-ratio: 4 / 2.5;
+}
