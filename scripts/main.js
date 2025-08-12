@@ -143,3 +143,394 @@ function replaceLetters(word) {
 
   return replacedLetters.join("");
 }
+
+// Fetch data from WordPress REST API and populate homepage sections
+//#region Element Selectors
+// General facts elements
+const expElements = document.querySelectorAll(".exp h3");
+const teamElements = document.querySelectorAll(".team h3");
+const accountElements = document.querySelectorAll(".account h3");
+const feedbackElements = document.querySelectorAll(".feedback h3");
+
+// Hero section elements
+const heroImg = document.querySelector(".hero-container .img img");
+const heroCaption = document.querySelector(
+  ".hero-container .content .title .caption"
+);
+const heroTitle = document.querySelector(".hero-container .content .title h1");
+const heroText = document.querySelector(".hero-container .content .text p");
+const heroButtons = document.querySelectorAll(
+  ".hero-container .text .public-btn"
+);
+
+// Mission section elements
+const missionTitle = document.querySelector(
+  ".mission-container .content .title h2"
+);
+const missionParagraphs = document.querySelectorAll(
+  ".mission-container .content .text-box p"
+);
+const missionButton = document.querySelector(
+  ".mission-container .content .public-btn"
+);
+const missionVideoDesktopSource = document.querySelector(
+  ".mission-container .video .video-desktop source"
+);
+const missionVideoMobileSource = document.querySelector(
+  ".mission-container .video .video-mobile source"
+);
+const missionVideoDesktop = document.querySelector(
+  ".mission-container .video .video-desktop"
+);
+const missionVideoMobile = document.querySelector(
+  ".mission-container .video .video-mobile"
+);
+
+// Vision section elements
+const visionImg = document.querySelector(".vision-container .images img");
+const visionTitle = document.querySelector(
+  ".vision-container .content .title h2"
+);
+const visionParagraphs = document.querySelectorAll(
+  ".vision-container .content .text-box p"
+);
+
+// "What makes us different" section elements
+const differentTitle = document.querySelector(
+  ".features-container .content .title h2"
+);
+const differentTextBox = document.querySelector(
+  ".features-container .content .text-box"
+);
+
+//#endregion
+
+// Fetch home page data from WordPress REST API
+fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=home")
+  .then((response) => response.json())
+  .then((data) => {
+    if (data && data.length > 0) {
+      populateAllSections(data[0]);
+    } else {
+      console.error("No data found for the specified slug.");
+    }
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });
+
+/**
+ * Populate all homepage sections with fetched data
+ * @param {Object} data - Home page data object
+ */
+function populateAllSections(data) {
+  populateGeneralFacts(data);
+  populateHeroSection(data);
+  populateMissionSection(data);
+  populateVisionSection(data);
+  populateDifferentSection(data);
+  // Add more section population functions as needed
+}
+
+//#region General Facts Section
+
+/**
+ * Populate general facts section
+ * @param {Object} data - Home page data object
+ */
+function populateGeneralFacts(data) {
+  const facts = data.acf.general_content.facts;
+  setFactsData(facts);
+}
+
+/**
+ * Set facts data to corresponding elements
+ * @param {Object} facts - Facts data object
+ */
+function setFactsData(facts) {
+  if (!facts) {
+    console.error("General content data not found.");
+    return;
+  }
+
+  const factsConfig = [
+    { elements: expElements, value: facts.years_experience, suffix: "+" },
+    { elements: teamElements, value: facts.team_members, suffix: "+" },
+    { elements: accountElements, value: facts.account_managed, suffix: "+" },
+    { elements: feedbackElements, value: facts.positive_feedback, suffix: "%" },
+  ];
+
+  factsConfig.forEach((fact) => {
+    if (fact.elements && fact.value) {
+      setFactElements(fact.elements, fact.value, fact.suffix);
+    }
+  });
+}
+
+/**
+ * Set text content for fact elements
+ * @param {NodeList} elements - Elements to update
+ * @param {string|number} value - Value to display
+ * @param {string} suffix - Suffix to append
+ */
+function setFactElements(elements, value, suffix) {
+  elements.forEach((el) => {
+    el.textContent = `${value}${suffix}`;
+  });
+}
+
+//#endregion
+
+//#region Hero Section
+
+/**
+ * Populate hero section with data
+ * @param {Object} data - Home page data object
+ */
+function populateHeroSection(data) {
+  const heroData = data.acf.hero;
+  const facts = data.acf.general_content.facts;
+  setHeroImage(heroData, facts);
+  setHeroContent(heroData);
+}
+
+/**
+ * Set hero image
+ * @param {Object} heroData - Hero section data
+ * @param {Object} facts - General facts data
+ */
+function setHeroImage(heroData, facts) {
+  const imageData = heroData.image;
+  if (imageData && facts) {
+    heroImg.src = imageData.hero_image;
+  } else {
+    console.error("Hero image data not found.");
+  }
+}
+
+/**
+ * Set hero content (caption, title, text, buttons)
+ * @param {Object} heroData - Hero section data
+ */
+function setHeroContent(heroData) {
+  const content = heroData.content;
+  if (content) {
+    heroCaption.textContent = content.hero_caption;
+    heroTitle.textContent = content.hero_title;
+    heroText.textContent = content.hero_description;
+    setTextArrayToElements(content.buttons_text, heroButtons);
+    setHrefArrayToElements(content.buttons_link, heroButtons);
+
+    // Add arrow icon to each button
+    const arrowIcon = createArrowIcon();
+    appendToEach(heroButtons, arrowIcon);
+  } else {
+    console.error("Hero content data not found.");
+  }
+}
+
+//#endregion
+
+//#region Mission Section
+
+/**
+ * Populate mission section with data
+ * @param {Object} data - Home page data object
+ */
+function populateMissionSection(data) {
+  const missionData = data.acf.mission;
+  setMissionContent(missionData);
+  setMissionVideos(missionData);
+}
+
+/**
+ * Set mission content (title, paragraphs, button)
+ * @param {Object} missionData - Mission section data
+ */
+function setMissionContent(missionData) {
+  const content = missionData.content;
+  if (content) {
+    missionTitle.textContent = content.mission_title;
+    setTextArrayToElements(content.mission_paragraphs, missionParagraphs);
+    missionButton.textContent = content.mission_button_text;
+  } else {
+    console.error("Mission content data not found.");
+  }
+}
+
+/**
+ * Set mission videos (desktop and mobile)
+ * @param {Object} missionData - Mission section data
+ */
+function setMissionVideos(missionData) {
+  const video = missionData.video;
+  if (video) {
+    missionVideoDesktopSource.src = video.mission_desktop_video;
+    missionVideoMobileSource.src = video.mission_mobile_video;
+    missionVideoDesktop.load();
+    missionVideoMobile.load();
+  } else {
+    console.error("Mission video data not found.");
+  }
+}
+
+//#endregion
+
+//#region Vision Section
+
+/**
+ * Populate vision section with data
+ * @param {Object} data - Home page data object
+ */
+function populateVisionSection(data) {
+  const visionData = data.acf.vision;
+  setVisionContent(visionData);
+  setVisionImage(visionData);
+}
+
+/**
+ * Set vision content (title, paragraphs)
+ * @param {Object} visionData - Vision section data
+ */
+function setVisionContent(visionData) {
+  const content = visionData.content;
+  if (content) {
+    visionTitle.textContent = content.vision_title;
+    setTextArrayToElements(content.vision_text, visionParagraphs);
+  } else {
+    console.error("Vision content data not found.");
+  }
+}
+
+/**
+ * Set vision image
+ * @param {Object} visionData - Vision section data
+ */
+function setVisionImage(visionData) {
+  const image = visionData.image;
+  if (image) {
+    visionImg.src = image.vision_image;
+  } else {
+    console.error("Vision image data not found.");
+  }
+}
+
+//#endregion
+
+//#region "What Makes Us Different" Section
+
+/**
+ * Populate "What makes us different" section
+ * @param {Object} data - Home page data object
+ */
+function populateDifferentSection(data) {
+  const differentData = data.acf.different;
+  setDifferentContent(differentData);
+}
+
+/**
+ * Set content for "What makes us different" section
+ * @param {Object} differentData - Section data
+ */
+function setDifferentContent(differentData) {
+  if (!differentData.title) {
+    console.error("Different title data not found.");
+  }
+  differentTitle.textContent = differentData.title;
+
+  const features = differentData.features;
+  if (!features || features.length === 0) {
+    console.error("Different features data not found.");
+    return;
+  }
+
+  features.forEach((feature, idx) => {
+    const featureElement = createFeatureElement(feature, idx + 1);
+    if (!featureElement) {
+      console.error("Feature element creation failed.");
+      return;
+    }
+    differentTextBox.appendChild(featureElement);
+  });
+}
+
+//#endregion
+
+//#region Helper Functions
+
+/**
+ * Create an arrow icon element
+ * @returns {HTMLElement} - Arrow icon element
+ */
+function createArrowIcon() {
+  const arrowDiv = document.createElement("div");
+  arrowDiv.classList.add("arrow");
+  const arrowImg = document.createElement("img");
+  arrowImg.src = "assets/blogs/arrow.svg";
+  arrowImg.alt = "Arrow icon";
+  arrowDiv.appendChild(arrowImg);
+  return arrowDiv;
+}
+
+/**
+ * Set array of text values to NodeList of elements
+ * @param {Array} textArray - Array of text values
+ * @param {NodeList} elements - Elements to update
+ */
+function setTextArrayToElements(textArray, elements) {
+  for (let i = 0; i < textArray.length; i++) {
+    if (elements[i]) {
+      elements[i].textContent = textArray[i];
+    }
+  }
+}
+
+/**
+ * Set array of href values to NodeList of elements
+ * @param {Array} hrefArray - Array of href values
+ * @param {NodeList} elements - Elements to update
+ */
+function setHrefArrayToElements(hrefArray, elements) {
+  for (let i = 0; i < hrefArray.length; i++) {
+    if (elements[i]) {
+      elements[i].href = hrefArray[i];
+    }
+  }
+}
+
+/**
+ * Append a child node to each element in a NodeList
+ * @param {NodeList} parentElements - Elements to append to
+ * @param {Node} child - Node to append
+ */
+function appendToEach(parentElements, child) {
+  parentElements.forEach((el) => {
+    if (el) {
+      el.appendChild(child.cloneNode(true));
+    }
+  });
+}
+
+/**
+ * Create a feature element for the "What makes us different" section
+ * @param {Object} feature - Feature data
+ * @param {number} index - Feature index
+ * @returns {HTMLElement} - Feature element
+ */
+function createFeatureElement(feature, index) {
+  if (!feature) {
+    console.error("Feature data not found.");
+    return null;
+  }
+  const featureDiv = document.createElement("div");
+  featureDiv.classList.add("feature");
+  const featureHeading = document.createElement("h3");
+  const featureText = document.createElement("p");
+  featureHeading.textContent = `${index}. ${feature.title}`;
+  featureText.textContent = feature.feature_text;
+  featureDiv.appendChild(featureHeading);
+  featureDiv.appendChild(featureText);
+  return featureDiv;
+}
+
+//#endregion
