@@ -108,6 +108,11 @@ const testimonialsSubtitle = document.querySelector(
 const testimonialsFeedbacksContainer = document.querySelector(
   ".testimonials-container .card-wrapper"
 );
+
+// CTA section elements
+const ctaTitle = document.querySelector(".cta-container .content h2");
+const ctaDescription = document.querySelector(".cta-container .content p");
+const ctaButton = document.querySelector(".cta-container .public-btn");
 //#endregion
 
 // Fetch home page data from WordPress REST API
@@ -135,6 +140,7 @@ function populateAllSections(data) {
   populateVisionSection(data);
   populateDifferentSection(data);
   populateTestimonialsSection(data);
+  populateCTASection(data);
   // Add more section population functions as needed
 }
 
@@ -370,6 +376,19 @@ function setTestimonialsContent(testimonialsData) {
   testimonialsData.feedbacks.forEach((feedback) => {
     testimonialsFeedbacksContainer.appendChild(createFeedbackElement(feedback));
   });
+}
+//#endregion
+
+//#region CTA Section
+function populateCTASection(data) {
+  const ctaData = data.acf.cta;
+  setCTAContent(ctaData);
+}
+
+function setCTAContent(data) {
+  ctaTitle.textContent = data.title;
+  ctaDescription.textContent = data.description;
+  ctaButton.textContent = data.button_text;
 }
 //#endregion
 

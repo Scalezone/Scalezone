@@ -607,3 +607,7 @@ section.cta {
 .cta-container .content p {
   color: var(--light-dark);
 }
+
+.cta-container .public-btn {
+  text-transform: uppercase;
+}
