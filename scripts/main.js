@@ -2,7 +2,6 @@
 const heroCaptionElements = document.querySelectorAll(
   ".hero .caption, .hero .title h1, .hero .text p, .hero .public-btn"
 );
-const heroImage = document.querySelector(".hero .img img");
 const heroCircleElements = document.querySelectorAll(".hero .img .circle");
 
 // Select service and feature cards
@@ -12,51 +11,6 @@ const featuresProgressCardsTop = document.querySelectorAll(".progress-card.up");
 const featuresProgressCardsBottom = document.querySelectorAll(
   ".progress-card.down"
 );
-const clientsName = document.querySelectorAll(".rev-card .caption");
-
-// Animate hero section elements on page load
-window.addEventListener("load", () => {
-  heroCaptionElements.forEach((element) => {
-    addAnimationClassToElement(element, "animate__zoomInRight");
-  });
-
-  addAnimationClassToElement(heroImage, "animate__jackInTheBox");
-  heroCircleElements.forEach((circle) => {
-    addAnimationClassToElement(circle, "animated-circle");
-  });
-
-  // Swiper carousel initialization
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    spaceBetween: 10,
-    loop: true,
-    centerSlide: true,
-    fade: true,
-    grabCursor: true,
-    autoplay: true,
-    speed: 1000,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      800: {
-        slidesPerView: 2,
-      },
-      1200: {
-        slidesPerView: 3,
-      },
-    },
-  });
-});
 
 // Animate sections and cards on scroll
 window.addEventListener("scroll", function () {
@@ -84,65 +38,6 @@ window.addEventListener("scroll", function () {
     );
   });
 });
-
-/**
- * Checks if the element is visible in the viewport with an offset
- * @param {Element} element - DOM element to check
- * @param {number} offset - Offset from bottom of viewport
- * @returns {boolean} - True if visible, false otherwise
- */
-function isElementVisible(element, offset) {
-  const rect = element.getBoundingClientRect();
-  return rect.top < window.innerHeight - offset;
-}
-
-/**
- * Adds animation class to one element if visible
- * @param {Element} element - DOM element
- * @param {string} animationClass
- * @param {boolean} isVisible
- */
-function animateElementOnVisibility(element, animationClass, isVisible) {
-  if (isVisible) {
-    addAnimationClassToElement(element, animationClass);
-  }
-}
-
-/**
- * Adds a class to an element if not already present
- * @param {Element} element - DOM element
- * @param {string} className
- */
-function addAnimationClassToElement(element, className = "active") {
-  if (!element.classList.contains(className)) {
-    element.classList.add(className);
-  }
-}
-
-// Mask client names by replacing all letters except the first two with asterisks
-clientsName.forEach((e) => {
-  e.textContent = replaceLetters(e.textContent);
-});
-
-/**
- * Replaces all letters in a word except the first two with asterisks
- * @param {string} word - The word to mask
- * @returns {string} - Masked word
- */
-function replaceLetters(word) {
-  let letters = word.split("");
-  let replacedLetters = [];
-
-  for (let i = 0; i < letters.length; i++) {
-    if (i < 2) {
-      replacedLetters[i] = letters[i];
-    } else {
-      replacedLetters[i] = "*";
-    }
-  }
-
-  return replacedLetters.join("");
-}
 
 // Fetch data from WordPress REST API and populate homepage sections
 //#region Element Selectors
@@ -203,6 +98,16 @@ const differentTextBox = document.querySelector(
   ".features-container .content .text-box"
 );
 
+// Testimonials section elements
+const testimonialsTitle = document.querySelector(
+  ".testimonials-container .title h2"
+);
+const testimonialsSubtitle = document.querySelector(
+  ".testimonials-container .title .caption"
+);
+const testimonialsFeedbacksContainer = document.querySelector(
+  ".testimonials-container .card-wrapper"
+);
 //#endregion
 
 // Fetch home page data from WordPress REST API
@@ -229,11 +134,11 @@ function populateAllSections(data) {
   populateMissionSection(data);
   populateVisionSection(data);
   populateDifferentSection(data);
+  populateTestimonialsSection(data);
   // Add more section population functions as needed
 }
 
 //#region General Facts Section
-
 /**
  * Populate general facts section
  * @param {Object} data - Home page data object
@@ -281,8 +186,7 @@ function setFactElements(elements, value, suffix) {
 
 //#endregion
 
-//#region Hero Section
-
+//#region Hero Sectio
 /**
  * Populate hero section with data
  * @param {Object} data - Home page data object
@@ -332,7 +236,6 @@ function setHeroContent(heroData) {
 //#endregion
 
 //#region Mission Section
-
 /**
  * Populate mission section with data
  * @param {Object} data - Home page data object
@@ -377,7 +280,6 @@ function setMissionVideos(missionData) {
 //#endregion
 
 //#region Vision Section
-
 /**
  * Populate vision section with data
  * @param {Object} data - Home page data object
@@ -418,7 +320,6 @@ function setVisionImage(visionData) {
 //#endregion
 
 //#region "What Makes Us Different" Section
-
 /**
  * Populate "What makes us different" section
  * @param {Object} data - Home page data object
@@ -456,8 +357,23 @@ function setDifferentContent(differentData) {
 
 //#endregion
 
-//#region Helper Functions
+//#region Testimonials Section
+function populateTestimonialsSection(data) {
+  const testimonialsData = data.acf.testimonials;
+  setTestimonialsContent(testimonialsData);
+}
 
+function setTestimonialsContent(testimonialsData) {
+  testimonialsTitle.textContent = testimonialsData.title;
+  testimonialsSubtitle.textContent = testimonialsData.subtitle;
+
+  testimonialsData.feedbacks.forEach((feedback) => {
+    testimonialsFeedbacksContainer.appendChild(createFeedbackElement(feedback));
+  });
+}
+//#endregion
+
+//#region Helper Functions
 /**
  * Create an arrow icon element
  * @returns {HTMLElement} - Arrow icon element
@@ -533,4 +449,191 @@ function createFeatureElement(feature, index) {
   return featureDiv;
 }
 
+function createFeedbackElement(feedback) {
+  if (!feedback) {
+    console.error("Feedback data not found.");
+    return;
+  }
+  // container
+  const feedbackContainer = ele("div", [
+    "rev-card",
+    "d-flex",
+    "flex-column",
+    "gap-4",
+    "swiper-slide",
+    "align-items-center",
+    "justify-content-center",
+    "text-center",
+    "position-relative",
+  ]);
+
+  // stars
+  const starsContainer = createStarsContainer(feedback.stars_number || 0);
+
+  // Content
+  const contentContainer = ele("div", [
+    "content",
+    "d-flex",
+    "flex-column",
+    "gap-2",
+    "justify-content-between",
+  ]);
+  const feedbackTextBox = createFeedbackText(feedback.feedback_text || "");
+  const clientNameElement = createClientName(feedback.client_name || "");
+
+  contentContainer.append(feedbackTextBox, clientNameElement);
+  feedbackContainer.append(starsContainer, contentContainer);
+
+  return feedbackContainer;
+}
+
+function createStarsContainer(starsCount) {
+  const starsContainer = ele("div", [
+    "stars",
+    "d-flex",
+    "gap-2",
+    "align-items-center",
+    "position-relative",
+  ]);
+  makeMoreElements(
+    starsContainer,
+    ele("i", ["fa-solid", "fa-star"]),
+    starsCount
+  );
+
+  return starsContainer;
+}
+
+function createFeedbackText(feedbackText) {
+  const feedbackTextBox = ele("div", ["rev", "position-relative"]);
+  feedbackTextBox.append(
+    ele("i", ["fa-solid", "fa-quote-left", "position-absolute"]),
+    ele("p", [], feedbackText),
+    ele("i", ["fa-solid", "fa-quote-left", "position-absolute"])
+  );
+
+  return feedbackTextBox;
+}
+
+function createClientName(name) {
+  const clientNameElement = ele("div", ["client"]);
+  clientNameElement.appendChild(ele("h3", ["caption"], replaceLetters(name)));
+
+  return clientNameElement;
+}
+
+function ele(elementType, classList = [], text = "") {
+  const element = document.createElement(elementType);
+  if (classList.length > 0) element.classList.add(...classList);
+  if (text) element.textContent = text;
+
+  return element;
+}
+
+function makeMoreElements(parentElement, element, number) {
+  for (let i = 0; i < 5; i++) {
+    if (i >= number) element.classList.add("close");
+    parentElement.appendChild(element.cloneNode(true));
+  }
+}
+
+/**
+ * Replaces all letters in a word except the first two with asterisks
+ * @param {string} word - The word to mask
+ * @returns {string} - Masked word
+ */
+function replaceLetters(word) {
+  let letters = word.split("");
+  let replacedLetters = [];
+
+  for (let i = 0; i < letters.length; i++) {
+    if (i < 2) {
+      replacedLetters[i] = letters[i];
+    } else {
+      replacedLetters[i] = "*";
+    }
+  }
+
+  return replacedLetters.join("");
+}
+
+/**
+ * Checks if the element is visible in the viewport with an offset
+ * @param {Element} element - DOM element to check
+ * @param {number} offset - Offset from bottom of viewport
+ * @returns {boolean} - True if visible, false otherwise
+ */
+function isElementVisible(element, offset) {
+  const rect = element.getBoundingClientRect();
+  return rect.top < window.innerHeight - offset;
+}
+
+/**
+ * Adds animation class to one element if visible
+ * @param {Element} element - DOM element
+ * @param {string} animationClass
+ * @param {boolean} isVisible
+ */
+function animateElementOnVisibility(element, animationClass, isVisible) {
+  if (isVisible) {
+    addAnimationClassToElement(element, animationClass);
+  }
+}
+
+/**
+ * Adds a class to an element if not already present
+ * @param {Element} element - DOM element
+ * @param {string} className
+ */
+function addAnimationClassToElement(element, className = "active") {
+  if (!element.classList.contains(className)) {
+    element.classList.add(className);
+  }
+}
+//#endregion
+
+//#region Onload
+// Animate hero section elements on page load
+window.addEventListener("load", () => {
+  heroCaptionElements.forEach((element) => {
+    addAnimationClassToElement(element, "animate__zoomInRight");
+  });
+
+  addAnimationClassToElement(heroImg, "animate__jackInTheBox");
+  heroCircleElements.forEach((circle) => {
+    addAnimationClassToElement(circle, "animated-circle");
+  });
+
+  // Swiper carousel initialization
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 10,
+    loop: true,
+    centerSlide: true,
+    fade: true,
+    grabCursor: true,
+    // autoplay: true,
+    speed: 1000,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      800: {
+        slidesPerView: 2,
+      },
+      1200: {
+        slidesPerView: 3,
+      },
+    },
+  });
+});
 //#endregion

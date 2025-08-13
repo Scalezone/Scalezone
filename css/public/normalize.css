@@ -39,6 +39,7 @@ html {
   --hover-cards: #ffe5d6; /* Light orange for card hover background */
   --main-text-color: #1b1b1b; /* Main text color (dark gray) */
   --secondary-text-color: #7b4b20; /* Muted orange-brown for secondary text */
+  --closing-star: #b22222;
   --success: #00c853; /* Success state color (green) */
   --danger: #c62828; /* Error or danger color */
   --warning: #ff9100; /* Warning or alert color */

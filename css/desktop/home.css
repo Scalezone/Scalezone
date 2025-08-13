@@ -467,6 +467,15 @@ section.services {
   .testimonials-box
   .card-wrapper
   .rev-card
+  .stars
+  i.close {
+  color: var(--closing-star);
+}
+
+.testimonials-container
+  .testimonials-box
+  .card-wrapper
+  .rev-card
   .stars::after {
   content: "";
   position: absolute;
