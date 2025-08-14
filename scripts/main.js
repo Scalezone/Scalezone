@@ -134,6 +134,7 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=home")
  * @param {Object} data - Home page data object
  */
 function populateAllSections(data) {
+  document.title = `${data.title} | Scalezone`;
   populateGeneralFacts(data);
   populateHeroSection(data);
   populateMissionSection(data);
