@@ -468,13 +468,17 @@ function createFeatureElement(feature, index) {
   featureDiv.appendChild(featureText);
   return featureDiv;
 }
-
+/**
+ * Creates a feedback card element for testimonials
+ * @param {Object} feedback - Feedback data object
+ * @returns {HTMLElement} - Feedback card element
+ */
 function createFeedbackElement(feedback) {
   if (!feedback) {
     console.error("Feedback data not found.");
     return;
   }
-  // container
+  // Create main container for feedback card
   const feedbackContainer = ele("div", [
     "rev-card",
     "d-flex",
@@ -487,10 +491,10 @@ function createFeedbackElement(feedback) {
     "position-relative",
   ]);
 
-  // stars
+  // Create stars rating container
   const starsContainer = createStarsContainer(feedback.stars_number || 0);
 
-  // Content
+  // Create content container (feedback text and client name)
   const contentContainer = ele("div", [
     "content",
     "d-flex",
@@ -507,6 +511,11 @@ function createFeedbackElement(feedback) {
   return feedbackContainer;
 }
 
+/**
+ * Creates a container with star icons for rating
+ * @param {number} starsCount - Number of filled stars
+ * @returns {HTMLElement} - Stars container element
+ */
 function createStarsContainer(starsCount) {
   const starsContainer = ele("div", [
     "stars",
@@ -524,6 +533,11 @@ function createStarsContainer(starsCount) {
   return starsContainer;
 }
 
+/**
+ * Creates the feedback text box with quote icons
+ * @param {string} feedbackText - Feedback text
+ * @returns {HTMLElement} - Feedback text box element
+ */
 function createFeedbackText(feedbackText) {
   const feedbackTextBox = ele("div", ["rev", "position-relative"]);
   feedbackTextBox.append(
@@ -535,6 +549,11 @@ function createFeedbackText(feedbackText) {
   return feedbackTextBox;
 }
 
+/**
+ * Creates the client name element, masking the name
+ * @param {string} name - Client name
+ * @returns {HTMLElement} - Client name element
+ */
 function createClientName(name) {
   const clientNameElement = ele("div", ["client"]);
   clientNameElement.appendChild(ele("h3", ["caption"], replaceLetters(name)));
@@ -542,6 +561,13 @@ function createClientName(name) {
   return clientNameElement;
 }
 
+/**
+ * Helper to create an HTML element with classes and optional text
+ * @param {string} elementType - Type of element (e.g., 'div', 'h3')
+ * @param {Array} classList - Array of class names
+ * @param {string} text - Optional text content
+ * @returns {HTMLElement} - Created element
+ */
 function ele(elementType, classList = [], text = "") {
   const element = document.createElement(elementType);
   if (classList.length > 0) element.classList.add(...classList);
@@ -550,6 +576,12 @@ function ele(elementType, classList = [], text = "") {
   return element;
 }
 
+/**
+ * Appends multiple cloned elements to a parent, marking extra as 'close'
+ * @param {HTMLElement} parentElement - Parent element to append to
+ * @param {HTMLElement} element - Element to clone and append
+ * @param {number} number - Number of active elements (rest will have 'close' class)
+ */
 function makeMoreElements(parentElement, element, number) {
   for (let i = 0; i < 5; i++) {
     if (i >= number) element.classList.add("close");

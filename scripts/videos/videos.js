@@ -21,8 +21,6 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=videos-page-content")
       skeletonElements.forEach((element) => {
         removeClass(element, "skeleton");
       });
-
-      console.log(data[0]);
     } else {
       return Promise.reject("No data found for the specified slug.");
     }
@@ -51,7 +49,12 @@ function addCardsToContainer(videos) {
     videos.forEach((video) => {
       const imgURl = video.image || "assets/videos/soon.webp";
       videosContainer.appendChild(
-        createVideoElement(imgURl, video.title, video.youtube_link)
+        createVideoElement(
+          imgURl,
+          video.title,
+          video.youtube_link,
+          video.button_text
+        )
       );
     });
   } else {
@@ -76,7 +79,7 @@ function noVideosMessage() {
  * @description
  * This function constructs a video card element that includes an image, title, and a button to
  */
-function createVideoElement(imgSrc, titleText, videoLink) {
+function createVideoElement(imgSrc, titleText, videoLink, buttonText) {
   // Create the video card element structure
   const cardContainer = document.createElement("div");
   cardContainer.classList.add(
@@ -89,7 +92,9 @@ function createVideoElement(imgSrc, titleText, videoLink) {
 
   // Append elements to their respective containers
   cardContainer.appendChild(createVideoImgContainer(imgSrc, titleText));
-  cardContainer.appendChild(createVideoTitleContainer(titleText, videoLink));
+  cardContainer.appendChild(
+    createVideoTitleContainer(titleText, videoLink, buttonText)
+  );
 
   // Return the complete video card element
   return cardContainer;
@@ -134,25 +139,19 @@ function createVideoImgContainer(imgSrc, titleText) {
   return imgContainer;
 }
 
-// <picture>
-//   <source srcset="/scalezone/wp-content/webp-express/webp-images/uploads/2025/08/01.png.webp" type="image/webp">
-//   <source srcset="/scalezone/wp-content/uploads/2025/08/01.png" type="image/png">
-//   <img src="/scalezone/wp-content/uploads/2025/08/01.png" alt="Podcast Thumbnail" loading="lazy" width="368" height="205">
-// </picture>
-
 /**
  * Creates a text container for the video title and watch button.
  * @param {string} titleText - Text to display as the video title.
  * @param {string} videoLink - URL to the video page or video itself.
  * @return {Element} - The created text container element.
  */
-function createVideoTitleContainer(titleText, videoLink) {
+function createVideoTitleContainer(titleText, videoLink, buttonText) {
   // Create the text container and its elements
   const textContainer = document.createElement("div");
   textContainer.classList.add("text-bx", "d-flex", "flex-column", "gap-3");
 
   textContainer.appendChild(createVideoTitle(titleText, videoLink));
-  textContainer.appendChild(createWatchButton(videoLink));
+  textContainer.appendChild(createWatchButton(videoLink, buttonText));
 
   return textContainer;
 }
@@ -181,7 +180,7 @@ function createVideoTitle(titleText, videoLink) {
  * Creates a watch button element for the video.
  * @param {string} videoLink - URL to the video page or video itself.
  */
-function createWatchButton(videoLink) {
+function createWatchButton(videoLink, buttonText) {
   const watchButton = document.createElement("a");
   watchButton.classList.add(
     "public-btn",
@@ -192,7 +191,7 @@ function createWatchButton(videoLink) {
   );
   watchButton.target = "_blank";
   watchButton.href = videoLink || "#";
-  watchButton.textContent = "Show Video";
+  watchButton.textContent = buttonText || "Show Video";
 
   return watchButton;
 }
