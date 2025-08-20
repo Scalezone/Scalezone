@@ -10,7 +10,9 @@ const podcastsContainer = document.querySelector(".cards-box");
 fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=podcasts")
   .then((response) => {
     if (!response.ok) {
-      throw new Error(`${response.status} Not Found`);
+      throw new Error(
+        `Network response was not ok: ${response.status} ${response.statusText}`
+      );
     }
 
     return response.json();

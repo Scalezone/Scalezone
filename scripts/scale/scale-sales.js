@@ -24,7 +24,7 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=scale-sales")
     // Check for HTTP errors
     if (!response.ok) {
       throw new Error(
-        `Response status: ${response.statusText || response.status}`
+        `Network response was not ok: ${response.status} ${response.statusText}`
       );
     }
     return response.json();

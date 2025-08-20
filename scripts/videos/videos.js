@@ -9,7 +9,9 @@ const skeletonElements = document.querySelectorAll(".skeleton");
 fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=videos-page-content")
   .then((response) => {
     if (!response.ok) {
-      throw new Error(response.statusText);
+      throw new Error(
+        `Network response was not ok: ${response.status} ${response.statusText}`
+      );
     }
     return response.json();
   })

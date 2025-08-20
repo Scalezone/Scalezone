@@ -117,7 +117,15 @@ const ctaButton = document.querySelector(".cta-container .public-btn");
 
 // Fetch home page data from WordPress REST API
 fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=home")
-  .then((response) => response.json())
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(
+        `Network response was not ok: ${response.status} ${response.statusText}`
+      );
+    }
+
+    return response.json();
+  })
   .then((data) => {
     if (data && data.length > 0) {
       populateAllSections(data[0]);
