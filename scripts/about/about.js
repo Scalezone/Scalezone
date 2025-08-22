@@ -262,6 +262,7 @@ function populateStepsSection(data) {
   }
 
   setStepsContent(steps);
+  setStepsCards(steps.cards_list);
 }
 
 function setStepsContent(data) {
@@ -270,6 +271,22 @@ function setStepsContent(data) {
   setContentToElement(stepsDescriptionElement, data.description);
   createStepsElements(data.steps_list);
   setButtons(stepsButton, data.button_text, data.button_link);
+}
+
+function setStepsCards(data) {
+  if (!data && !Array.isArray(data)) {
+    console.warn("Steps cards data is missing or not an array");
+    return;
+  }
+
+  stepsCardELements.forEach((card, index) => {
+    if (data[index]) {
+      const { image, title, description } = data[index];
+      setImageToElement(card.querySelector("img"), image, title);
+      setContentToElement(card.querySelector("h3"), title);
+      setContentToElement(card.querySelector("p"), description);
+    }
+  });
 }
 
 function createStepsElements(steps) {
@@ -304,6 +321,9 @@ function createStepsElement(step) {
 
   return stepElement;
 }
+//#endregion
+
+//#region FAQ Section
 //#endregion
 
 //#region Helper methods
