@@ -73,7 +73,7 @@ input[type="number"] {
   width: 100%;
 }
 
-.company-overview .secondary-heading span,
+.company-overview .third-heading,
 .faq .secondary-heading span {
   color: var(--primary-color);
 }
