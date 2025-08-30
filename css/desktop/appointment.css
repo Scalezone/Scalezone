@@ -2,6 +2,11 @@ main {
   padding: 5rem 0;
 }
 
+.danger {
+  color: var(--danger);
+  margin: 0.5rem 0 0;
+}
+
 .bg-primary {
   background-color: #ec8d3a !important;
 }
@@ -14,6 +19,58 @@ main {
 
 .card:hover {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-header i {
+  font-size: 1.5rem;
+}
+
+#messages {
+  left: 50%;
+  top: -10rem;
+  transform: translateX(-50%);
+  width: 35rem;
+  height: 10rem;
+  z-index: 999999999;
+}
+
+#messages p {
+  margin: 0;
+}
+
+#messages .success,
+#messages .unsuccess {
+  background: var(--background-color);
+  padding: 0.875rem;
+  border-radius: 1rem;
+  top: 0;
+  transition: 0.2s ease;
+}
+
+#messages .success {
+  border: 2px solid var(--success);
+}
+
+#messages .unsuccess {
+  border: 2px solid var(--danger);
+}
+
+#messages .success.active,
+#messages .unsuccess.active {
+  top: 115%;
+}
+
+#messages .success .caption {
+  color: var(--success);
+}
+
+#messages .unsuccess .caption {
+  color: var(--danger);
+}
+
+#submit.disabled {
+  pointer-events: bounding-box;
+  cursor: not-allowed;
 }
 
 .form-control:focus {
@@ -123,4 +180,44 @@ main {
 
 .is-invalid + .invalid-feedback {
   display: block;
+}
+
+#submit .spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#submit .close {
+  display: none;
+}
+
+.bar {
+  display: inline-block;
+  width: 3px;
+  height: 20px;
+  background-color: var(--light-dark);
+  border-radius: 10px;
+  animation: scale-up4 1s linear infinite;
+}
+
+.bar:nth-child(2) {
+  height: 35px;
+  margin: 0 5px;
+  animation-delay: 0.25s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+@keyframes scale-up4 {
+  20% {
+    background-color: var(--white);
+    transform: scaleY(1.5);
+  }
+
+  40% {
+    transform: scaleY(1);
+  }
 }

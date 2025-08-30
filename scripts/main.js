@@ -672,7 +672,7 @@ window.addEventListener("load", () => {
     centerSlide: true,
     fade: true,
     grabCursor: true,
-    // autoplay: true,
+    autoplay: true,
     speed: 1000,
     pagination: {
       el: ".swiper-pagination",

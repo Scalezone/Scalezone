@@ -7,7 +7,7 @@
 
     <!-- Page Title -->
     <title>
-      Book an Appointment | Expert Amazon Seller Services – Scalezone
+      Book an Appointment | Expert Amazon Seller Services - Scalezone
     </title>
 
     <!-- Meta Description -->
@@ -355,28 +355,25 @@
 
     <main>
       <!-- HERO SECTION -->
-      <section id="hero" class="hero-section">
+      <section id="hero" class="hero-section pub-fade skeleton opacity-1">
         <!-- Main Content -->
         <div class="container">
           <div class="row" id="booking">
             <!-- Booking Form -->
             <div class="col-lg-8 mb-4">
-              <div class="card h-100">
-                <div class="card-header bg-primary text-white">
-                  <h3 class="card-title mb-0">
-                    <i class="bi bi-calendar-check me-2"></i>Book Your
-                    Appointment
-                  </h3>
+              <div class="card h-100 position-relative">
+                <div
+                  class="card-header bg-primary text-white d-flex align-items-center gap-3"
+                >
+                  <i class="fa-regular fa-calendar-check"></i>
+                  <h1 class="card-title mb-0" id="form-title">
+                    Book Your Appointment
+                  </h1>
                 </div>
                 <div class="card-body">
-                  <form
-                    action="https://formspree.io/f/xovwkqeg"
-                    method="POST"
-                    id="appointmentForm"
-                    novalidate
-                  >
+                  <form id="appointmentForm" novalidate>
                     <div class="row mb-3">
-                      <div class="col-md-6">
+                      <div class="col-md-6" id="first-name-field">
                         <label for="firstName" class="form-label"
                           >First name <span class="text-danger">*</span></label
                         >
@@ -384,14 +381,14 @@
                           type="text"
                           class="form-control"
                           id="firstName"
-                          name="firstName"
+                          name="first_name"
                           required
                         />
                         <div class="invalid-feedback">
                           Please provide your first name.
                         </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6" id="last-name-field">
                         <label for="lastName" class="form-label"
                           >Last name <span class="text-danger">*</span></label
                         >
@@ -399,7 +396,7 @@
                           type="text"
                           class="form-control"
                           id="lastName"
-                          name="lastName"
+                          name="last_name"
                           required
                         />
                         <div class="invalid-feedback">
@@ -408,7 +405,7 @@
                       </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3" id="email-field">
                       <label for="email" class="form-label"
                         >Your email address
                         <span class="text-danger">*</span></label
@@ -421,11 +418,12 @@
                         required
                       />
                       <div class="invalid-feedback">
-                        Please provide a valid email address.
+                        Please provide a valid email address, e.g.,
+                        example@gmail.com
                       </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3" id="phone-field">
                       <label for="phone" class="form-label"
                         >Phone number <span class="text-danger">*</span></label
                       >
@@ -441,14 +439,14 @@
                       </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3" id="service-field">
                       <label for="inquiryType" class="form-label"
                         >Inquiry Type <span class="text-danger">*</span></label
                       >
                       <select
                         class="form-select"
                         id="inquiryType"
-                        name="inquiryType"
+                        name="inquiry_type"
                         required
                       >
                         <option value="">Select</option>
@@ -509,7 +507,7 @@
                     </div>
 
                     <div class="row mb-3">
-                      <div class="col-md-6">
+                      <div class="col-md-6" id="date-field">
                         <label for="date" class="form-label"
                           >Preferred Date</label
                         >
@@ -517,84 +515,50 @@
                           type="date"
                           class="form-control"
                           id="date"
-                          name="date"
+                          name="preferred_date"
                         />
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label">Preferred Time</label>
-                        <div class="row g-2" id="timeSlots">
-                          <div class="col-4">
-                            <div
-                              class="time-slot btn btn-outline-secondary w-100"
-                              data-time="09:00"
-                            >
-                              9:00 AM
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div
-                              class="time-slot btn btn-outline-secondary w-100"
-                              data-time="10:00"
-                            >
-                              10:00 AM
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div
-                              class="time-slot btn btn-outline-secondary w-100"
-                              data-time="11:00"
-                            >
-                              11:00 AM
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div
-                              class="time-slot btn btn-outline-secondary w-100"
-                              data-time="14:00"
-                            >
-                              2:00 PM
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div
-                              class="time-slot btn btn-outline-secondary w-100"
-                              data-time="15:00"
-                            >
-                              3:00 PM
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div
-                              class="time-slot btn btn-outline-secondary w-100"
-                              data-time="16:00"
-                            >
-                              4:00 PM
-                            </div>
-                          </div>
+
+                        <div class="invalid-feedback">
+                          Please provide a valid Date.
                         </div>
+                      </div>
+                      <div class="col-md-6" id="time-field">
+                        <label class="form-label">Preferred Time</label>
+                        <div class="row g-2" id="timeSlots"></div>
                         <input
                           type="hidden"
                           id="selectedTime"
-                          name="selectedTime"
+                          name="preferred_time"
                         />
                       </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3" id="message-field">
                       <label for="notes" class="form-label"
                         >Additional Notes (Optional)</label
                       >
                       <textarea
                         class="form-control"
                         id="notes"
-                        name="notes"
+                        name="additional_notes"
                         rows="3"
                         placeholder="Any specific requirements or information we should know..."
                       ></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-lg w-100">
-                      <i class="bi bi-check-circle me-2"></i>Book Appointment
+                    <button
+                      type="submit"
+                      id="submit"
+                      class="btn btn-primary btn-lg w-100"
+                    >
+                      <div class="text">
+                        <i class="bi bi-check-circle me-2"></i>Book Appointment
+                      </div>
+                      <div class="spinner close">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                      </div>
                     </button>
 
                     <div
@@ -606,6 +570,40 @@
                       successfully. We'll send you a confirmation email shortly.
                     </div>
                   </form>
+                </div>
+
+                <div id="messages" class="messages position-fixed">
+                  <div
+                    class="success position-absolute d-flex gap-3 align-items-center"
+                  >
+                    <div class="logo">
+                      <img
+                        src="assets/appointment/success.webp"
+                        alt="Success icon"
+                      />
+                    </div>
+
+                    <div class="success-text">
+                      <h3 class="caption"></h3>
+                      <p></p>
+                    </div>
+                  </div>
+
+                  <div
+                    class="unsuccess position-absolute d-flex gap-3 align-items-center"
+                  >
+                    <div class="logo">
+                      <img
+                        src="assets/appointment/unsauccess.webp"
+                        alt="Success icon"
+                      />
+                    </div>
+
+                    <div class="unsuccess-text">
+                      <h3 class="caption">Error</h3>
+                      <p>Could not send your request. Try again later.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -847,6 +845,7 @@
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.10.43/bundle/libphonenumber-js.min.js"></script>
     <script src="scripts/appointment/script.js" async></script>
     <script src="scripts/public/public.js" async></script>
   </body>
