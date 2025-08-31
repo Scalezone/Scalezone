@@ -56,6 +56,10 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=appointment")
  * @param {Object} data
  */
 function populateFormSection(data) {
+  document.title = data.title
+    ? data.title
+    : "Book an Appointment | Expert Amazon Seller Services - Scalezone";
+
   const { title, fields } = data.form;
   if (!title || !fields) {
     console.warn("Missing title or fields in the fetched data");
