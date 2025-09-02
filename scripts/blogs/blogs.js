@@ -148,7 +148,7 @@ function createBlogImgContainer(imgLink, title) {
 
 // Create blog content container
 function createBlogContent(slug, title, date, description) {
-  const blogLink = `blogs/start-selling.html?slug=${slug.trim()}`;
+  const blogLink = `blogs/blog.html?slug=${slug.trim()}`;
   const textContainer = createElement("div", [
     "text-bx",
     "d-flex",

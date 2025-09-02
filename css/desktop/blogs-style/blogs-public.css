@@ -44,3 +44,16 @@ p {
   font-weight: 700;
   letter-spacing: 1px;
 }
+
+/* Last section */
+.public-sec:last-child {
+  padding-bottom: 1.5rem;
+}
+
+.public-sec:last-child .blog-w {
+  margin-bottom: 3rem;
+}
+
+.public-sec:last-child .blog-w .line {
+  display: none;
+}
