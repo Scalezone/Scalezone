@@ -1,53 +1,72 @@
+// Get references to DOM elements
 const bodyELement = document.body;
 const headerElement = document.querySelector("header");
+// Create a main element for blog content
 const mainElement = createElement("main");
 
+// Insert main element after header
 bodyELement.insertBefore(mainElement, headerElement.nextSibling);
 
 // Get slug from URL (e.g. blogs/blogl?slug=start-selling)
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("slug");
 
-// Fetch data from slug
+// Fetch blog data using slug
 fetch(`https://scalezone.ae/cms/wp-json/wp/v2/blog?slug=${slug}`)
   .then((response) => {
     if (!response.ok) {
+      // Handle network errors
       throw new Error(
         `Network response was not ok: ${response.status} ${response.statusText}`
       );
     }
-
     return response.json();
   })
   .then((data) => {
+    // Get first blog object from response
     const blog = data[0];
     if (!blog) {
+      // Handle missing blog
       throw new Error(`${slug} blog page not found`);
     }
-
+    // Populate all sections with blog data
     populateAllSections(blog);
   });
 
+/**
+ * Populates all sections of the blog page
+ * @param {Object} data - Blog data
+ */
 function populateAllSections(data) {
   document.title = data.title + " - Scalzone";
   const { content } = data;
 
+  // Add hero section
   mainElement.append(populateHeroSection(data));
 
+  // Add each content section
   for (let i = 0; i < content.length; i++) {
     if (content[i].title === "") {
-      continue;
+      continue; // Skip empty sections
     }
-
     if (i === 2) {
+      // Special handling for third section
+      mainElement.appendChild(populateThirdSection(content[i]));
     } else {
       mainElement.appendChild(populatePublicSections(content[i]));
     }
   }
+  // Add public sections for main data
   populatePublicSections(data);
 }
 
 //#region Hero section
+
+/**
+ * Creates the hero section for the blog
+ * @param {Object} data - Blog data
+ * @returns {HTMLElement}
+ */
 function populateHeroSection(data) {
   const sectionElement = createElement("section", ["hero", "public-sec"]);
   const containerElement = createElement("div", [
@@ -69,6 +88,12 @@ function populateHeroSection(data) {
   return sectionElement;
 }
 
+/**
+ * Creates the hero title element
+ * @param {string} title
+ * @param {string} date
+ * @returns {HTMLElement}
+ */
 function createHeroTitle(title, date) {
   const titleContainer = createElement("div", ["title"]);
   const titleElement = createElement("h1", [], "", title);
@@ -78,6 +103,12 @@ function createHeroTitle(title, date) {
   return titleContainer;
 }
 
+/**
+ * Creates the hero image element
+ * @param {string} imgSrc
+ * @param {string} title
+ * @returns {HTMLElement}
+ */
 function createHeroImage(imgSrc, title) {
   const imageContainer = createElement("div", ["img"]);
   const image = createElement("img");
@@ -88,6 +119,11 @@ function createHeroImage(imgSrc, title) {
   return imageContainer;
 }
 
+/**
+ * Creates the hero content element
+ * @param {Object} intro
+ * @returns {HTMLElement}
+ */
 function createHeroContent(intro) {
   if (!intro) {
     console.warn("Intro data is missing");
@@ -107,6 +143,12 @@ function createHeroContent(intro) {
 //#endregion
 
 //#region Rest of sections
+
+/**
+ * Populates a public section with blog data
+ * @param {Object} data
+ * @returns {HTMLElement}
+ */
 function populatePublicSections(data) {
   const section = createElement("section", ["public-sec"]);
   const container = createElement("div", [
@@ -126,6 +168,7 @@ function populatePublicSections(data) {
 
   titleBox.appendChild(title);
 
+  // Add first text content
   if (data.first_text) {
     firstContentList = setContentText(data.first_text);
 
@@ -134,6 +177,7 @@ function populatePublicSections(data) {
     });
   }
 
+  // Add second text content
   if (data.second_text) {
     secondContentList = setContentText(data.second_text);
 
@@ -147,6 +191,11 @@ function populatePublicSections(data) {
   return section;
 }
 
+/**
+ * Populates the third section with steps
+ * @param {Object} data
+ * @returns {HTMLElement}
+ */
 function populateThirdSection(data) {
   const section = createElement("section", ["public-sec"]);
   const container = createElement("div", [
@@ -159,17 +208,58 @@ function populateThirdSection(data) {
   ]);
   const titleBox = createElement("div", ["title"]);
   const title = createElement("h2", [], "", data.title);
+  const stepsContainer = createElement("div", [
+    "steps-bx",
+    "d-flex",
+    "flex-column",
+    "gap-3",
+  ]);
+  // List of step objects
+  const stepsList = [
+    data.first_text,
+    data.second_text,
+    data.third_text,
+    data.fourth_text,
+    data.fifth_text,
+  ];
+
+  // Add each step
+  for (let i = 0; i < stepsList.length; i++) {
+    const step = createElement("div", ["step"]);
+    const title = createElement(
+      "h3",
+      ["caption"],
+      "",
+      `${i + 1}. ${stepsList[i].title.trim()}`
+    );
+    const content = createElement("div", ["content"]);
+    const contentList = setContentText(stepsList[i].text);
+
+    contentList.forEach((element) => {
+      content.appendChild(element);
+    });
+
+    step.append(title, content);
+    stepsContainer.appendChild(step);
+  }
+
   const line = createElement("div", ["line", "position-absolute"]);
 
   titleBox.appendChild(title);
 
-  container.append(titleBox, textBox, line);
+  container.append(titleBox, stepsContainer, line);
   section.appendChild(container);
   return section;
 }
 //#endregion
 
 //#region Helper Methods
+
+/**
+ * Splits text into paragraphs or lists and returns DOM elements
+ * @param {string} text
+ * @returns {HTMLElement[]}
+ */
 function setContentText(text) {
   if (!text) {
     console.warn("Content is missing");
@@ -190,6 +280,11 @@ function setContentText(text) {
   return domList;
 }
 
+/**
+ * Converts a pipe-separated string into a list element
+ * @param {string} text
+ * @returns {HTMLElement}
+ */
 function setContentList(text) {
   if (!text.includes("|")) {
     console.warn("Text is not list");
