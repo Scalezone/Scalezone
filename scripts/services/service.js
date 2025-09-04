@@ -34,7 +34,7 @@ fetch(`https://scalezone.ae/cms/wp-json/wp/v2/service?slug=${slug}`)
  * @param {Object} data - Blog data
  */
 function populateAllSections(data) {
-  document.title = data.title;
+  document.title = `${data.title} | Scalezone`;
 
   // Add hero section
   mainElement.append(
