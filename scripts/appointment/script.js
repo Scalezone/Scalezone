@@ -92,6 +92,7 @@ function setFieldsContent(fields) {
   setNormalField(emailField, fields.email);
   setNormalField(phoneField, fields.phone);
   setNormalField(messageField, fields.additional_notes, false);
+  setServicesField(serviceField, fields.inquiry_type);
   setDataField(dateField, fields.preferred_date);
   setTimeField(timeField, fields.preferred_time, false);
   // set service field last to ensure all options are loaded before setting the default value
@@ -244,6 +245,35 @@ function setTimeField(element, field, isRequired = true) {
       inputElement.value = time;
       setDisplayElement(inputElement, displayTime);
     });
+  });
+}
+
+function setServicesField(element, field) {
+  const { label, services, invalid } = field;
+  if (!label || !services || !Array.isArray(services) || !invalid) {
+    console.warn("Label or Services Or invalid data is missing!");
+    return;
+  }
+
+  const labelElement = element.querySelector("label");
+  const selectElement = element.querySelector("select");
+  const invalidElement = element.querySelector(".invalid-feedback");
+
+  setContentToElement(labelElement, label);
+  setContentToElement(invalidElement, invalid);
+
+  services.forEach((service) => {
+    const option = createElement("option", [], "", service.title);
+    option.value = service.title;
+    selectElement.appendChild(option);
+  });
+
+  selectElement.addEventListener("blur", () => {
+    requiredInputValidation(selectElement);
+  });
+
+  selectElement.addEventListener("input", () => {
+    setDisplayElement(selectElement, displayService);
   });
 }
 
