@@ -10,8 +10,12 @@
 }
 
 /* Hero Section */
-.hero {
+.product-research {
   padding: 2rem 5rem 5rem;
+}
+
+.hero {
+  padding: 2rem 3rem 3rem;
 }
 
 /* Product Research Section */
