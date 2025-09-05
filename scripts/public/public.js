@@ -1,18 +1,19 @@
 // DOM Elements - Navigation Components
-const servicesDropdownTrigger = document.querySelector(".services-link");
-const servicesDropdownMenu = document.querySelector(".services-menu");
-const resourcesDropdownTrigger = document.querySelector(".resources-link");
-const resourcesDropdownMenu = document.querySelector(".resources-menu");
-const mobileMenuToggle = document.querySelector(".hamburger");
-const mobileNavigationMenu = document.querySelector(".navbar");
-const navigationBar = document.querySelector(".header-container .bottom");
-const headerContainer = document.querySelector(".header-container");
-const loadingPage = document.querySelector(".loading");
-const bodyEle = document.body;
+const servicesDropdownTrigger = document.querySelector(".services-link"); // Services dropdown trigger
+const servicesDropdownMenu = document.querySelector(".services-menu"); // Services dropdown menu
+const resourcesDropdownTrigger = document.querySelector(".resources-link"); // Resources dropdown trigger
+const resourcesDropdownMenu = document.querySelector(".resources-menu"); // Resources dropdown menu
+const mobileMenuToggle = document.querySelector(".hamburger"); // Hamburger menu button
+const mobileNavigationMenu = document.querySelector(".navbar"); // Mobile navigation menu
+const navigationBar = document.querySelector(".header-container .bottom"); // Navigation bar
+const headerContainer = document.querySelector(".header-container"); // Header container
+const loadingPage = document.querySelector(".loading"); // Loading page element
+const bodyEle = document.body; // Body element
 
-const leftElements = document.querySelectorAll(".left-side-animated");
-const rightElements = document.querySelectorAll(".right-side-animated");
+const leftElements = document.querySelectorAll(".left-side-animated"); // Elements animated from left
+const rightElements = document.querySelectorAll(".right-side-animated"); // Elements animated from right
 
+// Animate left-side elements on initial load
 leftElements.forEach((e) => {
   animateElementOnVisibility(
     e,
@@ -21,6 +22,7 @@ leftElements.forEach((e) => {
   );
 });
 
+// Animate right-side elements on initial load
 rightElements.forEach((e) => {
   animateElementOnVisibility(
     e,
@@ -29,13 +31,16 @@ rightElements.forEach((e) => {
   );
 });
 
+// Handle scroll events for navigation bar and animations
 window.addEventListener("scroll", () => {
+  // Show/hide navigation bar on scroll
   if (window.scrollY > headerContainer.offsetHeight) {
     addElementVisiblity(navigationBar, "scroll");
   } else {
     removeElementVisiblity(navigationBar, "scroll");
   }
 
+  // Animate left-side elements on scroll
   leftElements.forEach((e) => {
     animateElementOnVisibility(
       e,
@@ -44,6 +49,7 @@ window.addEventListener("scroll", () => {
     );
   });
 
+  // Animate right-side elements on scroll
   rightElements.forEach((e) => {
     animateElementOnVisibility(
       e,
@@ -53,10 +59,12 @@ window.addEventListener("scroll", () => {
   });
 });
 
+// Handle page load event for loading animation
 window.addEventListener("load", () => {
   removeElementVisiblity(bodyEle, "load");
   addElementVisiblity(loadingPage, "close");
 
+  // Optionally remove loading page after delay
   // setTimeout(() => {
   //   loadingPage.remove();
   // }, 400);
@@ -94,12 +102,22 @@ function toggleElementVisibility(element, className = "active") {
   element.classList.toggle(className);
 }
 
+/**
+ * Adds a CSS class to an element if not already present
+ * @param {HTMLElement} element
+ * @param {string} className
+ */
 function addElementVisiblity(element, className = "active") {
   if (!element.classList.contains(className)) {
     element.classList.add(className);
   }
 }
 
+/**
+ * Removes a CSS class from an element if present
+ * @param {HTMLElement} element
+ * @param {string} className
+ */
 function removeElementVisiblity(element, className = "active") {
   if (element.classList.contains(className)) {
     element.classList.remove(className);
@@ -128,3 +146,207 @@ function animateElementOnVisibility(element, animationClass, isVisible) {
     addElementVisiblity(element, animationClass);
   }
 }
+
+// Fetch Header and Footer data from API
+// Select elements for header/footer population
+const whatsappNumber = document.querySelector(
+  "header .top .number a:first-child"
+); // WhatsApp link
+const phoneNumber = document.querySelector("header .top .number a:last-child"); // Phone link
+const email = document.querySelector("header .top .mail a"); // Email link
+
+const logo = document.querySelector("header .bottom .logo a img"); // Logo image
+const homeLink = document.querySelector(
+  "header .bottom .navbar nav a[href='/']"
+); // Home link
+const servicesButton = document.querySelector(
+  "header .bottom .navbar nav .dropdown-services button"
+); // Services button
+const servicesMenu = document.querySelector(
+  "header .bottom .navbar nav .dropdown-services .services-menu"
+); // Services menu
+const resourcesButton = document.querySelector(
+  "header .bottom .navbar nav .dropdown-resources button"
+); // Resources button
+const blogs = document.getElementById("blogs"); // Blogs link
+const podcasts = document.getElementById("podcasts"); // Podcasts link
+const videos = document.getElementById("videos"); // Videos link
+const about = document.getElementById("about"); // About link
+const contact = document.getElementById("contact"); // Contact link
+const button = document.querySelector("header .bottom .navbar .public-btn"); // Public button
+
+const path = window.location.pathname; // Current page path
+
+// Fetch header and footer data from CMS API
+fetch(`https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=header-and-footer`)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(
+        `Network response was not ok: ${response.status} ${response.statusText}`
+      );
+    }
+
+    return response.json();
+  })
+  .then((data) => {
+    if (!data[0]) {
+      throw new Error("No data found");
+    }
+    populateHeaderFooter(data[0]);
+  })
+  .catch((error) => {
+    console.error("There was a problem with the fetch operation:", error);
+  });
+
+/**
+ * Populates header and footer with fetched data
+ * @param {Object} data
+ */
+function populateHeaderFooter(data) {
+  populateHeader(data);
+}
+
+/**
+ * Populates header sections (top and bottom)
+ * @param {Object} data
+ */
+function populateHeader(data) {
+  const { top, bottom } = data.header;
+  if (!top || !bottom) {
+    console.log("Top or Bottom data is missing!");
+    return;
+  }
+  setTopHeader(top);
+  setBottomHeader(bottom);
+}
+
+/**
+ * Sets top header content (WhatsApp, phone, email)
+ * @param {Object} top
+ */
+function setTopHeader(top) {
+  whatsappNumber.href = `https://wa.me/${top.whats_app_number}`;
+  changeContentWithIcon(
+    whatsappNumber,
+    top.whatsapp_text,
+    '<i class="fa-brands fa-whatsapp"></i>'
+  );
+
+  phoneNumber.href = `tel:${top.phone_number}`;
+  changeContentWithIcon(
+    phoneNumber,
+    top.phone_number,
+    '<i class="fa-solid fa-phone"></i>'
+  );
+
+  email.href = `mailto:${top.email}`;
+  changeContentWithIcon(
+    email,
+    top.email,
+    '<i class="fa-regular fa-envelope"></i>'
+  );
+}
+
+/**
+ * Sets bottom header content (logo, navigation, services, resources)
+ * @param {Object} bottom
+ */
+function setBottomHeader(bottom) {
+  setImageElement(logo, bottom.logo, "Logo Image");
+  changeContent(homeLink, bottom.navbar.home);
+  changeContent(servicesButton, bottom.navbar.services.text);
+  changeContent(resourcesButton, bottom.navbar.resources.resources_text);
+  changeContent(blogs, bottom.navbar.resources.blogs);
+  changeContent(podcasts, bottom.navbar.resources.podcasts);
+  changeContent(videos, bottom.navbar.resources.videos);
+  changeContent(about, bottom.navbar.about_us);
+  changeContent(contact, bottom.navbar.contact_us);
+  changeContent(button, bottom.button);
+  const serviceList = bottom.navbar.services.list;
+
+  // Add service items to services menu
+  serviceList.forEach((service) => {
+    servicesMenu.appendChild(createServiceElement(service.title, service.slug));
+  });
+}
+
+/**
+ * Creates a service menu item element
+ * @param {string} text
+ * @param {string} slug
+ * @returns {HTMLElement}
+ */
+function createServiceElement(text, slug) {
+  const listElement = createElement("li", ["px-3", "py-2"]);
+  const link = createElement("a", ["text-decoration-none"], "", text);
+
+  // Set link href based on current path depth
+  if ((path.match(/\//g) || []).length <= 1) {
+    link.href = `services/service.html?slug=${slug}`;
+  } else {
+    link.href = `/services/service.html?slug=${slug}`;
+  }
+
+  listElement.appendChild(link);
+  return listElement;
+}
+
+//#region Helper methods
+/**
+ * Create an element with optional classes and text content
+ * @param {string} tag
+ * @param {Array} classes
+ * @param {string} content
+ * @returns {HTMLElement}
+ */
+function createElement(
+  tag,
+  classes = [],
+  id = "",
+  content = "",
+  inputType = ""
+) {
+  const el = document.createElement(tag);
+  if (classes.length) el.classList.add(...classes);
+  if (id) el.id = id;
+  if (content) el.textContent = content;
+  if (inputType) el.type = inputType;
+  return el;
+}
+
+/**
+ * Sets image src and alt to an element
+ * @param {HTMLElement} element
+ * @param {string} imageUrl
+ * @param {string} imageAlt
+ */
+function setImageElement(element, imageUrl, imageAlt = "") {
+  if (element && imageUrl) {
+    element.src = imageUrl;
+    element.alt = imageAlt || "Image";
+  }
+}
+
+/**
+ * Change the text content of an element
+ * @param {Element} element - DOM element
+ * @param {string} content - New content to set
+ */
+function changeContent(element, content) {
+  if (element) {
+    element.textContent = content;
+  }
+}
+
+/**
+ * Change the content of an element with icon
+ * @param {Element} element - DOM element
+ * @param {string} content - New content to set
+ * @param {string} icon - Icon HTML
+ */
+function changeContentWithIcon(element, content, icon) {
+  if (element) {
+    element.innerHTML = `${icon} ${content}`;
+  }
+}
+//#endregion
