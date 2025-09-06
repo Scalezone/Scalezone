@@ -90,6 +90,12 @@ const visionParagraphs = document.querySelectorAll(
   ".vision-container .content .text-box p"
 );
 
+const servicesTitle = document.querySelector(".services .title h2");
+const servicesDescription = document.querySelector(".services .title p");
+const servicesCardsContainer = document.querySelector(
+  ".services .services-cards"
+);
+
 // "What makes us different" section elements
 const differentTitle = document.querySelector(
   ".features-container .content .title h2"
@@ -147,6 +153,7 @@ function populateAllSections(data) {
   populateHeroSection(data);
   populateMissionSection(data);
   populateVisionSection(data);
+  populateServicesSection(data);
   populateDifferentSection(data);
   populateTestimonialsSection(data);
   populateCTASection(data);
@@ -334,6 +341,42 @@ function setVisionImage(visionData) {
 
 //#endregion
 
+//#region Services section
+function populateServicesSection(data) {
+  const { services } = data.acf;
+  if (!services) {
+    console.warn("Services data is missing!");
+    return;
+  }
+
+  setContentToElement(servicesTitle, services.title);
+  setContentToElement(servicesDescription, services.description);
+
+  setServicesCards(services.services);
+}
+
+function setServicesCards(services) {
+  if (!services) {
+    console.warn("Services data is missing!");
+    return;
+  }
+
+  let temp = [];
+
+  for (i = 0; i < services.length; i++) {
+    if (i % 2 != 0 || i === 0) {
+      temp.push(services[i]);
+    } else {
+      console.log(temp);
+      temp = [];
+      temp.push(services[i]);
+    }
+  }
+}
+
+function createServicesCard(card) {}
+//#endregion
+
 //#region "What Makes Us Different" Section
 /**
  * Populate "What makes us different" section
@@ -402,6 +445,17 @@ function setCTAContent(data) {
 //#endregion
 
 //#region Helper Functions
+/**
+ * Sets text content to an element
+ * @param {HTMLElement} element
+ * @param {string} content
+ */
+function setContentToElement(element, content) {
+  if (element && content) {
+    element.textContent = content.trim();
+  }
+}
+
 /**
  * Create an arrow icon element
  * @returns {HTMLElement} - Arrow icon element
