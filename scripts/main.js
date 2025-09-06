@@ -5,7 +5,6 @@ const heroCaptionElements = document.querySelectorAll(
 const heroCircleElements = document.querySelectorAll(".hero .img .circle");
 
 // Select service and feature cards
-const serviceMainCards = document.querySelectorAll(".main-card");
 const featuresCardsContainer = document.querySelector(".features .cards");
 const featuresProgressCardsTop = document.querySelectorAll(".progress-card.up");
 const featuresProgressCardsBottom = document.querySelectorAll(
@@ -14,14 +13,6 @@ const featuresProgressCardsBottom = document.querySelectorAll(
 
 // Animate sections and cards on scroll
 window.addEventListener("scroll", function () {
-  serviceMainCards.forEach((card) => {
-    animateElementOnVisibility(
-      card,
-      "animate__jackInTheBox",
-      isElementVisible(card, 10)
-    );
-  });
-
   featuresProgressCardsBottom.forEach((card) => {
     animateElementOnVisibility(
       card,
@@ -92,8 +83,11 @@ const visionParagraphs = document.querySelectorAll(
 
 const servicesTitle = document.querySelector(".services .title h2");
 const servicesDescription = document.querySelector(".services .title p");
-const servicesCardsContainer = document.querySelector(
-  ".services .services-cards"
+const leftServicesCards = document.querySelector(
+  ".services .services-cards .left"
+);
+const rightServicesCards = document.querySelector(
+  ".services .services-cards .right"
 );
 
 // "What makes us different" section elements
@@ -362,19 +356,127 @@ function setServicesCards(services) {
   }
 
   let temp = [];
+  let count = 1;
 
   for (i = 0; i < services.length; i++) {
     if (i % 2 != 0 || i === 0) {
       temp.push(services[i]);
     } else {
-      console.log(temp);
+      const serviceContainer = createServiceContainer();
+
+      for (j = 0; j < temp.length; j++) {
+        serviceContainer.appendChild(createServicesCard(temp[j]));
+      }
+
+      if (count % 2 === 0) {
+        leftServicesCards.appendChild(serviceContainer);
+      } else {
+        rightServicesCards.appendChild(serviceContainer);
+      }
+
       temp = [];
+      count++;
       temp.push(services[i]);
     }
   }
 }
 
-function createServicesCard(card) {}
+function createServicesCard(card) {
+  const mainCard = createElement("div", ["main-card", "position-relative"]);
+  const serviceCard = createElement("div", [
+    "service-card",
+    "d-flex",
+    "flex-column",
+    "gap-4",
+    "justify-content-center",
+    "align-items-center",
+    "text-center",
+  ]);
+  const iconElement = createElement("div", [
+    "icon",
+    "d-flex",
+    "justify-content-center",
+    "align-items-center",
+  ]);
+  iconElement.innerHTML = card.icon;
+  const content = createElement("div", [
+    "content",
+    "d-flex",
+    "flex-column",
+    "gap-3",
+  ]);
+  const titleElement = createElement("div", ["title"]);
+  const title = createElement("h2", [], "", card.title);
+  const textElement = createElement("div", [
+    "text-bx",
+    "d-flex",
+    "flex-column",
+    "gap-3",
+    "position-absolute",
+    "w-100",
+    "h-100",
+    "p-3",
+  ]);
+  const text = createElement("p", [], "", card.description);
+  const readMoreLink = createElement("a", [
+    "text-decoration-none",
+    "d-flex",
+    "gap-2",
+    "align-items-center",
+    "position-relative",
+    "overflow-hidden",
+    "z-1",
+  ]);
+  readMoreLink.href = `services/service.html?slug=${card.slug}`;
+  readMoreLink.setAttribute("aria-label", `Read more about ${card.title}`);
+  const hiddenLinkText = createElement(
+    "span",
+    ["visually-hidden", "position-absolute"],
+    "",
+    `Read more about ${card.title}`
+  );
+  const visibleLinkText = createElement("span", [], "", "Read More");
+  const linkIcon = createElement("i", ["fa-solid", "fa-arrow-right"]);
+
+  readMoreLink.append(hiddenLinkText, visibleLinkText, linkIcon);
+  textElement.append(text, readMoreLink);
+  titleElement.appendChild(title);
+  content.appendChild(titleElement);
+  serviceCard.append(iconElement, content);
+  mainCard.append(serviceCard, textElement);
+
+  // add animation
+  window.addEventListener("scroll", () => {
+    animateElementOnVisibility(
+      mainCard,
+      "animate__jackInTheBox",
+      isElementVisible(mainCard, 10)
+    );
+  });
+  return mainCard;
+}
+
+function createServiceContainer() {
+  const servicesCont = createElement("div", [
+    "t-services",
+    "d-flex",
+    "flex-wrap",
+    "gap-5",
+    "justify-content-center",
+    "position-relative",
+  ]);
+  const lineElement = createElement("div", [
+    "service-line",
+    "position-absolute",
+    "h-100",
+  ]);
+  const circle = createElement("div", ["circle"]);
+
+  lineElement.appendChild(circle);
+  servicesCont.appendChild(lineElement);
+
+  return servicesCont;
+}
 //#endregion
 
 //#region "What Makes Us Different" Section
@@ -457,6 +559,28 @@ function setContentToElement(element, content) {
 }
 
 /**
+ * Create an element with optional classes and text content
+ * @param {string} tag
+ * @param {Array} classes
+ * @param {string} content
+ * @returns {HTMLElement}
+ */
+function createElement(
+  tag,
+  classes = [],
+  id = "",
+  content = "",
+  inputType = ""
+) {
+  const el = document.createElement(tag);
+  if (classes.length) el.classList.add(...classes);
+  if (id) el.id = id;
+  if (content) el.textContent = content;
+  if (inputType) el.type = inputType;
+  return el;
+}
+
+/**
  * Create an arrow icon element
  * @returns {HTMLElement} - Arrow icon element
  */
@@ -464,7 +588,7 @@ function createArrowIcon() {
   const arrowDiv = document.createElement("div");
   arrowDiv.classList.add("arrow");
   const arrowImg = document.createElement("img");
-  arrowImg.src = "assets/blogs/arrow.svg";
+  arrowImg.src = "assets/public/arrow.svg";
   arrowImg.alt = "Arrow icon";
   arrowDiv.appendChild(arrowImg);
   return arrowDiv;
