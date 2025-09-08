@@ -7,3 +7,7 @@ footer a {
   color: var(--light-gray);
   margin-bottom: 1rem;
 }
+
+#services ul li {
+  padding: 0 !important;
+}

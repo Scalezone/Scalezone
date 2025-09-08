@@ -175,6 +175,20 @@ const about = document.getElementById("about"); // About link
 const contact = document.getElementById("contact"); // Contact link
 const button = document.querySelector("header .bottom .navbar .public-btn"); // Public button
 
+const followTitle = document.getElementById("follow-title");
+const facebook = document.getElementById("facebook");
+const youtube = document.getElementById("youtube");
+const instagram = document.getElementById("instagram");
+const linkedin = document.getElementById("linkedin");
+const whatsapp = document.getElementById("whatsapp");
+const tiktok = document.getElementById("tiktok");
+const logoElement = document.getElementById("logo");
+const servicesElement = document.getElementById("services");
+const quickElement = document.getElementById("quick");
+const contactElement = document.getElementById("contact-links");
+const informationsElement = document.getElementById("informations");
+const year = document.getElementById("year");
+
 const path = window.location.pathname; // Current page path
 
 // Fetch header and footer data from CMS API
@@ -204,8 +218,12 @@ fetch(`https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=header-and-footer`)
  */
 function populateHeaderFooter(data) {
   populateHeader(data);
+  populateFooter(data);
+  const current = new Date();
+  changeContent(year, current.getFullYear());
 }
 
+//#region Header
 /**
  * Populates header sections (top and bottom)
  * @param {Object} data
@@ -269,7 +287,126 @@ function setBottomHeader(bottom) {
     servicesMenu.appendChild(createServiceElement(service.title, service.slug));
   });
 }
+//#endregion
 
+//#region Footer
+function populateFooter(data) {
+  const { top, links } = data.footer;
+  if (!top || !links) {
+    console.warn("Top or Links data is missing!");
+    return;
+  }
+
+  setTopFooter(top);
+  setFooterLinks(links);
+}
+
+function setTopFooter(top) {
+  if (!top.follows) {
+    console.warn("Follows data is missing!");
+    return;
+  }
+
+  changeContent(followTitle, top.follows.text);
+  changeHref(facebook, top.follows.facebook);
+  changeHref(youtube, top.follows.youtube);
+  changeHref(instagram, top.follows.instagram);
+  changeHref(linkedin, top.follows.linkedin);
+  changeHref(whatsapp, `https://wa.me/${top.follows.whatsapp_number}`);
+  changeHref(tiktok, top.follows.tiktok);
+}
+
+function setFooterLinks(links) {
+  const { logo, services, quick, contact, informations } = links;
+  if (!logo || !services || !quick || !contact || !informations) {
+    console.warn("Links data is missing!");
+    return;
+  }
+
+  setLogoElements(logoElement, logo);
+  setServicesElements(servicesElement, services);
+  setQuickElements(quickElement, quick);
+  setContactElements(contactElement, contact);
+  setInformationElemnets(informationsElement, informations);
+}
+
+function setLogoElements(element, logo) {
+  const logoImage = element.querySelector("img");
+  const logoDescription = element.querySelector("p");
+
+  setImageElement(logoImage, logo.image, "Logo Image");
+  changeContent(logoDescription, logo.description);
+}
+
+function setServicesElements(element, services) {
+  const title = element.querySelector("h3");
+  const listElements = element.querySelector("ul");
+
+  changeContent(title, services.title);
+
+  services.list.forEach((service) => {
+    listElements.appendChild(createServiceElement(service.title, service.slug));
+  });
+}
+
+function setQuickElements(element, quickLinks) {
+  const title = element.querySelector("h3");
+  const home = element.querySelector("p:nth-child(2) a");
+  const about = element.querySelector("p:nth-child(3) a");
+  const contact = element.querySelector("p:last-child a");
+
+  changeContent(title, quickLinks.quick_title);
+  changeContent(home, quickLinks.home_link);
+  changeContent(about, quickLinks.about_link);
+  changeContent(contact, quickLinks.contact_link);
+}
+
+function setContactElements(element, contact) {
+  const title = element.querySelector("h3");
+  const whatsappElement = element.querySelector("a:nth-child(2)");
+  const whatsappText = whatsappElement.querySelector("span");
+  const emailElement = element.querySelector("a:nth-child(3)");
+  const emailText = emailElement.querySelector("span");
+  const phoneElement = element.querySelector("a:nth-child(4)");
+  const phoneText = phoneElement.querySelector("span");
+
+  changeContent(title, contact.contact_title);
+  changeContent(whatsappText, contact.whatsapp.whatsapp_text);
+  changeContent(emailText, contact.email);
+  changeContent(
+    phoneText,
+    `${
+      contact.phone_number.includes("+")
+        ? contact.phone_number
+        : "+" + contact.phone_number
+    }`
+  );
+
+  changeHref(
+    whatsappElement,
+    `https://wa.me/${contact.whatsapp.whatsapp_number}`
+  );
+  changeHref(emailElement, `mailto:${contact.email}`);
+  changeHref(phoneElement, `tel:${contact.phone_number}`);
+}
+
+function setInformationElemnets(element, informations) {
+  const title = element.querySelector("h3");
+  const terms = element.querySelector("p:nth-child(2) a");
+  const privacy = element.querySelector("p:nth-child(3) a");
+  const cookies = element.querySelector("p:nth-child(4) a");
+  const disclaimer = element.querySelector("p:nth-child(5) a");
+
+  changeContent(title, informations.title);
+  changeContent(terms, informations.terms_text);
+  changeContent(privacy, informations.policy_text);
+  changeContent(cookies, informations.cookies);
+  changeContent(disclaimer, informations.disclaimer_text);
+}
+
+//#endregion
+
+//#region Helper methods
 /**
  * Creates a service menu item element
  * @param {string} text
@@ -291,7 +428,10 @@ function createServiceElement(text, slug) {
   return listElement;
 }
 
-//#region Helper methods
+function changeHref(element, href) {
+  if (element && href) element.href = href;
+}
+
 /**
  * Create an element with optional classes and text content
  * @param {string} tag
