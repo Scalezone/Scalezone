@@ -1,188 +1,148 @@
 const leftElement = document.querySelector(".left-side-animate");
 const rightElement = document.querySelector(".right-side-animate");
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Form elements
-  const form = document.querySelector("form");
-  const serviceModal = document.getElementById("servicesModal");
-  const serviceCheckboxes = document.querySelectorAll(".service-checkbox");
-  const confirmBtn = document.getElementById("confirmServices");
-  const serviceError = document.querySelector(
-    ".services-section .error-message"
-  );
+//#region Animation Onload
 
-  // Initialize Bootstrap modal
-  const modal = new bootstrap.Modal(serviceModal);
+// AnimationOnLoad(leftElement, "animate__bounceInLeft");
+// AnimationOnLoad(rightElement, "animate__bounceInRight");
 
-  // Track selected services
-  let selectedServices = [];
-
-  // Open modal when "Choose Services" is clicked
-  document
-    .querySelector('[data-bs-toggle="modal"]')
-    .addEventListener("click", function (e) {
-      e.preventDefault();
-      modal.show();
-    });
-
-  // Handle checkbox changes
-  serviceCheckboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", function () {
-      if (this.checked) {
-        selectedServices.push(this.value);
-      } else {
-        selectedServices = selectedServices.filter(
-          (service) => service !== this.value
-        );
-      }
-      validateServices();
-    });
+function AnimationOnLoad(element, className) {
+  window.addEventListener("load", () => {
+    addClass(element, className);
   });
+}
+//#endregion
 
-  // Validate services selection
-  function validateServices() {
-    const isValid = selectedServices.length > 0;
-    if (isValid) {
-      serviceError.classList.add("d-none");
+//#region Helper Methds
+/**
+ * Add input value to object
+ * @param {HTMLElement} input
+ * @param {Object} obj
+ */
+function addValueToObj(input, obj) {
+  obj[input.name] = input.value.trim();
+}
+
+/**
+ * Validate required input
+ * @param {HTMLElement} input
+ * @returns {boolean} true if invalid
+ */
+function requiredInputValidation(input) {
+  if (input.value === "") {
+    addClass(input, "is-invalid");
+    return true;
+  } else {
+    removeClass(input, "is-invalid");
+    return false;
+  }
+}
+
+/**
+ * Validate phone number using libphonenumber
+ * @param {HTMLElement} input
+ */
+function validatePhoneNumber(input) {
+  try {
+    if (typeof libphonenumber === "undefined") {
+      /* fallback validation */
+    }
+    const phoneNumber = libphonenumber.parsePhoneNumberFromString(
+      input.value,
+      "EG"
+    );
+    if (phoneNumber && phoneNumber.isValid()) {
+      input.value = phoneNumber.formatInternational();
+      removeClass(input, "is-invalid");
     } else {
-      serviceError.classList.remove("d-none");
+      addClass(input, "is-invalid");
     }
-    return isValid;
+  } catch (error) {
+    addClass(input, "is-invalid");
   }
+}
 
-  // Confirm selection and close modal
-  confirmBtn.addEventListener("click", function () {
-    if (validateServices()) {
-      modal.hide();
-    }
-  });
-
-  // Form submission
-  form.addEventListener("submit", function (e) {
-    // e.preventDefault();
-    let isValid = true;
-
-    // Validate all form fields
-    const requiredFields = [
-      { id: "form6Example1", message: "First name is required" },
-      { id: "form6Example2", message: "Last name is required" },
-      {
-        id: "form6Example5",
-        message: "Email is required",
-        validate: validateEmail,
-      },
-      { id: "form6Example3", message: "Company name is required" },
-      {
-        id: "form6Example6",
-        message: "Phone number is required",
-        validate: validatePhone,
-      },
-      { id: "form6Example7", message: "Message is required" },
-    ];
-
-    requiredFields.forEach((field) => {
-      const element = document.getElementById(field.id);
-      const errorElement = element.nextElementSibling;
-
-      if (!element.value.trim()) {
-        showError(element, field.message);
-        isValid = false;
-      } else if (field.validate && !field.validate(element.value)) {
-        showError(element, field.message.replace("required", "valid"));
-        isValid = false;
-      } else {
-        clearError(element);
-      }
-    });
-
-    // Validate services
-    if (selectedServices.length === 0) {
-      serviceError.classList.remove("d-none");
-      modal.show();
-      isValid = false;
-    }
-
-    // Validate URL if provided
-    const urlField = document.getElementById("form6Example4");
-    if (urlField.value.trim() && !validateUrl(urlField.value)) {
-      showError(urlField, "Please enter a valid URL");
-      isValid = false;
-    }
-
-    if (isValid) {
-      // Form is valid - prepare data and submit
-      const formData = {
-        firstName: document.getElementById("form6Example1").value,
-        lastName: document.getElementById("form6Example2").value,
-        email: document.getElementById("form6Example5").value,
-        company: document.getElementById("form6Example3").value,
-        phone: document.getElementById("form6Example6").value,
-        message: document.getElementById("form6Example7").value,
-        url: document.getElementById("form6Example4").value,
-        services: selectedServices,
-        contactMethod: document.querySelector(
-          'input[name="contactMethod"]:checked'
-        ).value,
-        smsOptIn: document.querySelector('input[name="smsOptIn"]:checked')
-          .value,
-      };
-
-      // Here you would typically send the data to your server
-    }
-  });
-
-  // Helper functions
-  function showError(element, message) {
-    element.classList.add("is-invalid");
-    let errorElement = element.nextElementSibling;
-    if (!errorElement || !errorElement.classList.contains("invalid-feedback")) {
-      errorElement = document.createElement("div");
-      errorElement.className = "invalid-feedback";
-      element.parentNode.appendChild(errorElement);
-    }
-    errorElement.textContent = message;
+/**
+ * Validate email format
+ * @param {HTMLElement} email
+ */
+function validateEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email.value === "" || !regex.test(email.value)) {
+    addClass(email, "is-invalid");
+  } else {
+    removeClass(email, "is-invalid");
   }
+}
 
-  function clearError(element) {
-    element.classList.remove("is-invalid");
-    const errorElement = element.nextElementSibling;
-    if (errorElement && errorElement.classList.contains("invalid-feedback")) {
-      errorElement.remove();
-    }
+/**
+ * Capitalize first letter of string
+ * @param {string} str
+ * @returns {string}
+ */
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+/**
+ * Show element for a specified time then hide
+ * @param {HTMLElement} element
+ * @param {number} specifiedTime
+ * @param {string} showingClass
+ */
+function showElementForTime(element, specifiedTime, showingClass = "active") {
+  if (!element) return;
+  addClass(element, showingClass);
+  setTimeout(() => {
+    removeClass(element, showingClass);
+  }, specifiedTime);
+}
+
+/**
+ * Create an element with optional classes and text content
+ * @param {string} tag
+ * @param {Array} classes
+ * @param {string} content
+ * @returns {HTMLElement}
+ */
+function createElement(tag, classes = [], id = "", content = "") {
+  const el = document.createElement(tag);
+  if (classes.length) el.classList.add(...classes);
+  if (id) el.id = id;
+  if (content) el.textContent = content;
+  return el;
+}
+
+/**
+ * Sets text content to an element
+ * @param {HTMLElement} element
+ * @param {string} content
+ */
+function setContentToElement(element, content) {
+  if (element && content) {
+    element.textContent = content.trim();
   }
-
-  function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  }
-
-  function validatePhone(phone) {
-    const re = /^[\d\s+()-]{8,20}$/;
-    return re.test(phone);
-  }
-
-  function validateUrl(url) {
-    try {
-      new URL(url.startsWith("http") ? url : `https://${url}`);
-      return true;
-    } catch {
-      return false;
-    }
-  }
-});
-
-window.addEventListener("load", () => {
-  addAnimationClassToElement(leftElement, "animate__bounceInLeft");
-  addAnimationClassToElement(rightElement, "animate__bounceInRight");
-});
+}
 
 /**
  * Adds a class to an element if not already present
  * @param {Element} element - DOM element
  * @param {string} className
  */
-function addAnimationClassToElement(element, className = "active") {
+function addClass(element, className = "active") {
   if (!element.classList.contains(className)) {
     element.classList.add(className);
   }
 }
+
+/**
+ * Adds a class to an element if not already present
+ * @param {Element} element - DOM element
+ * @param {string} className
+ */
+function removeClass(element, className = "active") {
+  if (element.classList.contains(className)) {
+    element.classList.remove(className);
+  }
+}
+//#endregion
