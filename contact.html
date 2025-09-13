@@ -270,7 +270,7 @@
       </div>
     </header>
 
-    <main id="hero" class="hero overflow-hidden">
+    <main id="hero" class="hero overflow-hidden skeleton">
       <div class="hero-container container mx-auto row justify-content-center">
         <!-- Left: Hero Image -->
         <div
@@ -279,9 +279,10 @@
           <picture>
             <!-- Default image for desktop -->
             <img
-              src="assets/contact/hero-mobile.webp"
+              src="assets/public/default.webp"
               alt="Contact Scalezone for Amazon seller services and e-commerce consulting"
               loading="lazy"
+              id="hero-image"
             />
           </picture>
         </div>
@@ -290,15 +291,17 @@
           class="text-side right-side-animate col-8 col-lg-6 animate__animated"
         >
           <div class="top">
-            <h1>We'd love to hear from you about your Amazon business.</h1>
-            <p class="description">
+            <h1 id="title">
+              We'd love to hear from you about your Amazon business.
+            </h1>
+            <p id="description" class="description">
               We have World-Class, Flexible Support Via Live Chat, Email And
               Phone. We Guarantee That You Will Be Able To Have Any Issue
               Resolved Successfully Within 24 Hours.
             </p>
           </div>
           <div class="bottom">
-            <p class="contact-form-title">Send a message</p>
+            <p class="contact-form-title" id="form-title">Send a message</p>
             <div class="mask d-flex align-items-center h-100">
               <div class="container">
                 <div class="row">
@@ -306,36 +309,39 @@
                     <div>
                       <div>
                         <!-- CONTACT FORM START -->
-                        <form
-                          action="https://formspree.io/f/xwpbrkll"
-                          method="POST"
-                        >
+                        <form id="form">
                           <!-- First and Last Name Inputs -->
                           <div class="row">
                             <div class="col-12 col-md-6 mb-1">
-                              <div class="form-outline">
+                              <div class="form-outline" id="first-name">
                                 <label class="form-label" for="form6Example1"
                                   >First name</label
                                 >
                                 <input
                                   type="text"
                                   id="form6Example1"
-                                  name="firstName"
+                                  name="first_name"
                                   class="form-control"
                                 />
+                                <div class="invalid-feedback">
+                                  Please provide your first name.
+                                </div>
                               </div>
                             </div>
                             <div class="col-12 col-md-6 mb-1">
-                              <div class="form-outline">
+                              <div class="form-outline" id="last-name">
                                 <label class="form-label" for="form6Example2"
                                   >Last name</label
                                 >
                                 <input
                                   type="text"
                                   id="form6Example2"
-                                  name="lastName"
+                                  name="last_name"
                                   class="form-control"
                                 />
+                                <div class="invalid-feedback">
+                                  Please provide your last name.
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -343,7 +349,7 @@
                           <!-- Email and Company Name Inputs -->
                           <div class="row">
                             <div class="col-12 col-md-6 mb-1">
-                              <div class="form-outline mb-1">
+                              <div class="form-outline mb-1" id="email">
                                 <label class="form-label" for="form6Example5"
                                   >Email</label
                                 >
@@ -353,17 +359,21 @@
                                   name="email"
                                   class="form-control"
                                 />
+                                <div class="invalid-feedback">
+                                  Please provide a valid email address, e.g.,
+                                  example@gmail.com
+                                </div>
                               </div>
                             </div>
                             <div class="col-12 col-md-6 mb-1">
-                              <div class="form-outline mb-1">
+                              <div class="form-outline mb-1" id="company-name">
                                 <label class="form-label" for="form6Example3"
                                   >Company name</label
                                 >
                                 <input
                                   type="text"
                                   id="form6Example3"
-                                  name="companyName"
+                                  name="company"
                                   class="form-control"
                                 />
                               </div>
@@ -371,7 +381,7 @@
                           </div>
 
                           <!-- Phone Number Input -->
-                          <div class="form-outline mb-1">
+                          <div class="form-outline mb-1" id="phone-number">
                             <label class="form-label" for="form6Example6">
                               Phone
                             </label>
@@ -381,10 +391,13 @@
                               name="phone"
                               class="form-control"
                             />
+                            <div class="invalid-feedback">
+                              Please provide a valid phone number.
+                            </div>
                           </div>
 
                           <!-- Message Input -->
-                          <div class="form-outline mb-1">
+                          <div class="form-outline mb-1" id="message">
                             <label class="form-label" for="form6Example7">
                               message
                             </label>
@@ -397,14 +410,14 @@
                           </div>
 
                           <!-- Store URL Input -->
-                          <div class="form-outline mb-3">
+                          <div class="form-outline mb-3" id="store-url">
                             <label class="form-label" for="form6Example4">
                               Store URL
                             </label>
                             <input
                               type="text"
                               id="form6Example4"
-                              name="storeUrl"
+                              name="store_url"
                               placeholder="https://www.example.com"
                               class="form-control"
                             />
@@ -427,7 +440,6 @@
                               id="servicesModal"
                               tabindex="-1"
                               aria-labelledby="servicesModalLabel"
-                              aria-hidden="true"
                             >
                               <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -448,140 +460,22 @@
                                   <div class="modal-body">
                                     <!-- Services Section -->
                                     <div class="services-section mb-4">
-                                      <h3 class="section-title mb-3">
+                                      <h3
+                                        class="section-title mb-3"
+                                        id="select-service-title"
+                                      >
                                         Which services are you interested in?
                                       </h3>
                                       <div class="services-grid row">
                                         <!-- Service Checkboxes - 2 columns for better layout -->
-                                        <div class="col-md-6">
-                                          <div class="form-check mb-2">
-                                            <input
-                                              class="form-check-input service-checkbox"
-                                              type="checkbox"
-                                              value="Digital Marketing"
-                                              id="digital-marketing"
-                                              name="services"
-                                            />
-                                            <label
-                                              class="form-check-label"
-                                              for="digital-marketing"
-                                              >Digital Marketing</label
-                                            >
-                                          </div>
-                                          <div class="form-check mb-2">
-                                            <input
-                                              class="form-check-input service-checkbox"
-                                              type="checkbox"
-                                              value="eBay Account Management"
-                                              id="ebay-management"
-                                              name="services"
-                                            />
-                                            <label
-                                              class="form-check-label"
-                                              for="ebay-management"
-                                              >eBay Account Management</label
-                                            >
-                                          </div>
-                                          <div class="form-check mb-2">
-                                            <input
-                                              class="form-check-input service-checkbox"
-                                              type="checkbox"
-                                              value="Etsy Account Management"
-                                              id="etsy-management"
-                                              name="services"
-                                            />
-                                            <label
-                                              class="form-check-label"
-                                              for="etsy-management"
-                                              >Etsy Account Management</label
-                                            >
-                                          </div>
-                                          <div class="form-check mb-2">
-                                            <input
-                                              class="form-check-input service-checkbox"
-                                              type="checkbox"
-                                              value="Amazon Account Management"
-                                              id="amazon-management"
-                                              name="services"
-                                            />
-                                            <label
-                                              class="form-check-label"
-                                              for="amazon-management"
-                                              >Amazon Account Management</label
-                                            >
-                                          </div>
-                                          <div class="form-check mb-2">
-                                            <input
-                                              class="form-check-input service-checkbox"
-                                              type="checkbox"
-                                              value="Shopify Store Management"
-                                              id="shopify-management"
-                                              name="services"
-                                            />
-                                            <label
-                                              class="form-check-label"
-                                              for="shopify-management"
-                                              >Shopify Store Management</label
-                                            >
-                                          </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                          <div class="form-check mb-2">
-                                            <input
-                                              class="form-check-input service-checkbox"
-                                              type="checkbox"
-                                              value="Virtual Assistant"
-                                              id="virtual-assistant"
-                                              name="services"
-                                            />
-                                            <label
-                                              class="form-check-label"
-                                              for="virtual-assistant"
-                                              >Virtual Assistant</label
-                                            >
-                                          </div>
-                                          <div class="form-check mb-2">
-                                            <input
-                                              class="form-check-input service-checkbox"
-                                              type="checkbox"
-                                              value="Walmart Account Management"
-                                              id="walmart-management"
-                                              name="services"
-                                            />
-                                            <label
-                                              class="form-check-label"
-                                              for="walmart-management"
-                                              >Walmart Account Management</label
-                                            >
-                                          </div>
-                                          <div class="form-check mb-2">
-                                            <input
-                                              class="form-check-input service-checkbox"
-                                              type="checkbox"
-                                              value="Meta Ads Management"
-                                              id="meta-ads"
-                                              name="services"
-                                            />
-                                            <label
-                                              class="form-check-label"
-                                              for="meta-ads"
-                                              >Meta Ads Management</label
-                                            >
-                                          </div>
-                                          <div class="form-check mb-2">
-                                            <input
-                                              class="form-check-input service-checkbox"
-                                              type="checkbox"
-                                              value="Google Ads Management"
-                                              id="google-ads"
-                                              name="services"
-                                            />
-                                            <label
-                                              class="form-check-label"
-                                              for="google-ads"
-                                              >Google Ads Management</label
-                                            >
-                                          </div>
+                                        <div
+                                          class="col-md-6"
+                                          id="left-services"
+                                        ></div>
+                                        <div
+                                          class="col-md-6"
+                                          id="right-services"
+                                        >
                                           <div class="form-check mb-2">
                                             <input
                                               class="form-check-input service-checkbox"
@@ -607,14 +501,17 @@
 
                                     <!-- Contact Preference Section -->
                                     <div class="contact-section mb-4">
-                                      <h3 class="section-title mb-3">
+                                      <h3
+                                        class="section-title mb-3"
+                                        id="preferred-contact-title"
+                                      >
                                         Preferred Contact Method
                                       </h3>
-                                      <div class="form-check">
+                                      <div class="form-check" id="phone-call">
                                         <input
                                           class="form-check-input"
                                           type="radio"
-                                          name="contactMethod"
+                                          name="contact_method"
                                           id="contact-call"
                                           value="Call"
                                           checked
@@ -625,11 +522,11 @@
                                           >Phone Call</label
                                         >
                                       </div>
-                                      <div class="form-check">
+                                      <div class="form-check" id="email-method">
                                         <input
                                           class="form-check-input"
                                           type="radio"
-                                          name="contactMethod"
+                                          name="contact_method"
                                           id="contact-email"
                                           value="Email"
                                         />
@@ -643,14 +540,17 @@
 
                                     <!-- SMS Opt-in Section -->
                                     <div class="sms-section">
-                                      <h3 class="section-title mb-3">
+                                      <h3
+                                        class="section-title mb-3"
+                                        id="sms-title"
+                                      >
                                         SMS Notifications
                                       </h3>
-                                      <div class="form-check">
+                                      <div class="form-check" id="sms-agree">
                                         <input
                                           class="form-check-input"
                                           type="radio"
-                                          name="smsOptIn"
+                                          name="sms_notifications"
                                           id="sms-yes"
                                           value="Yes"
                                           checked
@@ -662,11 +562,11 @@
                                           messages</label
                                         >
                                       </div>
-                                      <div class="form-check">
+                                      <div class="form-check" id="sms-unagree">
                                         <input
                                           class="form-check-input"
                                           type="radio"
-                                          name="smsOptIn"
+                                          name="sms_notifications"
                                           id="sms-no"
                                           value="No"
                                         />
@@ -685,14 +585,7 @@
                                   <div class="modal-footer">
                                     <button
                                       type="button"
-                                      class="btn btn-secondary"
-                                      data-bs-dismiss="modal"
-                                    >
-                                      Close
-                                    </button>
-                                    <button
-                                      type="button"
-                                      class="btn btn-primary"
+                                      class="public-btn text-decoration-none position-relative overflow-hidden z-1"
                                       id="confirmServices"
                                     >
                                       Confirm Selection
@@ -706,9 +599,15 @@
                           <!-- Submit Button -->
                           <button
                             type="submit"
+                            id="submit"
                             class="btn btn-primary btn-rounded btn-block"
                           >
-                            Get Started Now
+                            <div class="text">Get Started Now</div>
+                            <div class="spinner close">
+                              <span class="bar"></span>
+                              <span class="bar"></span>
+                              <span class="bar"></span>
+                            </div>
                           </button>
                         </form>
                         <!-- CONTACT FORM END -->
@@ -717,6 +616,37 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="messages" class="messages position-fixed">
+          <div
+            class="success position-absolute d-flex gap-3 align-items-center"
+          >
+            <div class="logo">
+              <img src="assets/appointment/success.webp" alt="Success icon" />
+            </div>
+
+            <div class="success-text">
+              <h3 class="caption"></h3>
+              <p></p>
+            </div>
+          </div>
+
+          <div
+            class="unsuccess position-absolute d-flex gap-3 align-items-center"
+          >
+            <div class="logo">
+              <img
+                src="assets/appointment/unsauccess.webp"
+                alt="Success icon"
+              />
+            </div>
+
+            <div class="unsuccess-text">
+              <h3 class="caption">Error</h3>
+              <p>Could not send your request. Try again later.</p>
             </div>
           </div>
         </div>
@@ -909,6 +839,7 @@
       async
     ></script>
     <!-- Custom JS for public scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.10.43/bundle/libphonenumber-js.min.js"></script>
     <script src="scripts/public/public.js" async></script>
     <script src="scripts/contact/script.js" async></script>
   </body>

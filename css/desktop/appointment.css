@@ -25,54 +25,6 @@ main {
   font-size: 1.5rem;
 }
 
-#messages {
-  left: 50%;
-  top: -10rem;
-  transform: translateX(-50%);
-  width: 35rem;
-  height: 10rem;
-  z-index: 999999999;
-}
-
-#messages p {
-  margin: 0;
-}
-
-#messages .success,
-#messages .unsuccess {
-  background: var(--background-color);
-  padding: 0.875rem;
-  border-radius: 1rem;
-  top: 0;
-  transition: 0.2s ease;
-}
-
-#messages .success {
-  border: 2px solid var(--success);
-}
-
-#messages .unsuccess {
-  border: 2px solid var(--danger);
-}
-
-#messages .success.active,
-#messages .unsuccess.active {
-  top: 115%;
-}
-
-#messages .success .caption {
-  color: var(--success);
-}
-
-#messages .unsuccess .caption {
-  color: var(--danger);
-}
-
-#submit.disabled {
-  pointer-events: bounding-box;
-  cursor: not-allowed;
-}
-
 .form-control:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 0.25rem rgba(254, 151, 61, 0.2);
@@ -168,18 +120,6 @@ main {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.invalid-feedback {
-  display: none;
-}
-
-.is-invalid {
-  border-color: #dc3545;
-}
-
-.is-invalid + .invalid-feedback {
-  display: block;
 }
 
 #submit .spinner {
