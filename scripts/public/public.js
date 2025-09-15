@@ -7,8 +7,6 @@ const mobileMenuToggle = document.querySelector(".hamburger"); // Hamburger menu
 const mobileNavigationMenu = document.querySelector(".navbar"); // Mobile navigation menu
 const navigationBar = document.querySelector(".header-container .bottom"); // Navigation bar
 const headerContainer = document.querySelector(".header-container"); // Header container
-const loadingPage = document.querySelector(".loading"); // Loading page element
-const bodyEle = document.body; // Body element
 
 const leftElements = document.querySelectorAll(".left-side-animated"); // Elements animated from left
 const rightElements = document.querySelectorAll(".right-side-animated"); // Elements animated from right
@@ -57,17 +55,6 @@ window.addEventListener("scroll", () => {
       isElementVisible(e, 25)
     );
   });
-});
-
-// Handle page load event for loading animation
-window.addEventListener("load", () => {
-  removeElementVisiblity(bodyEle, "load");
-  addElementVisiblity(loadingPage, "close");
-
-  // Optionally remove loading page after delay
-  // setTimeout(() => {
-  //   loadingPage.remove();
-  // }, 400);
 });
 
 /**

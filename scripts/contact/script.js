@@ -30,6 +30,8 @@ const serviceModal = document.getElementById("servicesModal");
 const confirmServices = document.getElementById("confirmServices");
 
 const skeletonElements = document.querySelectorAll(".skeleton");
+const loadingPage = document.querySelector(".loading"); // Loading page element
+const bodyEle = document.body; // Body element
 
 //#region Events
 
@@ -62,6 +64,7 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=contact")
     skeletonElements.forEach((e) => {
       removeClass(e, "skeleton");
     });
+    handleLoading(bodyEle, loadingPage);
     addClass(leftElement, "animate__bounceInLeft");
     addClass(rightElement, "animate__bounceInRight");
   })
@@ -434,5 +437,12 @@ function removeClass(element, className = "active") {
   if (element.classList.contains(className)) {
     element.classList.remove(className);
   }
+}
+//#endregion
+
+//#region Handle Loadin page on fetching
+function handleLoading() {
+  removeElementVisiblity(bodyEle, "load");
+  addElementVisiblity(loadingPage, "close");
 }
 //#endregion

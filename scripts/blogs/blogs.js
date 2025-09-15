@@ -2,6 +2,8 @@
 const leftElement = document.querySelector(".left-animate");
 const rightElement = document.querySelector(".right-animate");
 const blogCards = document.querySelectorAll(".blog-card");
+const loadingPage = document.querySelector(".loading"); // Loading page element
+const bodyEle = document.body; // Body element
 
 // Hero section elements
 const heroImage = document.querySelector(".hero .img img");
@@ -37,6 +39,8 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=blogs")
       throw new Error("Blogs page not found");
     }
     populateAllSections(blogsPage);
+
+    handleLoading(bodyEle, loadingPage);
   })
   .catch((error) => console.error("Error fetching blogs page:", error));
 
@@ -282,5 +286,12 @@ function addClass(element, className = "active") {
   if (!element.classList.contains(className)) {
     element.classList.add(className);
   }
+}
+//#endregion
+
+//#region Handle Loadin page on fetching
+function handleLoading() {
+  removeElementVisiblity(bodyEle, "load");
+  addElementVisiblity(loadingPage, "close");
 }
 //#endregion

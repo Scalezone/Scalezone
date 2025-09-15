@@ -24,6 +24,9 @@ const displayMessage = document.getElementById("displayMessage");
 const successMessage = document.querySelector("#messages .success");
 const unsuccessMessage = document.querySelector("#messages .unsuccess");
 
+const loadingPage = document.querySelector(".loading"); // Loading page element
+const bodyEle = document.body; // Body element
+
 //#region Get Data
 // Fetch appointment page data from API
 fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=appointment")
@@ -44,6 +47,8 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=appointment")
     skeletonElements.forEach((element) => {
       removeClass(element);
     });
+
+    handleLoading(bodyEle, loadingPage);
   })
   .catch((error) => {
     console.error("There was a problem with the fetch operation:", error);
@@ -562,5 +567,11 @@ function addClass(element, className = "danger") {
   if (!element.classList.contains(className)) {
     element.classList.add(className);
   }
+}
+//#endregion
+//#region Handle Loadin page on fetching
+function handleLoading() {
+  removeElementVisiblity(bodyEle, "load");
+  addElementVisiblity(loadingPage, "close");
 }
 //#endregion

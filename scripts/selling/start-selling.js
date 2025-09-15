@@ -22,6 +22,8 @@ const sellingTextElements = document.querySelectorAll(
 const sellingImageElement = document.querySelector(
   ".selling-container .image img"
 );
+const loadingPage = document.querySelector(".loading"); // Loading page element
+const bodyEle = document.body; // Body element
 
 // Fetch the data from the wordpress REST API
 fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=start-selling")
@@ -41,6 +43,7 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=start-selling")
     // Populate sections and remove skeleton loading classes
     populateAllSections(pageData);
     removeClassFromElements(skeletonElements);
+    handleLoading(bodyEle, loadingPage);
   })
   .catch((error) => console.error(`Error fetching data: ${error}`));
 
@@ -176,4 +179,10 @@ function removeClassFromElements(elementArray, className = "skeleton") {
   });
 }
 
+//#endregion
+//#region Handle Loadin page on fetching
+function handleLoading() {
+  removeElementVisiblity(bodyEle, "load");
+  addElementVisiblity(loadingPage, "close");
+}
 //#endregion

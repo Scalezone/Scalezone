@@ -3,6 +3,8 @@ const bodyELement = document.body;
 const headerElement = document.querySelector("header");
 // Create a main element for blog content
 const mainElement = createElement("main");
+const loadingPage = document.querySelector(".loading"); // Loading page element
+const bodyEle = document.body; // Body element
 
 // Insert main element after header
 bodyELement.insertBefore(mainElement, headerElement.nextSibling);
@@ -31,6 +33,8 @@ fetch(`https://scalezone.ae/cms/wp-json/wp/v2/blog?slug=${slug}`)
     }
     // Populate all sections with blog data
     populateAllSections(blog);
+
+    handleLoading(bodyEle, loadingPage);
   });
 
 /**
@@ -361,5 +365,12 @@ function setContentToElement(element, content) {
   if (element && content) {
     element.textContent = content.trim();
   }
+}
+//#endregion
+
+//#region Handle Loadin page on fetching
+function handleLoading() {
+  removeElementVisiblity(bodyEle, "load");
+  addElementVisiblity(loadingPage, "close");
 }
 //#endregion

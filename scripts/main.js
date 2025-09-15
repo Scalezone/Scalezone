@@ -10,6 +10,8 @@ const featuresProgressCardsTop = document.querySelectorAll(".progress-card.up");
 const featuresProgressCardsBottom = document.querySelectorAll(
   ".progress-card.down"
 );
+const loadingPage = document.querySelector(".loading"); // Loading page element
+const bodyEle = document.body; // Body element
 
 // Animate sections and cards on scroll
 window.addEventListener("scroll", function () {
@@ -129,6 +131,7 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=home")
   .then((data) => {
     if (data && data.length > 0) {
       populateAllSections(data[0]);
+      handleLoading(bodyEle, loadingPage);
     } else {
       console.error("No data found for the specified slug.");
     }
@@ -874,4 +877,11 @@ window.addEventListener("load", () => {
     },
   });
 });
+//#endregion
+
+//#region Handle Loadin page on fetching
+function handleLoading() {
+  removeElementVisiblity(bodyEle, "load");
+  addElementVisiblity(loadingPage, "close");
+}
 //#endregion

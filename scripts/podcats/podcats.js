@@ -5,6 +5,8 @@ const heroTitle = document.querySelector("#hero .primary-heading");
 const heroCaption = document.querySelector("#hero .caption");
 const podcastsTitle = document.querySelector(".podcasts-container .title h2");
 const podcastsContainer = document.querySelector(".cards-box");
+const loadingPage = document.querySelector(".loading"); // Loading page element
+const bodyEle = document.body; // Body element
 
 // This script fetches and displays podcasts content from a WordPress site using the REST API.
 fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=podcasts")
@@ -28,6 +30,8 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=podcasts")
     skeletonElements.forEach((element) => {
       removeClass(element, "skeleton");
     });
+
+    handleLoading(bodyEle, loadingPage);
   })
   .catch((error) => console.error(`Error: ${error}`));
 
@@ -238,5 +242,12 @@ function removeClass(element, className = "skeleton") {
   if (element.classList.contains(className)) {
     element.classList.remove(className);
   }
+}
+//#endregion
+
+//#region Handle Loadin page on fetching
+function handleLoading() {
+  removeElementVisiblity(bodyEle, "load");
+  addElementVisiblity(loadingPage, "close");
 }
 //#endregion

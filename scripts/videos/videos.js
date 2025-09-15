@@ -5,6 +5,9 @@ const videosContainer = document.querySelector(".cards-box");
 
 const skeletonElements = document.querySelectorAll(".skeleton");
 
+const loadingPage = document.querySelector(".loading"); // Loading page element
+const bodyEle = document.body; // Body element
+
 // This script fetches and displays video content from a WordPress site using the REST API.
 fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=videos-page-content")
   .then((response) => {
@@ -23,6 +26,8 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=videos-page-content")
       skeletonElements.forEach((element) => {
         removeClass(element, "skeleton");
       });
+
+      handleLoading(bodyEle, loadingPage);
     } else {
       return Promise.reject("No data found for the specified slug.");
     }
@@ -219,3 +224,10 @@ function changeContent(element, content) {
     element.textContent = content;
   }
 }
+
+//#region Handle Loadin page on fetching
+function handleLoading() {
+  removeElementVisiblity(bodyEle, "load");
+  addElementVisiblity(loadingPage, "close");
+}
+//#endregion

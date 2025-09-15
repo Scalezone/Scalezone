@@ -2,6 +2,8 @@
 const buildCards = document.querySelectorAll(".cards-side .card");
 // Select the container for the cards
 const buildCardsContainer = document.querySelector(".cards-side");
+const loadingPage = document.querySelector(".loading"); // Loading page element
+const bodyEle = document.body; // Body element
 
 // Animate cards when scrolling if container is visible
 window.addEventListener("scroll", () => {
@@ -127,6 +129,7 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=about")
     populateAllSections(aboutPage);
     // Remove skeleton loading class
     removeClassFromElements(skeletonElements);
+    handleLoading(bodyEle, loadingPage);
   })
   .catch((error) => console.error("Error fetching about page:", error));
 
@@ -530,5 +533,11 @@ function createAnswerElement(answer, replaceWord = "") {
     );
     return answerElement;
   }
+}
+//#endregion
+//#region Handle Loadin page on fetching
+function handleLoading() {
+  removeElementVisiblity(bodyEle, "load");
+  addElementVisiblity(loadingPage, "close");
 }
 //#endregion

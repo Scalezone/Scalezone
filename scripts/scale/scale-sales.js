@@ -18,6 +18,9 @@ const servicesContainer = document.querySelector(
   ".packages-container .packages-bx"
 );
 
+const loadingPage = document.querySelector(".loading"); // Loading page element
+const bodyEle = document.body; // Body element
+
 // Fetch page data from API
 fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=scale-sales")
   .then((response) => {
@@ -38,6 +41,8 @@ fetch("https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=scale-sales")
     populateAllSections(data[0]);
     // Remove skeleton loading classes
     removeClassFromElements(skeletonElements);
+
+    handleLoading(bodyEle, loadingPage);
   })
   .catch((error) => console.error(error));
 
@@ -342,4 +347,10 @@ function createElement(tag, classes = [], content = "") {
   return el;
 }
 
+//#endregion
+//#region Handle Loadin page on fetching
+function handleLoading() {
+  removeElementVisiblity(bodyEle, "load");
+  addElementVisiblity(loadingPage, "close");
+}
 //#endregion

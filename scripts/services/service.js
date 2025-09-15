@@ -1,5 +1,5 @@
-// const leftAnimationEle = document.querySelector(".left-animate");
-// const rightAnimationEle = document.querySelector(".right-animate");
+const loadingPage = document.querySelector(".loading"); // Loading page element
+const bodyEle = document.body; // Body element
 
 // Select element
 const mainElement = document.querySelector("main");
@@ -27,6 +27,8 @@ fetch(`https://scalezone.ae/cms/wp-json/wp/v2/service?slug=${slug}`)
     }
     // Populate all sections with service data
     populateAllSections(service);
+    // loading page
+    handleLoading(bodyEle, loadingPage);
   });
 
 /**
@@ -1162,5 +1164,12 @@ function animationOnScroll(element, animateClass) {
       isElementVisible(element, 25)
     );
   });
+}
+//#endregion
+
+//#region Handle Loadin page on fetching
+function handleLoading() {
+  removeElementVisiblity(bodyEle, "load");
+  addElementVisiblity(loadingPage, "close");
 }
 //#endregion
