@@ -5,6 +5,8 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
+Disallow: /cms/wp-admin/
+Disallow: /cms/wp-login.php
 
 # Allow important directories
 Allow: /css/
@@ -14,3 +16,5 @@ Allow: /services/
 
 # Sitemap location
 Sitemap: https://scalezone.ae/sitemap.xml
+Sitemap: https://scalezone.ae/cms/sitemap-dynamic.php
+
