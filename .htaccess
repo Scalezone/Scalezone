@@ -1,3 +1,6 @@
+# Custom 404 page
+ErrorDocument 404 /404.html
+
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 1 month"

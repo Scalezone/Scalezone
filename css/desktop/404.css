@@ -1,0 +1,9 @@
+.hero-container .title h1 {
+  font-size: 15rem;
+  color: var(--primary-color);
+  letter-spacing: 10px;
+  margin-bottom: 2rem;
+}
+.hero-container .title p.caption {
+  color: var(--second-color);
+}
