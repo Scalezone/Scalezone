@@ -39,6 +39,7 @@ fetch(`https://scalezone.ae/cms/wp-json/wp/v2/blog?slug=${slug}`)
  */
 function populateAllSections(data) {
   document.title = data.title + " - Scalzone";
+  setMetaTags(data.title, data.intro.intro_descritpion);
   const { content } = data;
 
   // Add hero section
@@ -59,6 +60,26 @@ function populateAllSections(data) {
   // Add public sections for main data
   populatePublicSections(data);
 }
+
+//#region SEO
+function setMetaTags(title, desription) {
+  let metaDescription = document.querySelector("meta[name='description']");
+  if (!metaDescription) {
+    metaDescription = createElement("meta");
+    metaDescription.setAttribute("name", "description");
+    document.head.appendChild(metaDescription);
+  }
+  metaDescription.setAttribute("content", desription);
+
+  let ogTitle = document.querySelector("meta[property='og:title']");
+  if (!ogTitle) {
+    ogTitle = createElement("meta");
+    ogTitle.setAttribute("property", "og:title");
+    document.head.appendChild(ogTitle);
+  }
+  ogTitle.setAttribute("content", title);
+}
+//#endregion
 
 //#region Hero section
 
