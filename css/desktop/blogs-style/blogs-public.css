@@ -11,6 +11,10 @@ p {
   font-size: 1.125rem;
 }
 
+a {
+  color: var(--second-color);
+}
+
 .blog-w {
   max-width: 1150px;
   margin: 0 auto;

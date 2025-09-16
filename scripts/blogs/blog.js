@@ -297,12 +297,50 @@ function setContentText(text) {
   for (let i = 0; i < contentList.length; i++) {
     if (contentList[i].includes("|")) {
       domList.push(setContentList(contentList[i]));
+    }
+    if (contentList[i].includes("<")) {
+      domList.push(setLinks(contentList[i]));
     } else {
       domList.push(createElement("p", [], "", contentList[i]));
     }
   }
 
   return domList;
+}
+
+function setLinks(text) {
+  if (!text.includes("<")) {
+    console.warn("Text not includes links!");
+    return;
+  }
+
+  const list = text.split(" <");
+  const textElement = createElement("p");
+
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].includes(">")) {
+      const linkList = list[i].split(">");
+
+      for (let j = 0; j < linkList.length; j++) {
+        if (linkList[j].includes(",")) {
+          const link = linkList[j].split(",");
+          if (link.length === 2) {
+            const linkElement = createElement("a", [], "", `${link[1].trim()}`);
+            linkElement.href = link[0];
+            textElement.appendChild(linkElement);
+          }
+        } else {
+          const text = createElement("span", [], "", ` ${linkList[j].trim()} `);
+          textElement.appendChild(text);
+        }
+      }
+    } else {
+      const text = createElement("span", [], "", list[i].trim() + " ");
+      textElement.appendChild(text);
+    }
+  }
+
+  return textElement;
 }
 
 /**
