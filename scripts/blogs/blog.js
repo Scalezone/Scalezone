@@ -316,7 +316,7 @@ function setLinks(text) {
     return;
   }
 
-  const list = text.split(" <");
+  const list = text.split("<");
   const textElement = createElement("p");
 
   for (let i = 0; i < list.length; i++) {
