@@ -250,22 +250,24 @@ function populateThirdSection(data) {
 
   // Add each step
   for (let i = 0; i < stepsList.length; i++) {
-    const step = createElement("div", ["step"]);
-    const title = createElement(
-      "h3",
-      ["caption"],
-      "",
-      `${i + 1}. ${stepsList[i].title.trim()}`
-    );
-    const content = createElement("div", ["content"]);
-    const contentList = setContentText(stepsList[i].text);
+    if (stepsList[i].title != "") {
+      const step = createElement("div", ["step"]);
+      const title = createElement(
+        "h3",
+        ["caption"],
+        "",
+        `${i + 1}. ${stepsList[i].title.trim()}`
+      );
+      const content = createElement("div", ["content"]);
+      const contentList = setContentText(stepsList[i].text);
 
-    contentList.forEach((element) => {
-      content.appendChild(element);
-    });
+      contentList.forEach((element) => {
+        content.appendChild(element);
+      });
 
-    step.append(title, content);
-    stepsContainer.appendChild(step);
+      step.append(title, content);
+      stepsContainer.appendChild(step);
+    }
   }
 
   const line = createElement("div", ["line", "position-absolute"]);
