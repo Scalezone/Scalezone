@@ -327,6 +327,7 @@ function setLinks(text) {
           if (link.length === 2) {
             const linkElement = createElement("a", [], "", `${link[1].trim()}`);
             linkElement.href = link[0];
+            linkElement.target = "_blank";
             textElement.appendChild(linkElement);
           }
         } else {
