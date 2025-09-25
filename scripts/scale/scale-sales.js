@@ -202,7 +202,7 @@ function createPackageImage(imgSrc, imgAlt) {
  */
 function createTextBoxElement(title, items) {
   const contentBox = createElement("div", ["content"]);
-  const titleBox = createElement("div", "title", "text-center");
+  const titleBox = createElement("div", ["title", "text-center"]);
   const titleElement = createElement("h3", ["caption"]);
   const itemsBox = createElement("div", ["text-bx"]);
   const itemsListElement = createElement("ul");
