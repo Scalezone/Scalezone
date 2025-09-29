@@ -260,6 +260,7 @@ function setBottomHeader(bottom) {
   setImageElement(logo, bottom.logo, "Logo Image");
   logo.setAttribute("decoding", "async");
   logo.setAttribute("fetchpriority", "high");
+  logo.setAttribute("rel", "preload");
   logo.style.maxHeight = "100px";
   changeContent(homeLink, bottom.navbar.home);
   changeContent(servicesButton, bottom.navbar.services.text);
