@@ -258,7 +258,6 @@ function setTopHeader(top) {
  */
 function setBottomHeader(bottom) {
   setImageElement(logo, bottom.logo, "Logo Image");
-  logo.setAttribute("loading", "lazy");
   logo.setAttribute("decoding", "async");
   logo.setAttribute("fetchpriority", "high");
   logo.style.maxHeight = "100px";
