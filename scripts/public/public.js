@@ -193,6 +193,12 @@ fetch(`https://scalezone.ae/cms/wp-json/wp/v2/pages?slug=header-and-footer`)
     if (!data[0]) {
       throw new Error("No data found");
     }
+    const preloadLink = createElement("link");
+    preloadLink.rel = "preload";
+    preloadLink.as = "image";
+    preloadLink.href = data[0].acf.header.bottom.logo;
+    preloadLink.type = "image/webp";
+    document.head.appendChild(preloadLink);
     populateHeaderFooter(data[0]);
   })
   .catch((error) => {
@@ -260,7 +266,6 @@ function setBottomHeader(bottom) {
   setImageElement(logo, bottom.logo, "Logo Image");
   logo.setAttribute("decoding", "async");
   logo.setAttribute("fetchpriority", "high");
-  logo.setAttribute("rel", "preload");
   logo.style.maxHeight = "100px";
   changeContent(homeLink, bottom.navbar.home);
   changeContent(servicesButton, bottom.navbar.services.text);
