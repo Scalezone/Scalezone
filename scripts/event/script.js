@@ -91,7 +91,7 @@ formElement.addEventListener("submit", (e) => {
 
   // Send data to API
   fetch(
-    "https://script.google.com/macros/s/AKfycbx1DhRCieLl6UcLv020FmFjTUS8gv2Do3-ACOap_GWbaiBy9d_rO0AnUJzEH6S-lHA/exec",
+    "https://script.google.com/macros/s/AKfycbzLP-edwTBOD4WBTnDTDePptNLbRFkzaoFtOeMP4BCWc1qq3BhAxneCsc2FgMKtqXSp/exec",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -103,17 +103,17 @@ formElement.addEventListener("submit", (e) => {
       addClass(formElement.querySelector("#submit .spinner"), "close");
       removeClass(formElement.querySelector("#submit .text"), "close");
       removeClass(formElement.querySelector("#submit"), "disabled");
+      console.log(response);
 
       if (!response.ok) {
         showElementForTime(unsuccessMessage, 1500);
         throw new Error("Something went wrong.");
       }
-      return response.text();
+      return response.json();
     })
-    .then((text) => {
+    .then((data) => {
+      console.log(data);
       // Show success message
-      const data = JSON.parse(text);
-
       const title = successMessage.querySelector(".caption");
       const message = successMessage.querySelector("p");
       setContentToElement(title, data.status);
@@ -128,6 +128,31 @@ formElement.addEventListener("submit", (e) => {
 //#endregion
 
 //#region Helper functions
+/**
+ * Sets text content to an element
+ * @param {HTMLElement} element
+ * @param {string} content
+ */
+function setContentToElement(element, content) {
+  if (element && content) {
+    element.textContent = content.trim();
+  }
+}
+
+/**
+ * Show element for a specified time then hide
+ * @param {HTMLElement} element
+ * @param {number} specifiedTime
+ * @param {string} showingClass
+ */
+function showElementForTime(element, specifiedTime, showingClass = "active") {
+  if (!element) return;
+  addClass(element, showingClass);
+  setTimeout(() => {
+    removeClass(element, showingClass);
+  }, specifiedTime);
+}
+
 /**
  * Add input value to object
  * @param {HTMLElement} input
