@@ -1,0 +1,149 @@
+/* Hero section */
+.hero {
+  background: url("../../assets/event/World\ Map.svg") no-repeat center;
+  background-size: cover;
+  max-height: 60dvh;
+  position: relative;
+}
+
+.hero-container .event-logo {
+  width: 12rem;
+  filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.5));
+}
+
+.hero-container .powered-logos .title h1 {
+  font-size: 1.5rem;
+  color: var(--secondary-text-color);
+}
+
+.hero-container .powered-logos .logos img:first-child {
+  height: 6rem;
+}
+
+.hero-container .powered-logos .logos img {
+  width: 15rem;
+  filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.5));
+}
+
+.hero-container .powered-logos .logos .line {
+  width: 0.2rem;
+  height: 6rem;
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+}
+
+/* Registration Section */
+.reg-container .form {
+  width: 75%;
+}
+
+.reg-container .form form {
+  gap: 2rem;
+}
+
+.reg-container .form form .form-control {
+  height: 3rem;
+}
+
+.reg-container .form form .form-control:focus {
+  border-color: var(--second-color);
+  box-shadow: 0 0 0 0.25rem #f36c3d70;
+}
+
+.reg-container .form form .form-label {
+  font-size: 1rem;
+}
+
+.reg-container .form form .form-outline {
+  text-align: start;
+}
+
+#gender {
+  width: 7rem;
+  justify-content: space-between;
+}
+
+#gender label {
+  margin: 0;
+}
+
+#gender input {
+  -webkit-appearance: none;
+  appearance: none;
+  /* remove default */
+  display: flex;
+  margin: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+  box-shadow: hsla(0, 0%, 100%, 0.15) 0 1px 1px,
+    inset hsla(0, 0%, 0%, 0.5) 0 0 0 1px;
+  background-color: var(--light-dark);
+  background-image: -webkit-radial-gradient(
+    var(--third-color) 0%,
+    var(--hover-color) 15%,
+    var(--primary-color) 28%,
+    var(--light-dark) 70%
+  );
+  background-repeat: no-repeat;
+  -webkit-transition: background-position 0.15s cubic-bezier(0.8, 0, 1, 1),
+    -webkit-transform 0.25s cubic-bezier(0.8, 0, 1, 1);
+  transition: background-position 0.15s cubic-bezier(0.8, 0, 1, 1),
+    transform 0.25s cubic-bezier(0.8, 0, 1, 1);
+  outline: none;
+}
+
+#gender input:checked {
+  -webkit-transition: background-position 0.2s 0.15s cubic-bezier(0, 0, 0.2, 1),
+    -webkit-transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+  transition: background-position 0.2s 0.15s cubic-bezier(0, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+}
+
+#gender input:active {
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-transition: -webkit-transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+  transition: -webkit-transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* The up/down direction logic */
+
+#gender input,
+#gender input :active {
+  background-position: 0 24px;
+}
+
+#gender input:checked {
+  background-position: 0 0;
+}
+
+#gender input:checked ~ #gender input,
+#gender input:checked ~ #gender input:active {
+  background-position: 0 -24px;
+}
+
+#submit {
+  width: 20rem;
+  margin: 0 auto;
+}
+
+#submit:active {
+  background-color: var(--hover-color);
+  border: var(--hover-color);
+}
+
+#submit.disabled {
+  background-color: var(--hover-color);
+  border: var(--hover-color);
+}
+
+.registration .icon {
+  right: -5%;
+  top: 30%;
+  opacity: 0.1;
+  transform: scale(1.1) rotate(20deg);
+  scale: 1.1;
+}

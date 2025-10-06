@@ -57,7 +57,6 @@ function populateHeroSection(data) {
 function populatePodcastsSection(data) {
   const podcastData = data.sections.podcasts;
 
-  console.log(podcastData);
   changeContent(podcastsTitle, podcastData.title);
   addCardsToContainer(podcastData.podcasts_list);
 }
