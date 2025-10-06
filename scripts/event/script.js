@@ -1,3 +1,28 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDrYmHaRRB_Lrw3s59I5q1tizyEkO9XB_k",
+  authDomain: "expo-form-a3015.firebaseapp.com",
+  projectId: "expo-form-a3015",
+  storageBucket: "expo-form-a3015.firebasestorage.app",
+  messagingSenderId: "445904485449",
+  appId: "1:445904485449:web:3fe2f2b2a0c0221dde1398",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+const db = getFirestore(app);
+
 const loadingPage = document.querySelector(".loading"); // Loading page element
 const bodyEle = document.body; // Body element
 const formElement = document.querySelector("#form"); // Contact form element
@@ -14,20 +39,20 @@ function setValidationsOnInputs() {
 
   inputs.forEach((input) => {
     input.addEventListener("blur", () => {
-      if (input.name === "phone") {
+      if (input.name === "Phone") {
         requiredInputValidation(input);
         validatePhoneNumber(input);
       }
 
-      if (input.name === "email") {
+      if (input.name === "Email") {
         validateEmail(input);
       }
 
-      if (input.name === "fullname") {
+      if (input.name === "Full Name") {
         requiredInputValidation(input);
       }
 
-      if (input.name === "whatsapp") {
+      if (input.name === "WhatsApp") {
         const phoneNumber = libphonenumber.parsePhoneNumberFromString(
           input.value,
           "EG"
@@ -49,7 +74,7 @@ setValidationsOnInputs();
 
 //#region Post
 // Handle form submission
-formElement.addEventListener("submit", (e) => {
+formElement.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   let hasError = false;
@@ -59,7 +84,7 @@ formElement.addEventListener("submit", (e) => {
   // Validate required inputs
   for (const input of inputs) {
     if (input.type != "radio") {
-      if (input.name != "nickname" && input.name != "whatsapp")
+      if (input.name != "Nickname" && input.name != "WhatsApp")
         if (requiredInputValidation(input)) {
           hasError = true;
         }
@@ -78,52 +103,53 @@ formElement.addEventListener("submit", (e) => {
 
   // Collect form data from inputs
   inputs.forEach((e) => {
-    if (e.name !== "whatsapp") {
-      addValueToObj(e, formData);
+    if (e.name !== "WhatsApp") {
+      if (e.type === "radio") {
+        if (e.checked) {
+          addValueToObj(e, formData);
+        }
+      } else {
+        addValueToObj(e, formData);
+      }
     }
   });
 
-  const whatsappInput = formElement.querySelector("input[name='whatsapp']");
-  const phoneInput = formElement.querySelector("input[name='phone']");
+  console.log(formData);
 
-  formData["whatsapp"] =
+  const whatsappInput = formElement.querySelector("input[name='WhatsApp']");
+  const phoneInput = formElement.querySelector("input[name='Phone']");
+
+  formData["WhatsApp"] =
     whatsappInput.value !== "" ? whatsappInput.value : phoneInput.value;
 
-  // Send data to API
-  fetch(
-    "https://script.google.com/macros/s/AKfycbzLP-edwTBOD4WBTnDTDePptNLbRFkzaoFtOeMP4BCWc1qq3BhAxneCsc2FgMKtqXSp/exec",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    }
-  )
-    .then((response) => {
-      // Hide loader and enable submit button
-      addClass(formElement.querySelector("#submit .spinner"), "close");
-      removeClass(formElement.querySelector("#submit .text"), "close");
-      removeClass(formElement.querySelector("#submit"), "disabled");
-      console.log(response);
+  // Send data to Firebase
+  try {
+    // Save to Firebase Firestore
+    const docRef = await addDoc(collection(db, "registrations"), formData);
 
-      if (!response.ok) {
-        showElementForTime(unsuccessMessage, 1500);
-        throw new Error("Something went wrong.");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-      // Show success message
-      const title = successMessage.querySelector(".caption");
-      const message = successMessage.querySelector("p");
-      setContentToElement(title, data.status);
-      setContentToElement(message, data.message);
-      showElementForTime(successMessage, 1500);
+    // Hide loader and enable submit button
+    addClass(formElement.querySelector("#submit .spinner"), "close");
+    removeClass(formElement.querySelector("#submit .text"), "close");
+    removeClass(formElement.querySelector("#submit"), "disabled");
 
-      // Reset form and info box
-      formElement.reset();
-    })
-    .catch((error) => console.error("Error fetching data:", error));
+    // Show success message
+    const title = successMessage.querySelector(".caption");
+    const message = successMessage.querySelector("p");
+    setContentToElement(title, "Success");
+    setContentToElement(message, "Registration submitted successfully!");
+    showElementForTime(successMessage, 1500);
+
+    // Reset form and info box
+    formElement.reset();
+  } catch (error) {
+    console.error("Error adding document: ", error);
+
+    addClass(formElement.querySelector("#submit .spinner"), "close");
+    removeClass(formElement.querySelector("#submit .text"), "close");
+    removeClass(formElement.querySelector("#submit"), "disabled");
+
+    showElementForTime(unsuccessMessage, 1500);
+  }
 });
 //#endregion
 
