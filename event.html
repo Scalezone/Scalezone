@@ -216,21 +216,21 @@
     <main>
       <section class="hero">
         <div
-          class="hero-container cw d-flex flex-column gap-5 justify-content-center align-items-center text-center gap-5 p-5"
+          class="hero-container cw d-flex flex-column justify-content-center align-items-center text-center gap-5 p-3"
         >
-          <div class="event-logo">
+          <div
+            class="logos d-flex gap-5 flex-wrap justify-content-around align-items-center"
+          >
             <img src="assets/event/event-logo.webp" alt="Excel expo Logo" />
+            <img src="assets/event/amazon_logo.webp" alt="Amazon logo" />
+            <img src="assets/event/amznext-logo.webp" alt="AMZNEXT logo" />
           </div>
 
-          <div
-            class="powered-logos d-flex flex-column gap-4 align-items-center"
-          >
-            <div
-              class="logos d-flex gap-5 flex-wrap justify-content-around align-items-end"
-            >
-              <img src="assets/event/logo.webp" alt="Scalezone logo" />
-              <img src="assets/event/amznext-logo.webp" alt="AMZNEXT logo" />
-            </div>
+          <div class="title">
+            <h1>
+              <img src="assets/event/amazon_fba.webp" alt="Amazon FBA" />
+              ابدأالبيع على
+            </h1>
           </div>
         </div>
       </section>
@@ -239,89 +239,70 @@
     <!-- Registration Section -->
     <section class="registration my-5 position-relative overflow-hidden">
       <div
-        class="reg-container cw d-flex flex-column gap-5 justify-content-center align-items-center text-center gap-5 p-5"
+        class="reg-container cw d-flex flex-column gap-5 justify-content-center align-items-center text-center p-5"
       >
         <div class="title">
           <h2>Event Registration</h2>
         </div>
-
         <div class="form">
           <!-- CONTACT FORM START -->
-          <form id="form" class="d-flex flex-column">
+          <form id="form" class="d-flex flex-column align-items-center">
             <!-- ull and nick Name Inputs -->
-            <div class="row">
-              <div class="col-12 col-md-6 mb-1">
-                <div class="form-outline" id="full-name">
+            <div class="col-12 col-md-6 mb-1">
+              <div class="form-outline" id="full-name">
+                <div class="labels d-flex justify-content-between">
                   <label class="form-label" for="form6Example1"
                     >Full Name</label
                   >
-                  <input
-                    type="text"
-                    id="form6Example1"
-                    name="Full Name"
-                    class="form-control"
-                  />
-                  <div class="invalid-feedback">
-                    Please provide your full name.
-                  </div>
+
+                  <label class="form-label" for="form6Example1"
+                    >الاسم واللقب</label
+                  >
                 </div>
-              </div>
-              <div class="col-12 col-md-6 mb-1">
-                <div class="form-outline" id="nick-name">
-                  <label class="form-label" for="form6Example2">Nickname</label>
-                  <input
-                    type="text"
-                    id="form6Example2"
-                    name="Nickname"
-                    class="form-control"
-                  />
-                  <div class="invalid-feedback">
-                    Please provide your nick name.
-                  </div>
+                <input
+                  type="text"
+                  id="form6Example1"
+                  name="Full Name"
+                  class="form-control"
+                />
+                <div class="invalid-feedback">
+                  Please provide your full name.
                 </div>
               </div>
             </div>
 
             <!-- Phone Number and Whatsapp Number Inputs -->
-            <div class="row">
-              <div class="col-12 col-md-6 mb-1">
-                <div class="form-outline mb-1" id="phone-number">
+            <div class="col-12 col-md-6 mb-1">
+              <div class="form-outline mb-1" id="phone-number">
+                <div class="labels d-flex justify-content-between">
                   <label class="form-label" for="form6Example5"
-                    >Phone Number</label
+                    >Phone / Whatsapp Number</label
                   >
-                  <input
-                    type="tel"
-                    id="form6Example5"
-                    name="Phone"
-                    class="form-control"
-                  />
-                  <div class="invalid-feedback">
-                    Please provide a valid phone number.
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 mb-1">
-                <div class="form-outline mb-1" id="whatsapp-number">
-                  <label class="form-label" for="form6Example3"
-                    >Whatsapp Number</label
-                  >
-                  <input
-                    type="text"
-                    id="form6Example3"
-                    name="WhatsApp"
-                    class="form-control"
-                  />
 
-                  <div class="invalid-feedback">
-                    Please provide a valid number.
-                  </div>
+                  <label class="form-label" for="form6Example5"
+                    >رقم الهاتف / الواتساب</label
+                  >
+                </div>
+                <input
+                  type="tel"
+                  id="form6Example5"
+                  name="Phone"
+                  class="form-control"
+                />
+                <div class="invalid-feedback">
+                  Please provide a valid phone number.
                 </div>
               </div>
             </div>
 
             <!-- Email Input -->
             <div class="form-outline col-12 col-md-6" id="email">
-              <label class="form-label" for="form6Example6">Email</label>
+              <div class="labels d-flex justify-content-between">
+                <label class="form-label" for="form6Example6">Email</label>
+                <label class="form-label" for="form6Example6"
+                  >البريد الالكتروني</label
+                >
+              </div>
               <input
                 type="email"
                 id="form6Example6"
@@ -338,7 +319,7 @@
               <div
                 class="gender d-flex align-items-center justify-content-between gap-3"
               >
-                <label class="form-label" for="form6Example4">Male</label>
+                <label class="form-label" for="form6Example4">Male / ذكر</label>
                 <input
                   type="radio"
                   id="form6Example4"
@@ -351,7 +332,9 @@
               <div
                 class="gender d-flex align-items-center justify-content-between gap-3"
               >
-                <label class="form-label" for="form7Example5">Female</label>
+                <label class="form-label" for="form7Example5"
+                  >Female / انثى</label
+                >
                 <input
                   type="radio"
                   id="form7Example5"
@@ -367,7 +350,7 @@
               id="submit"
               class="btn btn-primary btn-rounded btn-block"
             >
-              <div class="text">Get Started Now</div>
+              <div class="text">تسجيل</div>
               <div class="spinner close">
                 <span class="bar"></span>
                 <span class="bar"></span>
