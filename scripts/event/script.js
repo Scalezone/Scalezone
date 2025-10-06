@@ -91,7 +91,7 @@ formElement.addEventListener("submit", (e) => {
 
   // Send data to API
   fetch(
-    "https://script.google.com/macros/s/AKfycbzPN38ZpdweSompQOaQJ5NeB-ryWTcsxWZTGnAfFfeLh47JA3OEbGLUhkI0En2Ef3Ls/exec",
+    "https://script.google.com/macros/s/AKfycbx1DhRCieLl6UcLv020FmFjTUS8gv2Do3-ACOap_GWbaiBy9d_rO0AnUJzEH6S-lHA/exec",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
