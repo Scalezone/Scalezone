@@ -86,15 +86,12 @@ formElement.addEventListener("submit", (e) => {
   const whatsappInput = formElement.querySelector("input[name='whatsapp']");
   const phoneInput = formElement.querySelector("input[name='phone']");
 
-  console.log(whatsappInput.value, phoneInput);
   formData["whatsapp"] =
     whatsappInput.value !== "" ? whatsappInput.value : phoneInput.value;
 
-  console.log(formData);
-
   // Send data to API
   fetch(
-    "https://script.google.com/macros/s/AKfycbzZl0Uc1PLdCE7pVyPF0alL0tPCH0DSGBXoeaxraVSqdiuff5RJ1YEOS_s4wI7wJqLf/exec",
+    "https://script.google.com/macros/s/AKfycbzPN38ZpdweSompQOaQJ5NeB-ryWTcsxWZTGnAfFfeLh47JA3OEbGLUhkI0En2Ef3Ls/exec",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -111,10 +108,12 @@ formElement.addEventListener("submit", (e) => {
         showElementForTime(unsuccessMessage, 1500);
         throw new Error("Something went wrong.");
       }
-      return response.json();
+      return response.text();
     })
-    .then((data) => {
+    .then((text) => {
       // Show success message
+      const data = JSON.parse(text);
+
       const title = successMessage.querySelector(".caption");
       const message = successMessage.querySelector("p");
       setContentToElement(title, data.status);
