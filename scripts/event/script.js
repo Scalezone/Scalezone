@@ -51,20 +51,6 @@ function setValidationsOnInputs() {
       if (input.name === "Full Name") {
         requiredInputValidation(input);
       }
-
-      if (input.name === "WhatsApp") {
-        const phoneNumber = libphonenumber.parsePhoneNumberFromString(
-          input.value,
-          "EG"
-        );
-
-        if (phoneNumber.isValid()) {
-          input.value = phoneNumber.formatInternational();
-          removeClass(input, "is-invalid");
-        } else {
-          addClass(input, "is-invalid");
-        }
-      }
     });
   });
 }
@@ -84,10 +70,9 @@ formElement.addEventListener("submit", async (e) => {
   // Validate required inputs
   for (const input of inputs) {
     if (input.type != "radio") {
-      if (input.name != "Nickname" && input.name != "WhatsApp")
-        if (requiredInputValidation(input)) {
-          hasError = true;
-        }
+      if (requiredInputValidation(input)) {
+        hasError = true;
+      }
     }
   }
 
@@ -99,28 +84,22 @@ formElement.addEventListener("submit", async (e) => {
   addClass(formElement.querySelector("#submit"), "disabled");
 
   // Prepare form data object
-  let formData = {};
+  let formData = {
+    Date: new Date().toLocaleString("en-EG", {
+      timeZone: "Asia/Dubai",
+    }),
+  };
 
   // Collect form data from inputs
   inputs.forEach((e) => {
-    if (e.name !== "WhatsApp") {
-      if (e.type === "radio") {
-        if (e.checked) {
-          addValueToObj(e, formData);
-        }
-      } else {
+    if (e.type === "radio") {
+      if (e.checked) {
         addValueToObj(e, formData);
       }
+    } else {
+      addValueToObj(e, formData);
     }
   });
-
-  console.log(formData);
-
-  const whatsappInput = formElement.querySelector("input[name='WhatsApp']");
-  const phoneInput = formElement.querySelector("input[name='Phone']");
-
-  formData["WhatsApp"] =
-    whatsappInput.value !== "" ? whatsappInput.value : phoneInput.value;
 
   // Send data to Firebase
   try {
@@ -185,7 +164,7 @@ function showElementForTime(element, specifiedTime, showingClass = "active") {
  * @param {Object} obj
  */
 function addValueToObj(input, obj) {
-  obj[input.name] = input.value.trim();
+  obj[input.name] = input.value !== "" ? input.value.trim() : "Not Specified";
 }
 
 /**
@@ -220,6 +199,7 @@ function validateEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (email.value === "" || !regex.test(email.value)) {
     addClass(email, "is-invalid");
+    email.focus();
   } else {
     removeClass(email, "is-invalid");
   }
