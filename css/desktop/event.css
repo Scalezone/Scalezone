@@ -243,3 +243,7 @@ button {
 .reg-container .desc p {
   font-size: 1.125rem;
 }
+
+#messages {
+  left: 54%;
+}

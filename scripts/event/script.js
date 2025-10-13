@@ -103,6 +103,19 @@ formElement.addEventListener("submit", async (e) => {
 
   // Send data to Firebase
   try {
+    // Send data to n8n webhook
+    await fetch(
+      "n8n-main-instance-production-22bf.up.railway.app/webhook/618f47be-d732-411b-b406-9ae0bd0725a7",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-webhook-secret": "Expo_Event_2025",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
+
     // Save to Firebase Firestore
     const docRef = await addDoc(collection(db, "registrations"), formData);
 
