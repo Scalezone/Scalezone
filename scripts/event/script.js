@@ -191,7 +191,7 @@ function validatePhoneNumber(input) {
     }
     const phoneNumber = libphonenumber.parsePhoneNumberFromString(
       input.value,
-      "EG"
+      "DZ"
     );
     if (phoneNumber && phoneNumber.isValid()) {
       input.value = phoneNumber.formatInternational();
